@@ -14,6 +14,7 @@ import { Route as AutorizariRouteImport } from './routes/autorizari'
 import { Route as ComunicateRouteImport } from './routes/comunicate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreRouteImport } from './routes/despre'
+import { Route as Legea111RouteImport } from './routes/legea-111'
 import { Route as LegislatieRouteImport } from './routes/legislatie'
 import { Route as UrgenteRouteImport } from './routes/urgente'
 
@@ -42,6 +43,11 @@ const DespreRoute = DespreRouteImport.update({
   path: '/despre',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Legea111Route = Legea111RouteImport.update({
+  id: '/legea-111',
+  path: '/legea-111',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LegislatieRoute = LegislatieRouteImport.update({
   id: '/legislatie',
   path: '/legislatie',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/comunicate': typeof ComunicateRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
+  '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/urgente': typeof UrgenteRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/comunicate': typeof ComunicateRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
+  '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/urgente': typeof UrgenteRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/comunicate': typeof ComunicateRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
+  '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/urgente': typeof UrgenteRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/comunicate'
     | '/contact'
     | '/despre'
+    | '/legea-111'
     | '/legislatie'
     | '/urgente'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/comunicate'
     | '/contact'
     | '/despre'
+    | '/legea-111'
     | '/legislatie'
     | '/urgente'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/comunicate'
     | '/contact'
     | '/despre'
+    | '/legea-111'
     | '/legislatie'
     | '/urgente'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ComunicateRoute: typeof ComunicateRoute
   ContactRoute: typeof ContactRoute
   DespreRoute: typeof DespreRoute
+  Legea111Route: typeof Legea111Route
   LegislatieRoute: typeof LegislatieRoute
   UrgenteRoute: typeof UrgenteRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DespreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legea-111': {
+      id: '/legea-111'
+      path: '/legea-111'
+      fullPath: '/legea-111'
+      preLoaderRoute: typeof Legea111RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/legislatie': {
       id: '/legislatie'
       path: '/legislatie'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComunicateRoute: ComunicateRoute,
   ContactRoute: ContactRoute,
   DespreRoute: DespreRoute,
+  Legea111Route: Legea111Route,
   LegislatieRoute: LegislatieRoute,
   UrgenteRoute: UrgenteRoute,
 }

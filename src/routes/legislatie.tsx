@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Search, FileText, Filter, HelpCircle, Star, Download } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Search, FileText, Filter, HelpCircle, Star, Download, Eye } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
 import { useState } from "react";
@@ -26,6 +26,7 @@ const items = [
     cat: "Cadru general",
     featured: true,
     pdfUrl: "/documents/Legea_111_1996.pdf",
+    pageUrl: "/legea-111",
   },
   {
     no: "115/2020",
@@ -116,7 +117,7 @@ function LegPage() {
                 <Star className="h-3.5 w-3.5 fill-brand text-brand" />
                 {lang === "ro" ? "LEGEA CADRU A DOMENIULUI NUCLEAR" : "FRAMEWORK LAW OF NUCLEAR SECTOR"}
               </div>
-              <span className="font-mono text-xs text-muted-foreground">Republicată & Consolidată 2013</span>
+              <span className="font-mono text-xs text-muted-foreground">Republicată & Consolidată (PDF 24 pagini)</span>
             </div>
 
             <h2 className="mt-4 font-display text-2xl md:text-3xl text-brand-deep leading-snug">
@@ -137,7 +138,7 @@ function LegPage() {
                 className="inline-flex items-center gap-2 rounded-sm bg-brand px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-brand-deep shadow-sm"
               >
                 <Download className="h-4 w-4" />
-                {lang === "ro" ? "Descarcă Legea 111/1996 (PDF)" : "Download Law 111/1996 (PDF)"}
+                {lang === "ro" ? "Descarcă PDF-ul Integral (24 pagini)" : "Download Full PDF (24 pages)"}
               </a>
               <a
                 href={featuredItem.pdfUrl}
@@ -146,8 +147,15 @@ function LegPage() {
                 className="inline-flex items-center gap-2 rounded-sm border border-border bg-card px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
               >
                 <FileText className="h-4 w-4 text-brand" />
-                {lang === "ro" ? "Deschide în browser" : "Open in browser"}
+                {lang === "ro" ? "Deschide PDF-ul în browser" : "Open PDF in browser"}
               </a>
+              <Link
+                to="/legea-111"
+                className="inline-flex items-center gap-2 text-sm text-brand font-medium hover:underline ml-auto"
+              >
+                <Eye className="h-4 w-4" />
+                {lang === "ro" ? "Citește textul pe site" : "Read text on site"}
+              </Link>
             </div>
           </div>
         )}
