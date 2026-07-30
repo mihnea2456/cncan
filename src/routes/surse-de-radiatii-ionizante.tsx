@@ -25,6 +25,7 @@ import {
   AlertTriangle,
   FileCode,
   Scale,
+  Receipt,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -909,18 +910,89 @@ function RadiationSourcesPage() {
 
           {/* TAB 7: AUTORIZARE PERSONAL */}
           <TabsContent value="personal" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-4">
-              {lang === "ro" ? "Autorizarea Personalului de Specialitate" : "Specialist Personnel Licensing"}
-            </h3>
-            <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed mb-8">
-              Cerințe legale privind atestarea responsabililor cu securitatea radiologică (RSR), responsabililor cu gestiunea surselor și cadrelor medicale/tehnice.
-            </p>
+            <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+              <div>
+                <h3 className="font-display text-2xl text-brand-deep font-semibold mb-4">
+                  {lang === "ro" ? "Autorizarea Personalului de Specialitate" : "Specialist Personnel Licensing"}
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed mb-8">
+                  Cerințe legale privind atestarea responsabililor cu securitatea radiologică (RSR), responsabililor cu gestiunea surselor și cadrelor medicale/tehnice.
+                </p>
 
-            <div className="border border-border bg-card p-6 rounded-sm">
-              <h4 className="font-display text-lg text-brand-deep font-semibold mb-3">Evidența Personalului Expus</h4>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Titularii de autorizație au obligația legală de a transmite la CNCAN lista actualizată a tuturor persoanelor expuse profesional și a permiselor de exercitare active.
-              </p>
+                {/* TAXE SI TARIFE HYPERLINKS CARD */}
+                <div className="border border-brand/30 bg-card p-6 md:p-8 rounded-sm shadow-sm mb-8">
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+                    <div className="h-10 w-10 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
+                      <Receipt className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-display text-xl text-brand-deep font-semibold">
+                        Formulare de Taxe și Tarife Autorizare Personal
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        Accesați și descărcați formularele de taxe și tarife aplicabile pentru obținerea permisului de exercitare.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <a
+                      href="/documents/taxe/Formular_Taxe_Tarife_Permis_Nivel_1.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-5 border border-border bg-secondary/20 hover:bg-brand/5 hover:border-brand rounded-sm flex flex-col justify-between transition-colors group"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="font-mono text-xs font-bold text-brand bg-brand/10 px-2.5 py-1 rounded-sm">
+                          Nivelul 1
+                        </span>
+                        <Download className="h-4 w-4 text-brand group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="mt-4 font-display text-base font-semibold text-foreground group-hover:text-brand transition-colors">
+                        Formular de taxe și tarife pentru obținerea permisului de exercitare de nivel 1
+                      </div>
+                      <div className="mt-2 text-xs text-muted-foreground flex items-center gap-1">
+                        <ExternalLink className="h-3 w-3" /> Deschide PDF în tab nou
+                      </div>
+                    </a>
+
+                    <a
+                      href="/documents/taxe/Formular_Taxe_Tarife_Permis_Nivel_2.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-5 border border-border bg-secondary/20 hover:bg-brand/5 hover:border-brand rounded-sm flex flex-col justify-between transition-colors group"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <span className="font-mono text-xs font-bold text-brand bg-brand/10 px-2.5 py-1 rounded-sm">
+                          Nivelul 2
+                        </span>
+                        <Download className="h-4 w-4 text-brand group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="mt-4 font-display text-base font-semibold text-foreground group-hover:text-brand transition-colors">
+                        Formulare de taxe și tarife pentru obținerea permisului de nivel 2
+                      </div>
+                      <div className="mt-2 text-xs text-muted-foreground flex items-center gap-1">
+                        <ExternalLink className="h-3 w-3" /> Deschide PDF în tab nou
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="border border-border bg-card p-6 rounded-sm">
+                  <h4 className="font-display text-lg text-brand-deep font-semibold mb-3">Evidența Personalului Expus</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Titularii de autorizație au obligația legală de a transmite la CNCAN lista actualizată a tuturor persoanelor expuse profesional și a permiselor de exercitare active.
+                  </p>
+                </div>
+              </div>
+
+              <aside className="space-y-6">
+                <div className="border border-brand/40 bg-brand/5 p-6 rounded-sm">
+                  <div className="text-xs font-semibold text-brand uppercase tracking-wider">Tarif Evaluare Personal</div>
+                  <div className="mt-2 font-display text-3xl text-brand-deep font-bold">480 RON</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Conform Ord. CNCAN 155/2005</div>
+                </div>
+              </aside>
             </div>
           </TabsContent>
 
