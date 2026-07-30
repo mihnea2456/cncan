@@ -60,6 +60,22 @@ exam_files = [
     ("Examen_N2_Analize_Fizice.pdf", "EXAMEN NIVEL 2", "Generatori de radiatii", "Analize fizice"),
     ("Examen_N2_Rontgendiagnostic_Veterinar.pdf", "EXAMEN NIVEL 2", "Generatori de radiatii", "Rontgendiagnostic veterinar"),
     ("Examen_N2_Control_Bagaje_RX.pdf", "EXAMEN NIVEL 2", "Generatori de radiatii", "Control nedistructiv - control bagaje RX"),
+
+    # Nivel 2 - Surse inchise de radiatii
+    ("Examen_N2_SurseInchise_Instalatii_Medicale.pdf", "EXAMEN NIVEL 2", "Surse inchise de radiatii", "Montare, reparare, intretinere, verificare - instalatii medicale"),
+    ("Examen_N2_SurseInchise_Instalatii_Industriale.pdf", "EXAMEN NIVEL 2", "Surse inchise de radiatii", "Montare, reparare, intretinere, verificare - instalatii industriale"),
+    ("Examen_N2_SurseInchise_Control_Nedistructiv.pdf", "EXAMEN NIVEL 2", "Surse inchise de radiatii", "Control nedistructiv"),
+    ("Examen_N2_SurseInchise_Iradieri_Materiale.pdf", "EXAMEN NIVEL 2", "Surse inchise de radiatii", "Iradieri materiale"),
+    ("Examen_N2_SurseInchise_Alte_Aplicatii.pdf", "EXAMEN NIVEL 2", "Surse inchise de radiatii", "Alte aplicatii"),
+    ("Examen_N2_SurseInchise_Control_Bagaje.pdf", "EXAMEN NIVEL 2", "Surse inchise de radiatii", "Control nedistructiv - control bagaje sisteme inchise"),
+
+    # Nivel 2 - Surse deschise de radiatii
+    ("Examen_N2_SurseDeschise_Montare.pdf", "EXAMEN NIVEL 2", "Surse deschise de radiatii", "Montare, reparare, intretinere, verificare"),
+    ("Examen_N2_SurseDeschise_Radiochimie.pdf", "EXAMEN NIVEL 2", "Surse deschise de radiatii", "Radiochimie"),
+    ("Examen_N2_SurseDeschise_Marcari.pdf", "EXAMEN NIVEL 2", "Surse deschise de radiatii", "Marcari"),
+
+    # Nivel 2 - Acceleratori de particule
+    ("Examen_N2_Acceleratori_Particule.pdf", "EXAMEN NIVEL 2", "Acceleratori de particule", "Acceleratori de particule"),
 ]
 
 for filename, level, domeniu, specialitate in exam_files:

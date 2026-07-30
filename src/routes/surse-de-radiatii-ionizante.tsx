@@ -366,6 +366,87 @@ function RadiationSourcesPage() {
                           ))}
                         </div>
                       </div>
+
+                      {/* 5. SURSE INCHISE DE RADIATII */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          5. Domeniul: Surse închise de radiații
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <div className="grid gap-2">
+                          {[
+                            { name: "Montare, reparare, întreținere, verificare - instalații medicale", url: "/documents/intrebari/Examen_N2_SurseInchise_Instalatii_Medicale.pdf" },
+                            { name: "Montare, reparare, întreținere, verificare - instalații industriale", url: "/documents/intrebari/Examen_N2_SurseInchise_Instalatii_Industriale.pdf" },
+                            { name: "Control nedistructiv", url: "/documents/intrebari/Examen_N2_SurseInchise_Control_Nedistructiv.pdf" },
+                            { name: "Iradieri materiale", url: "/documents/intrebari/Examen_N2_SurseInchise_Iradieri_Materiale.pdf" },
+                            { name: "Alte aplicații", url: "/documents/intrebari/Examen_N2_SurseInchise_Alte_Aplicatii.pdf" },
+                            { name: "Control nedistructiv - control bagaje sisteme închise", url: "/documents/intrebari/Examen_N2_SurseInchise_Control_Bagaje.pdf" },
+                          ].map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                                {item.name}
+                              </span>
+                              <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 6. SURSE DESCHISE DE RADIATII */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          6. Domeniul: Surse deschise de radiații
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <div className="grid gap-2 sm:grid-cols-3">
+                          {[
+                            { name: "Montare, reparare, întreținere, verificare", url: "/documents/intrebari/Examen_N2_SurseDeschise_Montare.pdf" },
+                            { name: "Radiochimie", url: "/documents/intrebari/Examen_N2_SurseDeschise_Radiochimie.pdf" },
+                            { name: "Marcări", url: "/documents/intrebari/Examen_N2_SurseDeschise_Marcari.pdf" },
+                          ].map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                                {item.name}
+                              </span>
+                              <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 7. ACCELERATORI DE PARTICULE */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          7. Domeniul: Acceleratori de particule
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <a
+                          href="/documents/intrebari/Examen_N2_Acceleratori_Particule.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group inline-flex w-full"
+                        >
+                          <span className="flex items-center gap-2">
+                            <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                            Acceleratori de particule
+                          </span>
+                          <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
