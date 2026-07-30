@@ -23,6 +23,8 @@ import {
   BookMarked,
   Clock,
   AlertTriangle,
+  FileCode,
+  Scale,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -722,28 +724,152 @@ function RadiationSourcesPage() {
 
           {/* TAB 5: SISTEM AUTORIZARE */}
           <TabsContent value="sistem" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-4">
-              {lang === "ro" ? "Sistemul de Autorizare a Activităților cu Surse" : "Licensing System for Radiation Sources"}
-            </h3>
-            <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed mb-8">
-              {lang === "ro"
-                ? "Orice persoană juridică ce intenționează să desfășoare activități cu surse de radiații ionizante trebuie să parcurgă etapele legale de autorizare stabilite de CNCAN."
-                : "Any legal entity intending to operate radiation sources must follow CNCAN licensing phases."}
-            </p>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { step: "01", title: "Amplasare & Proiectare", desc: "Avizarea proiectului tehnic și a calculului de ecranare pentru amenajarea spațiului." },
-                { step: "02", title: "Construcție & Montaj", desc: "Autorizarea lucrărilor de amenajare a buncărelor radiologice și montarea aparaturii." },
-                { step: "03", title: "Deținere & Utilrare", desc: "Inspecția CNCAN la fața locului și eliberarea autorizației de exploatare." },
-                { step: "04", title: "Import / Export & Transport", desc: "Aprobarea de tranzit, expediere și transfer securizat al surselor radioactive." },
-              ].map((phase, i) => (
-                <div key={i} className="border border-border bg-card p-6 rounded-sm">
-                  <div className="font-mono text-xl font-bold text-brand">{phase.step}</div>
-                  <h4 className="mt-3 font-display text-lg text-brand-deep font-semibold">{phase.title}</h4>
-                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{phase.desc}</p>
+            <div className="space-y-12">
+              {/* SECTION 1: TIPURILE DE AUTORIZAȚII */}
+              <div className="border border-brand/30 bg-card p-6 md:p-8 rounded-sm shadow-sm">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+                  <div className="h-10 w-10 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
+                    <FileCheck className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl md:text-3xl text-brand-deep font-bold tracking-tight">
+                      TIPURILE DE AUTORIZAȚII
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      Lista completă a autorizațiilor eliberate de CNCAN conform reglementărilor legale în vigoare.
+                    </p>
+                  </div>
                 </div>
-              ))}
+
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {[
+                    "1. Autorizația de securitate radiologică pentru produs",
+                    "2. Autorizația de securitate radiologică pentru desfășurarea de activități din domeniul nuclear",
+                    "3. Autorizația de import - export",
+                    "4. Autorizația de închiriere",
+                    "5. Autorizația de furnizare",
+                    "6. Autorizația de transfer",
+                    "7. Autorizația de transport sau de tranzitare",
+                    "8. Autorizația de deținere",
+                    "9. Autorizația de utilizare - funcționare și/sau pentru practici",
+                    "10. Autorizația de construire",
+                    "11. Autorizația de dezafectare",
+                    "12. Autorizația de manipulare",
+                    "13. Autorizația de producere",
+                  ].map((authType, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 border border-border bg-secondary/20 rounded-sm flex items-start gap-3 hover:border-brand/50 transition-colors"
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0 mt-0.5" />
+                      <span className="text-xs font-medium text-foreground leading-snug">{authType}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SECTION 2: DOCUMENTAȚIA TEHNICĂ */}
+              <div className="border border-brand/30 bg-card p-6 md:p-8 rounded-sm shadow-sm">
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+                  <div className="h-10 w-10 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
+                    <FileCode className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl md:text-3xl text-brand-deep font-bold tracking-tight">
+                      DOCUMENTAȚIA TEHNICĂ
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      Documentațiile tehnice necesare în funcție de tipul de autorizare și specificul practicilor solicitate.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {[
+                    "Documentația tehnică pentru înregistrare",
+                    "Documentația tehnică pentru autorizația de securitate radiologică de produs",
+                    "Documentația tehnică pentru autorizarea practicilor și utilizării - funcționării",
+                    "Documentația tehnică pentru amplasare-construcție",
+                    "Documentația tehnică de import-export",
+                    "Documentația tehnică de închiriere sau transfer",
+                    "Documentația tehnică de furnizare",
+                    "Documentația tehnică de transport/tranzitare",
+                    "Documentația tehnică de deținere",
+                    "Documentația tehnică de manipulare",
+                    "Documentația tehnică de producere",
+                    "Documentația tehnică de dezafectare",
+                  ].map((docTech, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3.5 border border-border bg-card rounded-sm flex items-center gap-3 hover:border-brand transition-colors"
+                    >
+                      <FileText className="h-4 w-4 text-brand shrink-0" />
+                      <span className="text-xs font-medium text-foreground leading-snug">{docTech}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SECTION 3: OPTIONAL HYPERLINKS */}
+              <div className="border border-gold/40 bg-gradient-to-r from-gold/10 via-card to-gold/5 p-6 md:p-8 rounded-sm shadow-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <Scale className="h-6 w-6 text-brand" />
+                  <h4 className="font-display text-xl text-brand-deep font-semibold">
+                    Reglementări & Proceduri Legale Conexe
+                  </h4>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {[
+                    {
+                      name: "DURATA DE VALABILITATE A AUTORIZAȚIEI ȘI A ÎNREGISTRĂRII",
+                      url: "/documents/autorizare/Durata_Valabilitate_Autorizatie.pdf",
+                    },
+                    {
+                      name: "PRELUNGIREA, REAUTORIZAREA, MODIFICAREA AUTORIZAȚIILOR",
+                      url: "/documents/autorizare/Prelungire_Reautorizare_Modificare.pdf",
+                    },
+                    {
+                      name: "REGIMUL DE SANCȚIONARE",
+                      url: "/documents/autorizare/Regimul_de_Sanctionare.pdf",
+                    },
+                    {
+                      name: "ÎNCETAREA ACTIVITĂȚII",
+                      url: "/documents/autorizare/Incetarea_Activitatii.pdf",
+                    },
+                  ].map((linkItem, idx) => (
+                    <a
+                      key={idx}
+                      href={linkItem.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-4 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-semibold text-brand hover:bg-brand hover:text-white transition-colors group shadow-xs"
+                    >
+                      <span className="flex items-center gap-2">
+                        <ExternalLink className="h-4 w-4 text-gold group-hover:text-white transition-colors shrink-0" />
+                        {linkItem.name}
+                      </span>
+                      <Download className="h-4 w-4 text-brand group-hover:text-white shrink-0" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* ORIGINAL PHASES SUMMARY */}
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  { step: "01", title: "Amplasare & Proiectare", desc: "Avizarea proiectului tehnic și a calculului de ecranare pentru amenajarea spațiului." },
+                  { step: "02", title: "Construcție & Montaj", desc: "Autorizarea lucrărilor de amenajare a buncărelor radiologice și montarea aparaturii." },
+                  { step: "03", title: "Deținere & Utilrare", desc: "Inspecția CNCAN la fața locului și eliberarea autorizației de exploatare." },
+                  { step: "04", title: "Import / Export & Transport", desc: "Aprobarea de tranzit, expediere și transfer securizat al surselor radioactive." },
+                ].map((phase, i) => (
+                  <div key={i} className="border border-border bg-card p-6 rounded-sm">
+                    <div className="font-mono text-xl font-bold text-brand">{phase.step}</div>
+                    <h4 className="mt-3 font-display text-lg text-brand-deep font-semibold">{phase.title}</h4>
+                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{phase.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </TabsContent>
 
