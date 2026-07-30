@@ -13,6 +13,11 @@ import {
   FileText,
   FileSpreadsheet,
   Users,
+  ShieldCheck,
+  Building,
+  HelpCircle,
+  Activity,
+  CheckSquare,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -23,16 +28,16 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/surse-de-radiatii-ionizante")({
   head: () => ({
     meta: [
-      { title: "Surse de Radiații Ionizante — Permise de Exercitare CNCAN" },
+      { title: "Surse de Radiații Ionizante — CNCAN" },
       {
         name: "description",
         content:
-          "Proceduri, formulare și cerințe pentru obținerea Permiselor de Exercitare în domeniul Surse de Radiații Ionizante (Nivel 1, 2, 3, RNDSR).",
+          "Permise de exercitare (Nivel 1, 2, 3), clasificări, proceduri eliberare, sistem de autorizare, reglementări radioprotecție și RNDSR.",
       },
       { property: "og:title", content: "Surse de Radiații Ionizante — CNCAN" },
       {
         property: "og:description",
-        content: "Ghid complet pentru autorizarea surselor și obținerea permiselor de exercitare radioprotecție.",
+        content: "Ghid complet și cerințe legale pentru autorizarea surselor de radiații și a personalului de specialitate.",
       },
     ],
   }),
@@ -96,7 +101,7 @@ function RadiationSourcesPage() {
 
         {/* TABS NAVIGATION MATCHING CNCAN.RO STRUCTURE */}
         <Tabs defaultValue="permise" value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="w-full justify-start border-b border-border bg-transparent p-0 rounded-none h-auto flex-wrap">
+          <TabsList className="w-full justify-start border-b border-border bg-transparent p-0 rounded-none h-auto flex-wrap gap-1">
             <TabsTrigger
               value="permise"
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-brand data-[state=active]:bg-transparent px-4 py-3 font-display text-xs md:text-sm font-semibold"
@@ -110,7 +115,7 @@ function RadiationSourcesPage() {
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-brand data-[state=active]:bg-transparent px-4 py-3 font-display text-xs md:text-sm font-semibold"
             >
               <Layers className="mr-2 h-4 w-4 text-brand" />
-              {lang === "ro" ? "2. Clasificare Permise" : "2. Permit Classification"}
+              {lang === "ro" ? "2. Clasificare Permise" : "2. Classification"}
             </TabsTrigger>
 
             <TabsTrigger
@@ -118,7 +123,7 @@ function RadiationSourcesPage() {
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-brand data-[state=active]:bg-transparent px-4 py-3 font-display text-xs md:text-sm font-semibold"
             >
               <FileCheck className="mr-2 h-4 w-4 text-brand" />
-              {lang === "ro" ? "3. Eliberare Nivel 1 și 2" : "3. Level 1 & 2 Permits"}
+              {lang === "ro" ? "3. Eliberare Nivel 1 & 2" : "3. Level 1 & 2"}
             </TabsTrigger>
 
             <TabsTrigger
@@ -126,7 +131,7 @@ function RadiationSourcesPage() {
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-brand data-[state=active]:bg-transparent px-4 py-3 font-display text-xs md:text-sm font-semibold"
             >
               <Award className="mr-2 h-4 w-4 text-brand" />
-              {lang === "ro" ? "4. Eliberare Nivel 3" : "4. Level 3 Permits"}
+              {lang === "ro" ? "4. Eliberare Nivel 3" : "4. Level 3"}
             </TabsTrigger>
 
             <TabsTrigger
@@ -146,11 +151,19 @@ function RadiationSourcesPage() {
             </TabsTrigger>
 
             <TabsTrigger
+              value="personal"
+              className="rounded-none border-b-2 border-transparent data-[state=active]:border-brand data-[state=active]:bg-transparent px-4 py-3 font-display text-xs md:text-sm font-semibold"
+            >
+              <Users className="mr-2 h-4 w-4 text-brand" />
+              {lang === "ro" ? "7. Autorizare Personal" : "7. Staff Licensing"}
+            </TabsTrigger>
+
+            <TabsTrigger
               value="rndsr"
               className="rounded-none border-b-2 border-transparent data-[state=active]:border-brand data-[state=active]:bg-transparent px-4 py-3 font-display text-xs md:text-sm font-semibold"
             >
               <FileSpreadsheet className="mr-2 h-4 w-4 text-brand" />
-              {lang === "ro" ? "7. RNDSR" : "7. RNDSR Registry"}
+              {lang === "ro" ? "8. RNDSR" : "8. RNDSR Registry"}
             </TabsTrigger>
           </TabsList>
 
@@ -196,7 +209,6 @@ function RadiationSourcesPage() {
                     {
                       num: "05",
                       title_ro: "Dovada achitării tarifului de examinare și eliberare (Ord. 155/2005)",
-                      title_en: "Proof of payment",
                       desc_ro: "Ordin de plată în contul CNCAN (480 RON pentru valabilitate 5 ani).",
                     },
                   ].map((req, idx) => (
@@ -261,16 +273,16 @@ function RadiationSourcesPage() {
             </h3>
             <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed mb-8">
               {lang === "ro"
-                ? "Permisele de exercitare eliberate de CNCAN sunt clasificate pe 3 niveluri de competență și responsabilitate, în funcție de domeniul de activitate (medical, industrial, cercetare)."
+                ? "Permisele de exercitare eliberate de CNCAN sunt clasificate pe 3 niveluri de competență și responsabilitate, în funcție de domeniul de activitate (radiodiagnostic, radioterapie, medicina nucleară, defectoscopie industrială, gămagrafie, generatoare de radiații)."
                 : "CNCAN practice permits are classified into 3 levels of competence and responsibility."}
             </p>
 
             <div className="grid gap-6 md:grid-cols-3">
               <div className="border border-border bg-card p-6 rounded-sm">
                 <div className="font-mono text-xs font-bold text-brand uppercase tracking-wider bg-brand/10 px-2.5 py-1 rounded-sm inline-block">Nivelul 1</div>
-                <h4 className="mt-4 font-display text-xl text-brand-deep font-semibold">Operator / Manipulant</h4>
+                <h4 className="mt-4 font-display text-xl text-brand-deep font-semibold">Operator / Manipulant Surse</h4>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                  Permite manipularea directă a instalațiilor radiologice și surselor sub supravegherea unui responsabil de securitate.
+                  Eliberat persoanelor desemnate pentru activități cu risc radiologic scazut/scazut-mediu. Permite executarea operatiunilor direct sub supravegherea RSR.
                 </p>
               </div>
 
@@ -278,44 +290,229 @@ function RadiationSourcesPage() {
                 <div className="font-mono text-xs font-bold text-brand uppercase tracking-wider bg-brand/10 px-2.5 py-1 rounded-sm inline-block">Nivelul 2</div>
                 <h4 className="mt-4 font-display text-xl text-brand-deep font-semibold">Responsabil Radioprotecție (RSR)</h4>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                  Permite coordonarea, gestionarea și asigurarea securității radiologice la nivel de laborator, secție sau unitate.
+                  Destinat personalului care conduce și coordonează zona controlată radiologic, asigură aplicarea normelor de securitate și gestionarea evidenței surselor.
                 </p>
               </div>
 
               <div className="border border-border bg-card p-6 rounded-sm">
                 <div className="font-mono text-xs font-bold text-brand uppercase tracking-wider bg-brand/10 px-2.5 py-1 rounded-sm inline-block">Nivelul 3</div>
-                <h4 className="mt-4 font-display text-xl text-brand-deep font-semibold">Expert în Fizică Medicală / RSR Senior</h4>
+                <h4 className="mt-4 font-display text-xl text-brand-deep font-semibold">Expert Protecție Radiologică / Fizică Medicală</h4>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                  Permite expertiza înaltă, avizarea proiectelor complexe, optimizarea dozelor și consultanță tehnică de specialitate.
+                  Specialiști înalt calificați acreditați pentru audit tehnic, expertiză radiologică, optimizare de doze și consultanță pentru proiecte nucleare/medicale complexe.
                 </p>
               </div>
             </div>
           </TabsContent>
 
-          {/* TAB 3-7 PLACEHOLDERS READY FOR SUBSECTIONS */}
+          {/* TAB 3: ELIBERARE NIVEL 1 SI 2 */}
           <TabsContent value="nivel12" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-3">Eliberare Permise Nivel 1 și 2</h3>
-            <p className="text-sm text-muted-foreground">Proceduri detaliate, cerințe de cursuri și formulare specifice pentru Nivelul 1 și Nivelul 2.</p>
+            <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+              <div>
+                <h3 className="font-display text-2xl text-brand-deep font-semibold">
+                  {lang === "ro" ? "Eliberare Permise de Exercitare Nivel 1 și Nivel 2" : "Issuance of Level 1 & Level 2 Permits"}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {lang === "ro"
+                    ? "Permisele de Nivel 1 și 2 se eliberează în urma promovării examenului susținut în fața comisiei CNCAN, după depunerea dosarului complet și parcurgerea cursurilor de pregătire acreditate."
+                    : "Level 1 and 2 permits are issued after passing the exam before the CNCAN commission."}
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  <h4 className="font-display text-lg text-foreground font-medium">Condiții de eligibilitate și etape:</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Absolvent de studii medii sau superioare profil tehnic, fizică, chimie sau medicină.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Efectuarea instruirii teoretice și practice în cadrul centrelor de pregătire acreditate CNCAN.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Obținerea avizului de aptitudine medicală eliberat de un medic de medicina muncii acreditat.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Susținerea examenului grilă și a probei orale la sediul CNCAN.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside className="space-y-6">
+                <div className="border border-border bg-card p-6 rounded-sm">
+                  <h4 className="font-display text-lg text-brand-deep font-semibold mb-4">Bibliografie & Tematică</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                    Tematica oficială include Legea 111/1996, Normele NSR-01, NSR-02 și procedurile specifice domeniului solicitat.
+                  </p>
+                  <a
+                    href="/legislatie"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors w-full justify-center"
+                  >
+                    <BookOpen className="h-4 w-4" /> Descarcă Tematica Examen
+                  </a>
+                </div>
+              </aside>
+            </div>
           </TabsContent>
 
+          {/* TAB 4: ELIBERARE NIVEL 3 */}
           <TabsContent value="nivel3" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-3">Eliberare Permise Nivel 3</h3>
-            <p className="text-sm text-muted-foreground">Cerințe de examinare, comisii speciale CNCAN și dosare pentru Nivelul 3 (Experți).</p>
+            <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+              <div>
+                <h3 className="font-display text-2xl text-brand-deep font-semibold">
+                  {lang === "ro" ? "Eliberare Permise de Exercitare Nivel 3 (Experți)" : "Issuance of Level 3 Practice Permits"}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {lang === "ro"
+                    ? "Permisul de Nivel 3 se adresează experților în protecție radiologică și experților în fizică medicală deținători de titluri de doctor sau experiență înaltă de minim 5 ani în domeniul nuclear."
+                    : "Level 3 permits target radiation protection experts and medical physics experts."}
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  <h4 className="font-display text-lg text-foreground font-medium">Procedura specială Nivel 3:</h4>
+                  <div className="border border-border bg-card p-5 rounded-sm space-y-3">
+                    <div className="font-medium text-foreground text-sm">Examinarea în fața Comisiei Centrale CNCAN</div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Evaluare complexă din calcule de ecranare, dozimetrie avansată, analiză de risc și optimizare ALARA.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <aside className="space-y-6">
+                <div className="border border-brand/40 bg-brand/5 p-6 rounded-sm">
+                  <div className="text-xs font-semibold text-brand uppercase tracking-wider">Atestat Expert Nivel 3</div>
+                  <div className="mt-2 font-display text-2xl text-brand-deep font-bold">Valabilitate 5 Ani</div>
+                  <div className="mt-1 text-xs text-muted-foreground">Cu raportare anuală obligatorie CNCAN</div>
+                </div>
+              </aside>
+            </div>
           </TabsContent>
 
+          {/* TAB 5: SISTEM AUTORIZARE */}
           <TabsContent value="sistem" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-3">Sistemul de Autorizare Surse Radiații</h3>
-            <p className="text-sm text-muted-foreground">Etapele de autorizare a deținerii, utilizării, producției și importului/exportului surselor.</p>
+            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-4">
+              {lang === "ro" ? "Sistemul de Autorizare a Activităților cu Surse" : "Licensing System for Radiation Sources"}
+            </h3>
+            <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed mb-8">
+              {lang === "ro"
+                ? "Orice persoană juridică ce intenționează să desfășoare activități cu surse de radiații ionizante trebuie să parcurgă etapele legale de autorizare stabilite de CNCAN."
+                : "Any legal entity intending to operate radiation sources must follow CNCAN licensing phases."}
+            </p>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { step: "01", title: "Amplasare & Proiectare", desc: "Avizarea proiectului tehnic și a calculului de ecranare pentru amenajarea spațiului." },
+                { step: "02", title: "Construcție & Montaj", desc: "Autorizarea lucrărilor de amenajare a buncărelor radiologice și montarea aparaturii." },
+                { step: "03", title: "Deținere & Utilrare", desc: "Inspecția CNCAN la fața locului și eliberarea autorizației de exploatare." },
+                { step: "04", title: "Import / Export & Transport", desc: "Aprobarea de tranzit, expediere și transfer securizat al surselor radioactive." },
+              ].map((phase, i) => (
+                <div key={i} className="border border-border bg-card p-6 rounded-sm">
+                  <div className="font-mono text-xl font-bold text-brand">{phase.step}</div>
+                  <h4 className="mt-3 font-display text-lg text-brand-deep font-semibold">{phase.title}</h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{phase.desc}</p>
+                </div>
+              ))}
+            </div>
           </TabsContent>
 
+          {/* TAB 6: REGLEMENTARI */}
           <TabsContent value="reglementari" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-3">Reglementări & Norme Radioprotecție</h3>
-            <p className="text-sm text-muted-foreground">Normele fundamentale de securitate radiologică (NSR-01, NSR-02) emise de CNCAN.</p>
+            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-6">
+              {lang === "ro" ? "Reglementări & Norme de Securitate Radiologică" : "Radiological Safety Regulations"}
+            </h3>
+
+            <div className="border border-border bg-card divide-y divide-border">
+              {[
+                { code: "NSR-01", ord: "Ord. CNCAN 14/2018", title: "Normele fundamentale de securitate radiologică (NFSR)" },
+                { code: "NSR-02", ord: "Ord. CNCAN 155/2018", title: "Norme privind securitatea radiologică a surselor închise și deschise" },
+                { code: "NSR-03", ord: "Ord. CNCAN 62/2004", title: "Norme privind autorizarea personalului de exploatare și protecție radiologică" },
+                { code: "NSR-04", ord: "Ord. CNCAN 155/2005", title: "Regulamentul privind taxele și tarifele de autorizare și control" },
+              ].map((norm, idx) => (
+                <div key={idx} className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm font-bold text-brand bg-secondary px-2.5 py-1 rounded-sm">
+                        {norm.code}
+                      </span>
+                      <span className="text-xs font-mono text-muted-foreground">{norm.ord}</span>
+                    </div>
+                    <div className="mt-2 font-display text-base text-foreground font-medium">{norm.title}</div>
+                  </div>
+                  <a
+                    href="/legislatie"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 border border-border rounded-sm text-xs font-medium text-brand hover:bg-secondary transition-colors shrink-0"
+                  >
+                    <BookOpen className="h-3.5 w-3.5" /> Consultă Legislația
+                  </a>
+                </div>
+              ))}
+            </div>
           </TabsContent>
 
+          {/* TAB 7: AUTORIZARE PERSONAL */}
+          <TabsContent value="personal" className="pt-8">
+            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-4">
+              {lang === "ro" ? "Autorizarea Personalului de Specialitate" : "Specialist Personnel Licensing"}
+            </h3>
+            <p className="text-sm text-muted-foreground max-w-3xl leading-relaxed mb-8">
+              Cerințe legale privind atestarea responsabililor cu securitatea radiologică (RSR), responsabililor cu gestiunea surselor și cadrelor medicale/tehnice.
+            </p>
+
+            <div className="border border-border bg-card p-6 rounded-sm">
+              <h4 className="font-display text-lg text-brand-deep font-semibold mb-3">Evidența Personalului Expus</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Titularii de autorizație au obligația legală de a transmite la CNCAN lista actualizată a tuturor persoanelor expuse profesional și a permiselor de exercitare active.
+              </p>
+            </div>
+          </TabsContent>
+
+          {/* TAB 8: RNDSR */}
           <TabsContent value="rndsr" className="pt-8">
-            <h3 className="font-display text-2xl text-brand-deep font-semibold mb-3">Registrul Național RNDSR</h3>
-            <p className="text-sm text-muted-foreground">Evidența națională a dozelor de radiație primite de personalul expus și registrul surselor.</p>
+            <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+              <div>
+                <h3 className="font-display text-2xl text-brand-deep font-semibold">
+                  {lang === "ro" ? "Registrul Național al Dozelor și Surselor de Radiații (RNDSR)" : "National Registry of Doses & Radiation Sources"}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {lang === "ro"
+                    ? "RNDSR este sistemul informatic național gestionat de CNCAN pentru monitorizarea centralizată a dozelor individuale primite de lucrătorii expuși profesional și evidența strictă a mișcării surselor radioactive pe teritoriul României."
+                    : "RNDSR is the national system managed by CNCAN for monitoring individual doses received by occupationally exposed workers."}
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  <h4 className="font-display text-lg text-foreground font-medium">Obligații de raportare RNDSR:</h4>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Transmiterea trimestrială a citirilor dozimetrice individuale de către organismele dozimetrice acreditate.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Raportarea imediată a oricărei depășiri a dozei maxime admise (20 mSv/an).</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-brand shrink-0 mt-0.5" />
+                      <span>Înregistrarea transferului, casării sau achiziției de surse radioactive în termen de 5 zile lucrătoare.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <aside className="space-y-6">
+                <div className="border border-border bg-card p-6 rounded-sm">
+                  <h4 className="font-display text-lg text-brand-deep font-semibold mb-4">Portal Raportare RNDSR</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                    Accesați portalul electronic dedicat pentru încărcarea rapoartelor dozimetrice și actualizarea registrului surselor.
+                  </p>
+                  <Button asChild className="w-full bg-brand hover:bg-brand-deep text-white text-xs font-semibold">
+                    <Link to="/urgente">Acces Portal RNDSR</Link>
+                  </Button>
+                </div>
+              </aside>
+            </div>
           </TabsContent>
         </Tabs>
       </section>
