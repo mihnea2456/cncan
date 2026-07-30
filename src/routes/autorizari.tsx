@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   FileCheck,
   Radiation,
@@ -46,6 +46,7 @@ const categories = [
     desc_ro: "Documente specifice, cereri de autorizare și evaluare pentru Sistemul de Management al Calității (SMC).",
     desc_en: "Specific documents, licensing forms and evaluation for Quality Management Systems.",
     count: 3,
+    customLink: "/managementul-calitatii",
   },
   {
     id: "surse",
@@ -111,7 +112,7 @@ const documents = [
     title_ro: "Formular cerere autorizare Sistem Managementul Calității (SMC)",
     title_en: "Licensing application form for Quality Management System",
     type: "Cerere",
-    fileUrl: "#",
+    fileUrl: "/managementul-calitatii",
   },
   {
     catId: "mc",
@@ -119,7 +120,7 @@ const documents = [
     title_ro: "Ghid de evaluare și specificații tehnice SMC în domeniul nuclear",
     title_en: "Evaluation guide and technical specifications for nuclear QMS",
     type: "Ghid",
-    fileUrl: "#",
+    fileUrl: "/managementul-calitatii",
   },
   {
     catId: "mc",
@@ -127,7 +128,7 @@ const documents = [
     title_ro: "Centralizator cerințe de calitate conform normelor CNCAN",
     title_en: "Quality requirements checklist according to CNCAN norms",
     type: "Centralizator",
-    fileUrl: "#",
+    fileUrl: "/managementul-calitatii",
   },
 
   // Surse de radiatii ionizante
@@ -257,7 +258,25 @@ function AuthPage() {
           {categories.map((c, i) => {
             const Icon = c.icon;
             const isSelected = activeCat === c.id;
-            return (
+            return c.customLink ? (
+              <Link
+                key={i}
+                to={c.customLink}
+                className="group border border-brand/60 bg-card p-7 hover:border-brand transition-all shadow-sm rounded-sm"
+              >
+                <div className="flex items-start justify-between">
+                  <Icon className="h-7 w-7 text-brand" strokeWidth={1.4} />
+                  <span className="text-xs font-mono text-muted-foreground">{String(c.count).padStart(2, "0")} doc.</span>
+                </div>
+                <h3 className="mt-6 font-display text-xl text-brand-deep">{lang === "ro" ? c.ro : c.en}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === "ro" ? c.desc_ro : c.desc_en}</p>
+                <div className="mt-6 flex items-center justify-between text-xs pt-4 border-t border-border/60">
+                  <span className="font-semibold text-brand group-hover:text-brand-deep inline-flex items-center gap-1">
+                    {lang === "ro" ? "Vezi Cerințe & Pagina MC" : "View QMS Requirements"} <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </Link>
+            ) : (
               <article
                 key={i}
                 onClick={() => setActiveCat(c.id)}
@@ -376,15 +395,25 @@ function AuthPage() {
                     </div>
 
                     <div className="flex items-center gap-3 self-end md:self-auto">
-                      <a
-                        href={doc.fileUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                        {lang === "ro" ? "Descarcă Formular" : "Download Form"}
-                      </a>
+                      {doc.catId === "mc" ? (
+                        <Link
+                          to="/managementul-calitatii"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
+                        >
+                          <ArrowRight className="h-3.5 w-3.5" />
+                          {lang === "ro" ? "Accesează Cerințe SMC" : "Access QMS Requirements"}
+                        </Link>
+                      ) : (
+                        <a
+                          href={doc.fileUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
+                        >
+                          <Download className="h-3.5 w-3.5" />
+                          {lang === "ro" ? "Descarcă Formular" : "Download Form"}
+                        </a>
+                      )}
                     </div>
                   </div>
                 ))}

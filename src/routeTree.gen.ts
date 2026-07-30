@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreRouteImport } from './routes/despre'
 import { Route as Legea111RouteImport } from './routes/legea-111'
 import { Route as LegislatieRouteImport } from './routes/legislatie'
+import { Route as ManagementulCalitatiiRouteImport } from './routes/managementul-calitatii'
 import { Route as UrgenteRouteImport } from './routes/urgente'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const LegislatieRoute = LegislatieRouteImport.update({
   path: '/legislatie',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ManagementulCalitatiiRoute = ManagementulCalitatiiRouteImport.update({
+  id: '/managementul-calitatii',
+  path: '/managementul-calitatii',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UrgenteRoute = UrgenteRouteImport.update({
   id: '/urgente',
   path: '/urgente',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/despre': typeof DespreRoute
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
+  '/managementul-calitatii': typeof ManagementulCalitatiiRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/despre': typeof DespreRoute
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
+  '/managementul-calitatii': typeof ManagementulCalitatiiRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/despre': typeof DespreRoute
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
+  '/managementul-calitatii': typeof ManagementulCalitatiiRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/despre'
     | '/legea-111'
     | '/legislatie'
+    | '/managementul-calitatii'
     | '/urgente'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/despre'
     | '/legea-111'
     | '/legislatie'
+    | '/managementul-calitatii'
     | '/urgente'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/despre'
     | '/legea-111'
     | '/legislatie'
+    | '/managementul-calitatii'
     | '/urgente'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   DespreRoute: typeof DespreRoute
   Legea111Route: typeof Legea111Route
   LegislatieRoute: typeof LegislatieRoute
+  ManagementulCalitatiiRoute: typeof ManagementulCalitatiiRoute
   UrgenteRoute: typeof UrgenteRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LegislatieRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/managementul-calitatii': {
+      id: '/managementul-calitatii'
+      path: '/managementul-calitatii'
+      fullPath: '/managementul-calitatii'
+      preLoaderRoute: typeof ManagementulCalitatiiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/urgente': {
       id: '/urgente'
       path: '/urgente'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   DespreRoute: DespreRoute,
   Legea111Route: Legea111Route,
   LegislatieRoute: LegislatieRoute,
+  ManagementulCalitatiiRoute: ManagementulCalitatiiRoute,
   UrgenteRoute: UrgenteRoute,
 }
 export const routeTree = rootRouteImport
