@@ -108,18 +108,18 @@ const documents = [
   {
     catId: "mc",
     code: "MC-01",
-    title_ro: "Formular cerere autorizare Sistem Managementul Calității (SMC)",
-    title_en: "Licensing application form for Quality Management System",
+    title_ro: "Model Cerere Autorizare Sistem Managementul Calității (SMC)",
+    title_en: "Model Licensing Application Form for Quality Management System",
     type: "Cerere",
-    fileUrl: "/documents/Cerere_Autorizare_SMC_Model_Anexa1.pdf",
+    fileUrl: "/documents/Model%20Cerere%20Autorizare%20SMC.pdf",
   },
   {
     catId: "mc",
     code: "MC-02",
-    title_ro: "Chestionar tip de evaluare inițială SMC (Model Anexa 2)",
-    title_en: "Initial QMS evaluation questionnaire (Model Annex 2)",
+    title_ro: "Model Chestionar de Evaluare Inițială SMC (Anexa 2)",
+    title_en: "Model Initial QMS Evaluation Questionnaire (Annex 2)",
     type: "Chestionar",
-    fileUrl: "/documents/Chestionar_Evaluare_SMC_Model_Anexa2.pdf",
+    fileUrl: "/documents/Model%20Chestionar%20pentru%20SMC.pdf",
   },
   {
     catId: "mc",
@@ -401,7 +401,7 @@ function AuthPage() {
                         className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
                       >
                         <Download className="h-3.5 w-3.5" />
-                        {lang === "ro" ? "Deschide PDF" : "Open PDF"}
+                        {lang === "ro" ? "Deschide PDF Original" : "Open Original PDF"}
                       </a>
                     </div>
                   </div>
