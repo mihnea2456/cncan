@@ -52,9 +52,10 @@ const categories = [
     icon: Radiation,
     ro: "Surse de Radiații Ionizante",
     en: "Ionizing Radiation Sources",
-    desc_ro: "Cereri și dosare complete pentru deținere, utilizare, producție, import/export și transfer.",
-    desc_en: "Full application dossiers for possession, use, production, import/export and transfer.",
+    desc_ro: "Permise de exercitare, cereri și dosare complete pentru deținere, utilizare, producție, import/export și RNDSR.",
+    desc_en: "Practice permits, full application dossiers for possession, use, production, import/export and RNDSR.",
     count: 4,
+    customLink: "/surse-de-radiatii-ionizante",
   },
   {
     id: "instalatii",
@@ -134,10 +135,10 @@ const documents = [
   {
     catId: "surse",
     code: "SR-01",
-    title_ro: "Cerere și dosar de autorizare deținere / utilizare surse radioactive",
-    title_en: "Application dossier for possession/use of radioactive sources",
-    type: "Dosar",
-    fileUrl: "#",
+    title_ro: "Permise de Exercitare — Procedură și Cerințe Autorizare Personal",
+    title_en: "Practice Permits — Personnel Licensing Procedure and Requirements",
+    type: "Ghid & Cerințe",
+    fileUrl: "/surse-de-radiatii-ionizante",
   },
   {
     catId: "surse",
@@ -145,7 +146,7 @@ const documents = [
     title_ro: "Formular notificare import / export surse de radiații ionizante",
     title_en: "Notification form for import/export of ionizing radiation sources",
     type: "Formular",
-    fileUrl: "#",
+    fileUrl: "/surse-de-radiatii-ionizante",
   },
   {
     catId: "surse",
@@ -153,7 +154,7 @@ const documents = [
     title_ro: "Chestionar de radioprotecție și securitate radiologică",
     title_en: "Radiological protection and safety questionnaire",
     type: "Chestionar",
-    fileUrl: "#",
+    fileUrl: "/surse-de-radiatii-ionizante",
   },
   {
     catId: "surse",
@@ -161,7 +162,7 @@ const documents = [
     title_ro: "Cerere autorizare producție și furnizare aparatură dozimetrică",
     title_en: "Production & supply licensing for dosimetric equipment",
     type: "Cerere",
-    fileUrl: "#",
+    fileUrl: "/surse-de-radiatii-ionizante",
   },
 
   // Instalatii nucleare
@@ -271,7 +272,7 @@ function AuthPage() {
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === "ro" ? c.desc_ro : c.desc_en}</p>
                 <div className="mt-6 flex items-center justify-between text-xs pt-4 border-t border-border/60">
                   <span className="font-semibold text-brand group-hover:text-brand-deep inline-flex items-center gap-1">
-                    {lang === "ro" ? "Vezi Cerințe & Pagina MC" : "View QMS Requirements"} <ArrowRight className="h-3 w-3" />
+                    {lang === "ro" ? "Vezi Cerințe & Permise SR" : "View Permits & Requirements"} <ArrowRight className="h-3 w-3" />
                   </span>
                 </div>
               </Link>
@@ -394,15 +395,25 @@ function AuthPage() {
                     </div>
 
                     <div className="flex items-center gap-3 self-end md:self-auto">
-                      <a
-                        href={doc.fileUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
-                      >
-                        <Download className="h-3.5 w-3.5" />
-                        {lang === "ro" ? "Deschide PDF Original" : "Open Original PDF"}
-                      </a>
+                      {doc.fileUrl.startsWith("/documents/") ? (
+                        <a
+                          href={doc.fileUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
+                        >
+                          <Download className="h-3.5 w-3.5" />
+                          {lang === "ro" ? "Deschide PDF Original" : "Open Original PDF"}
+                        </a>
+                      ) : (
+                        <Link
+                          to={doc.fileUrl}
+                          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
+                        >
+                          <ArrowRight className="h-3.5 w-3.5" />
+                          {lang === "ro" ? "Vezi Cerințe & Permise" : "View Requirements"}
+                        </Link>
+                      )}
                     </div>
                   </div>
                 ))}

@@ -17,6 +17,7 @@ import { Route as DespreRouteImport } from './routes/despre'
 import { Route as Legea111RouteImport } from './routes/legea-111'
 import { Route as LegislatieRouteImport } from './routes/legislatie'
 import { Route as ManagementulCalitatiiRouteImport } from './routes/managementul-calitatii'
+import { Route as SurseDeRadiatiiIonizanteRouteImport } from './routes/surse-de-radiatii-ionizante'
 import { Route as UrgenteRouteImport } from './routes/urgente'
 
 const IndexRoute = IndexRouteImport.update({
@@ -59,6 +60,12 @@ const ManagementulCalitatiiRoute = ManagementulCalitatiiRouteImport.update({
   path: '/managementul-calitatii',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SurseDeRadiatiiIonizanteRoute =
+  SurseDeRadiatiiIonizanteRouteImport.update({
+    id: '/surse-de-radiatii-ionizante',
+    path: '/surse-de-radiatii-ionizante',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const UrgenteRoute = UrgenteRouteImport.update({
   id: '/urgente',
   path: '/urgente',
@@ -74,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
+  '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +93,7 @@ export interface FileRoutesByTo {
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
+  '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRoutesById {
@@ -97,6 +106,7 @@ export interface FileRoutesById {
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
+  '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
+    | '/surse-de-radiatii-ionizante'
     | '/urgente'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
+    | '/surse-de-radiatii-ionizante'
     | '/urgente'
   id:
     | '__root__'
@@ -132,6 +144,7 @@ export interface FileRouteTypes {
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
+    | '/surse-de-radiatii-ionizante'
     | '/urgente'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +157,7 @@ export interface RootRouteChildren {
   Legea111Route: typeof Legea111Route
   LegislatieRoute: typeof LegislatieRoute
   ManagementulCalitatiiRoute: typeof ManagementulCalitatiiRoute
+  SurseDeRadiatiiIonizanteRoute: typeof SurseDeRadiatiiIonizanteRoute
   UrgenteRoute: typeof UrgenteRoute
 }
 
@@ -205,6 +219,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ManagementulCalitatiiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/surse-de-radiatii-ionizante': {
+      id: '/surse-de-radiatii-ionizante'
+      path: '/surse-de-radiatii-ionizante'
+      fullPath: '/surse-de-radiatii-ionizante'
+      preLoaderRoute: typeof SurseDeRadiatiiIonizanteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/urgente': {
       id: '/urgente'
       path: '/urgente'
@@ -224,6 +245,7 @@ const rootRouteChildren: RootRouteChildren = {
   Legea111Route: Legea111Route,
   LegislatieRoute: LegislatieRoute,
   ManagementulCalitatiiRoute: ManagementulCalitatiiRoute,
+  SurseDeRadiatiiIonizanteRoute: SurseDeRadiatiiIonizanteRoute,
   UrgenteRoute: UrgenteRoute,
 }
 export const routeTree = rootRouteImport
