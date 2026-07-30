@@ -18,6 +18,8 @@ import {
   HelpCircle,
   Activity,
   CheckSquare,
+  ExternalLink,
+  HelpCircle as QuestionMarkIcon,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -179,6 +181,194 @@ function RadiationSourcesPage() {
                     ? "Permisul de exercitare atestă că persoana fizică deține pregătirea de specialitate, cunoștințele de radioprotecție și avizele medicale/de securitate necesare pentru a manipula sau coordona activități cu surse de radiații ionizante."
                     : "The practice permit proves that the individual holds specialized training, radiation protection knowledge, and medical/security clearances."}
                 </p>
+
+                {/* EXAM QUESTIONS AND SPECIALTIES SECTION */}
+                <div className="mt-10 border border-brand/30 bg-card p-6 md:p-8 rounded-sm shadow-sm">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="h-9 w-9 rounded-sm bg-brand/10 text-brand grid place-items-center">
+                      <BookOpen className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-display text-xl text-brand-deep font-semibold">
+                        Set Întrebări și Grile pentru Examene Permise de Exercitare
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        Consultați întrebările oficiale de examen structurate pe domenii și specialități (click pe specialitate pentru deschidere PDF în tab nou).
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-8">
+                    {/* EXAMEN NIVEL 1 */}
+                    <div className="border border-border p-5 rounded-sm bg-secondary/20">
+                      <div className="flex items-center gap-2 font-display text-lg text-brand font-semibold mb-2">
+                        <Award className="h-5 w-5 text-brand" /> Examen Nivel 1
+                      </div>
+                      <div className="text-xs font-semibold text-foreground uppercase tracking-wider mb-3">
+                        Domeniul: Activități cu risc radiologic nesemnificativ
+                      </div>
+                      <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                      <div className="grid gap-2">
+                        <a
+                          href="/documents/intrebari/Examen_N1_Generatori_RX.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-3 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                        >
+                          <span className="flex items-center gap-2">
+                            <FileText className="h-4 w-4 text-brand group-hover:scale-110 transition-transform" />
+                            • Tehnici nucleare - Activități cu generatori RX
+                          </span>
+                          <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-brand" />
+                        </a>
+                        <a
+                          href="/documents/intrebari/Examen_N1_Surse_Deschise.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-3 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                        >
+                          <span className="flex items-center gap-2">
+                            <FileText className="h-4 w-4 text-brand group-hover:scale-110 transition-transform" />
+                            • Tehnici nucleare - Surse deschise
+                          </span>
+                          <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-brand" />
+                        </a>
+                        <a
+                          href="/documents/intrebari/Examen_N1_Surse_Inchise.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-3 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                        >
+                          <span className="flex items-center gap-2">
+                            <FileText className="h-4 w-4 text-brand group-hover:scale-110 transition-transform" />
+                            • Tehnici nucleare - Surse închise
+                          </span>
+                          <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-brand" />
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* EXAMEN NIVEL 2 */}
+                    <div className="border border-border p-5 rounded-sm bg-secondary/20 space-y-6">
+                      <div className="flex items-center gap-2 font-display text-lg text-brand font-semibold">
+                        <Award className="h-5 w-5 text-brand" /> Examen Nivel 2
+                      </div>
+
+                      {/* 1. RADIODIAGNOSTIC */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          1. Domeniul: Radiodiagnostic
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <div className="grid gap-2 sm:grid-cols-2">
+                          {[
+                            { name: "Röntgendiagnostic", url: "/documents/intrebari/Examen_N2_Rontgendiagnostic.pdf" },
+                            { name: "Röntgendiagnostic dentar", url: "/documents/intrebari/Examen_N2_Rontgendiagnostic_Dentar.pdf" },
+                            { name: "Ftiziologie", url: "/documents/intrebari/Examen_N2_Ftiziologie.pdf" },
+                            { name: "Medicină nucleară", url: "/documents/intrebari/Examen_N2_Medicina_Nucleara.pdf" },
+                            { name: "Radiologie intervențională", url: "/documents/intrebari/Examen_N2_Radiologie_Interventionala.pdf" },
+                          ].map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                                {item.name}
+                              </span>
+                              <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 2. RADIOTERAPIE */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          2. Domeniul: Radioterapie
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <div className="grid gap-2 sm:grid-cols-2">
+                          {[
+                            { name: "Röntgenterapie", url: "/documents/intrebari/Examen_N2_Rontgenterapie.pdf" },
+                            { name: "Terapie cu surse deschise", url: "/documents/intrebari/Examen_N2_Terapie_Surse_Deschise.pdf" },
+                            { name: "Terapie cu acceleratori de particule", url: "/documents/intrebari/Examen_N2_Terapie_Acceleratori.pdf" },
+                            { name: "Curieterapie (Brachiterapie)", url: "/documents/intrebari/Examen_N2_Curieterapie_Brachiterapie.pdf" },
+                          ].map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                                {item.name}
+                              </span>
+                              <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 3. COMPLEX */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          3. Domeniul: Complex
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <a
+                          href="/documents/intrebari/Examen_N2_Igiena_Radiatiilor.pdf"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group inline-flex w-full"
+                        >
+                          <span className="flex items-center gap-2">
+                            <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                            Igienă radiațiilor
+                          </span>
+                          <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                        </a>
+                      </div>
+
+                      {/* 4. GENERATORI DE RADIATII */}
+                      <div className="bg-card p-4 border border-border rounded-sm">
+                        <div className="text-xs font-semibold text-brand uppercase tracking-wider mb-2">
+                          4. Domeniul: Generatori de radiații
+                        </div>
+                        <div className="text-xs font-medium text-muted-foreground mb-2">Specialitatea:</div>
+                        <div className="grid gap-2">
+                          {[
+                            { name: "Montare, reparare, întreținere, verificare - instalații medicale", url: "/documents/intrebari/Examen_N2_Generatori_Instalatii_Medicale.pdf" },
+                            { name: "Montare, reparare, întreținere, verificare - instalații industriale", url: "/documents/intrebari/Examen_N2_Generatori_Instalatii_Industriale.pdf" },
+                            { name: "Control nedistructiv", url: "/documents/intrebari/Examen_N2_Control_Nedistructiv.pdf" },
+                            { name: "Analize fizice", url: "/documents/intrebari/Examen_N2_Analize_Fizice.pdf" },
+                            { name: "Röntgendiagnostic veterinar", url: "/documents/intrebari/Examen_N2_Rontgendiagnostic_Veterinar.pdf" },
+                            { name: "Control nedistructiv - control bagaje RX", url: "/documents/intrebari/Examen_N2_Control_Bagaje_RX.pdf" },
+                          ].map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="p-2.5 border border-border bg-card rounded-sm flex items-center justify-between text-xs font-medium text-foreground hover:border-brand hover:bg-brand/5 transition-colors group"
+                            >
+                              <span className="flex items-center gap-2">
+                                <FileText className="h-3.5 w-3.5 text-brand group-hover:scale-110 transition-transform" />
+                                {item.name}
+                              </span>
+                              <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-brand" />
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <div className="mt-8 space-y-4">
                   <h4 className="font-display text-lg text-foreground font-medium">
