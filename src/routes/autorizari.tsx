@@ -62,9 +62,10 @@ const categories = [
     icon: Atom,
     ro: "Instalații Nucleare",
     en: "Nuclear Installations",
-    desc_ro: "Autorizarea amplasării, construcției, punerii în funcțiune, exploatării și dezafectării.",
-    desc_en: "Licensing of siting, construction, commissioning, operation and decommissioning.",
-    count: 2,
+    desc_ro: "Autorizarea amplasării, construcției, punerii în funcțiune, exploatării și dezafectării. Cultura de securitate nucleară.",
+    desc_en: "Licensing of siting, construction, commissioning, operation and decommissioning. Nuclear safety culture.",
+    count: 4,
+    customLink: "/instalatii-nucleare",
   },
   {
     id: "constructii",

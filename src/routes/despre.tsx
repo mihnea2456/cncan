@@ -54,7 +54,7 @@ function AboutPage() {
           </p>
           <div className="mt-8 pt-6 border-t border-border">
             <div className="text-xs uppercase tracking-widest text-muted-foreground">{lang === "ro" ? "Președinte" : "President"}</div>
-            <div className="mt-2 font-display text-lg text-foreground">Conducerea CNCAN</div>
+            <div className="mt-2 font-display text-lg text-foreground">Cantemir Marian Ciurea-Ercău</div>
           </div>
         </aside>
       </section>
