@@ -8,7 +8,6 @@ import {
   Atom,
   ArrowRight,
   Download,
-  FileText,
   CheckCircle2,
   Award,
   Search,
@@ -112,15 +111,15 @@ const documents = [
     title_ro: "Formular cerere autorizare Sistem Managementul Calității (SMC)",
     title_en: "Licensing application form for Quality Management System",
     type: "Cerere",
-    fileUrl: "/managementul-calitatii",
+    fileUrl: "/documents/Cerere_Autorizare_SMC_Model_Anexa1.pdf",
   },
   {
     catId: "mc",
     code: "MC-02",
-    title_ro: "Ghid de evaluare și specificații tehnice SMC în domeniul nuclear",
-    title_en: "Evaluation guide and technical specifications for nuclear QMS",
-    type: "Ghid",
-    fileUrl: "/managementul-calitatii",
+    title_ro: "Chestionar tip de evaluare inițială SMC (Model Anexa 2)",
+    title_en: "Initial QMS evaluation questionnaire (Model Annex 2)",
+    type: "Chestionar",
+    fileUrl: "/documents/Chestionar_Evaluare_SMC_Model_Anexa2.pdf",
   },
   {
     catId: "mc",
@@ -395,25 +394,15 @@ function AuthPage() {
                     </div>
 
                     <div className="flex items-center gap-3 self-end md:self-auto">
-                      {doc.catId === "mc" ? (
-                        <Link
-                          to="/managementul-calitatii"
-                          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
-                        >
-                          <ArrowRight className="h-3.5 w-3.5" />
-                          {lang === "ro" ? "Accesează Cerințe SMC" : "Access QMS Requirements"}
-                        </Link>
-                      ) : (
-                        <a
-                          href={doc.fileUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
-                        >
-                          <Download className="h-3.5 w-3.5" />
-                          {lang === "ro" ? "Descarcă Formular" : "Download Form"}
-                        </a>
-                      )}
+                      <a
+                        href={doc.fileUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
+                      >
+                        <Download className="h-3.5 w-3.5" />
+                        {lang === "ro" ? "Deschide PDF" : "Open PDF"}
+                      </a>
                     </div>
                   </div>
                 ))}

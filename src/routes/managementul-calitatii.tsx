@@ -6,11 +6,8 @@ import {
   CheckCircle2,
   Users,
   BookOpen,
-  ArrowRight,
   ClipboardCheck,
   ShieldCheck,
-  Building,
-  HelpCircle,
   ArrowLeft,
   FileCheck,
 } from "lucide-react";
@@ -83,13 +80,13 @@ function QualityManagementPage() {
               </p>
             </div>
             <a
-              href="/documents/Legea_111_1996.pdf"
+              href="/documents/Cerere_Autorizare_SMC_Model_Anexa1.pdf"
               target="_blank"
               rel="noreferrer"
               className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-primary-foreground text-xs font-semibold rounded-sm hover:bg-brand-deep transition-colors shadow-sm"
             >
               <Download className="h-4 w-4" />
-              {lang === "ro" ? "Ordinul CNCAN 65/2003 (NMC)" : "CNCAN Order 65/2003"}
+              {lang === "ro" ? "Deschide Cerere Autorizare (PDF)" : "Open Application PDF"}
             </a>
           </div>
         </div>
@@ -151,27 +148,29 @@ function QualityManagementPage() {
                   {[
                     {
                       num: "01",
-                      title_ro: "Cererea oficială de autorizare",
-                      title_en: "Official licensing application",
-                      desc_ro: "Conform modelului prevăzut în Anexa la Normele NMC-01 (Ordinul 65/2003).",
+                      title_ro: "Cererea oficială de autorizare (Model Anexa 1 la NMC-01)",
+                      title_en: "Official licensing application (Model Annex 1 to NMC-01)",
+                      desc_ro: "Modelul tipizat de cerere adresată Președintelui CNCAN.",
+                      pdfUrl: "/documents/Cerere_Autorizare_SMC_Model_Anexa1.pdf",
                     },
                     {
                       num: "02",
+                      title_ro: "Chestionarul tip de evaluare inițială SMC (Model Anexa 2 la NMC-01)",
+                      title_en: "Initial QMS evaluation questionnaire (Model Annex 2 to NMC-01)",
+                      desc_ro: "Formularul completat privind datele organizației, profilul și resursele.",
+                      pdfUrl: "/documents/Chestionar_Evaluare_SMC_Model_Anexa2.pdf",
+                    },
+                    {
+                      num: "03",
                       title_ro: "Manualul Managementului Calității (MMC)",
                       title_en: "Quality Management Manual (QMM)",
                       desc_ro: "Documentul principal care descrie politica calității, structura organizatorică și responsabilitățile.",
                     },
                     {
-                      num: "03",
+                      num: "04",
                       title_ro: "Procedurile Generale și Specifice de Sistem",
                       title_en: "General and specific system procedures",
                       desc_ro: "Proceduri scrise privind controlul documentelor, audituri interne, neconformități și acțiuni corective.",
-                    },
-                    {
-                      num: "04",
-                      title_ro: "Lista personalului de specialitate și deciziile de numire",
-                      title_en: "Qualified staff list and appointment decisions",
-                      desc_ro: "Organigramă, fișe ale posturilor și atestatele eliberate de CNCAN pentru personalul MC.",
                     },
                     {
                       num: "05",
@@ -180,16 +179,29 @@ function QualityManagementPage() {
                       desc_ro: "Dovada plății tarifului de evaluare și autorizare în contul CNCAN.",
                     },
                   ].map((req, idx) => (
-                    <div key={idx} className="border border-border bg-card p-5 flex gap-4 rounded-sm">
-                      <div className="shrink-0 font-mono text-sm font-bold text-brand bg-secondary h-9 w-9 grid place-items-center rounded-sm">
-                        {req.num}
-                      </div>
-                      <div>
-                        <div className="font-display text-base text-foreground font-medium">
-                          {lang === "ro" ? req.title_ro : req.title_en}
+                    <div key={idx} className="border border-border bg-card p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-sm">
+                      <div className="flex items-start gap-4">
+                        <div className="shrink-0 font-mono text-sm font-bold text-brand bg-secondary h-9 w-9 grid place-items-center rounded-sm">
+                          {req.num}
                         </div>
-                        <div className="mt-1 text-xs text-muted-foreground">{req.desc_ro}</div>
+                        <div>
+                          <div className="font-display text-base text-foreground font-medium">
+                            {lang === "ro" ? req.title_ro : req.title_en}
+                          </div>
+                          <div className="mt-1 text-xs text-muted-foreground">{req.desc_ro}</div>
+                        </div>
                       </div>
+                      {req.pdfUrl && (
+                        <a
+                          href={req.pdfUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand/10 text-brand hover:bg-brand hover:text-white rounded-sm text-xs font-semibold transition-colors"
+                        >
+                          <Download className="h-3.5 w-3.5" />
+                          {lang === "ro" ? "Deschide PDF" : "Open PDF"}
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -203,34 +215,28 @@ function QualityManagementPage() {
                   </h4>
                   <div className="space-y-3">
                     <a
-                      href="#"
+                      href="/documents/Cerere_Autorizare_SMC_Model_Anexa1.pdf"
+                      target="_blank"
+                      rel="noreferrer"
                       className="p-3 border border-border rounded-sm flex items-center justify-between hover:bg-secondary/40 transition-colors text-xs font-medium text-foreground"
                     >
                       <span className="flex items-center gap-2">
                         <FileText className="h-4 w-4 text-brand" />
-                        Cerere Autorizare SMC (Model NMC-01)
+                        Cerere Autorizare SMC (Anexa 1)
                       </span>
-                      <Download className="h-4 w-4 text-muted-foreground" />
+                      <Download className="h-4 w-4 text-brand" />
                     </a>
                     <a
-                      href="#"
+                      href="/documents/Chestionar_Evaluare_SMC_Model_Anexa2.pdf"
+                      target="_blank"
+                      rel="noreferrer"
                       className="p-3 border border-border rounded-sm flex items-center justify-between hover:bg-secondary/40 transition-colors text-xs font-medium text-foreground"
                     >
                       <span className="flex items-center gap-2">
                         <FileText className="h-4 w-4 text-brand" />
-                        Chestionar Evaluare Inițială SMC
+                        Chestionar Evaluare SMC (Anexa 2)
                       </span>
-                      <Download className="h-4 w-4 text-muted-foreground" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 border border-border rounded-sm flex items-center justify-between hover:bg-secondary/40 transition-colors text-xs font-medium text-foreground"
-                    >
-                      <span className="flex items-center gap-2">
-                        <FileText className="h-4 w-4 text-brand" />
-                        Ghid Întocmire Manualul Calității
-                      </span>
-                      <Download className="h-4 w-4 text-muted-foreground" />
+                      <Download className="h-4 w-4 text-brand" />
                     </a>
                   </div>
                 </div>
@@ -289,22 +295,14 @@ function QualityManagementPage() {
                   </h4>
                   <div className="space-y-3">
                     <a
-                      href="#"
+                      href="/documents/Cerere_Autorizare_SMC_Model_Anexa1.pdf"
+                      target="_blank"
+                      rel="noreferrer"
                       className="p-3 border border-border rounded-sm flex items-center justify-between hover:bg-secondary/40 transition-colors text-xs font-medium text-foreground"
                     >
                       <span className="flex items-center gap-2">
                         <FileCheck className="h-4 w-4 text-brand" />
                         Cerere Atestare Responsabil SMC
-                      </span>
-                      <Download className="h-4 w-4 text-muted-foreground" />
-                    </a>
-                    <a
-                      href="#"
-                      className="p-3 border border-border rounded-sm flex items-center justify-between hover:bg-secondary/40 transition-colors text-xs font-medium text-foreground"
-                    >
-                      <span className="flex items-center gap-2">
-                        <FileCheck className="h-4 w-4 text-brand" />
-                        Model Curicculum Vitae & Fișă Experiență
                       </span>
                       <Download className="h-4 w-4 text-muted-foreground" />
                     </a>
