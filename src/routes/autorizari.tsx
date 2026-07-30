@@ -17,7 +17,6 @@ import {
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
 import { useState } from "react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/autorizari")({
   head: () => ({
@@ -46,7 +45,7 @@ const categories = [
     en: "Quality Management (QM)",
     desc_ro: "Documente specifice, cereri de autorizare și evaluare pentru Sistemul de Management al Calității (SMC).",
     desc_en: "Specific documents, licensing forms and evaluation for Quality Management Systems.",
-    count: 5,
+    count: 3,
   },
   {
     id: "surse",
@@ -55,7 +54,7 @@ const categories = [
     en: "Ionizing Radiation Sources",
     desc_ro: "Cereri și dosare complete pentru deținere, utilizare, producție, import/export și transfer.",
     desc_en: "Full application dossiers for possession, use, production, import/export and transfer.",
-    count: 8,
+    count: 4,
   },
   {
     id: "instalatii",
@@ -64,7 +63,7 @@ const categories = [
     en: "Nuclear Installations",
     desc_ro: "Autorizarea amplasării, construcției, punerii în funcțiune, exploatării și dezafectării.",
     desc_en: "Licensing of siting, construction, commissioning, operation and decommissioning.",
-    count: 6,
+    count: 2,
   },
   {
     id: "constructii",
@@ -73,7 +72,7 @@ const categories = [
     en: "Nuclear-Specific Constructions",
     desc_ro: "Autorizări pentru proiectare și construcție cu specific nuclear.",
     desc_en: "Authorizations for nuclear-specific design and construction.",
-    count: 4,
+    count: 1,
   },
   {
     id: "transport",
@@ -82,7 +81,7 @@ const categories = [
     en: "Radioactive Material Transport",
     desc_ro: "Aprobări pachet-colet, expediere, tranzit internațional.",
     desc_en: "Package approvals, shipping, international transit.",
-    count: 5,
+    count: 1,
   },
   {
     id: "deseuri",
@@ -91,7 +90,7 @@ const categories = [
     en: "Radioactive Waste",
     desc_ro: "Colectare, tratare, condiționare, depozitare intermediară și definitivă.",
     desc_en: "Collection, treatment, conditioning, interim and final disposal.",
-    count: 4,
+    count: 1,
   },
   {
     id: "personal",
@@ -100,7 +99,7 @@ const categories = [
     en: "Occupationally Exposed Staff",
     desc_ro: "Permise de exercitare, atestări responsabil cu securitatea radiologică.",
     desc_en: "Practice permits, radiation safety officer accreditations.",
-    count: 3,
+    count: 1,
   },
 ];
 
@@ -235,37 +234,21 @@ function AuthPage() {
       <section className="container-page py-12 md:py-16">
         {/* HERO CENTRALIZATOR NOTICE */}
         <div className="mb-12 rounded-sm border border-brand/30 bg-gradient-to-r from-brand-deep/5 via-card to-brand/5 p-6 md:p-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-3">
-                <FolderOpen className="h-4 w-4" />
-                {lang === "ro" ? "Centralizator Documente Autorizare" : "Centralized Licensing Portal"}
-              </div>
-              <h2 className="font-display text-2xl md:text-3xl text-brand-deep">
-                {lang === "ro"
-                  ? "Acces direct la cereri, dosare și documente specifice"
-                  : "Direct access to applications, dossiers and specific documents"}
-              </h2>
-              <p className="mt-2 text-sm text-muted-foreground max-w-2xl leading-relaxed">
-                {lang === "ro"
-                  ? "Selectați categoria dorită (Managementul Calității, Surse de Radiații, Instalații etc.) pentru a deschide sau descărca rapid dosarele complete de autorizare."
-                  : "Select your desired category (Quality Management, Radiation Sources, Installations etc.) to quickly access and download licensing files."}
-              </p>
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-semibold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-3">
+              <FolderOpen className="h-4 w-4" />
+              {lang === "ro" ? "Centralizator Documente Autorizare" : "Centralized Licensing Portal"}
             </div>
-            <div className="shrink-0 flex flex-wrap gap-2">
-              <button
-                onClick={() => setActiveCat("mc")}
-                className="px-4 py-2 bg-brand text-primary-foreground text-xs font-semibold rounded-sm hover:bg-brand-deep transition-colors"
-              >
-                {lang === "ro" ? "Managementul Calității" : "Quality Management"}
-              </button>
-              <button
-                onClick={() => setActiveCat("surse")}
-                className="px-4 py-2 bg-gold text-brand-deep text-xs font-semibold rounded-sm hover:bg-gold/90 transition-colors"
-              >
-                {lang === "ro" ? "Surse Radiații" : "Radiation Sources"}
-              </button>
-            </div>
+            <h2 className="font-display text-2xl md:text-3xl text-brand-deep">
+              {lang === "ro"
+                ? "Acces direct la cereri, dosare și documente specifice"
+                : "Direct access to applications, dossiers and specific documents"}
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground max-w-3xl leading-relaxed">
+              {lang === "ro"
+                ? "Selectați categoria dorită mai jos (Managementul Calității, Surse de Radiații, Instalații etc.) pentru a deschide sau descărca rapid dosarele complete de autorizare."
+                : "Select your desired category below (Quality Management, Radiation Sources, Installations etc.) to quickly access and download licensing files."}
+            </p>
           </div>
         </div>
 
@@ -286,7 +269,7 @@ function AuthPage() {
               >
                 <div className="flex items-start justify-between">
                   <Icon className={`h-7 w-7 ${isSelected ? "text-brand-deep" : "text-brand"}`} strokeWidth={1.4} />
-                  <span className="text-xs font-mono text-muted-foreground">{String(c.count).padStart(2, "0")} documente</span>
+                  <span className="text-xs font-mono text-muted-foreground">{String(c.count).padStart(2, "0")} doc.</span>
                 </div>
                 <h3 className="mt-6 font-display text-xl text-brand-deep">{lang === "ro" ? c.ro : c.en}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === "ro" ? c.desc_ro : c.desc_en}</p>
