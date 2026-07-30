@@ -21,6 +21,8 @@ import {
   ExternalLink,
   HelpCircle as QuestionMarkIcon,
   BookMarked,
+  Clock,
+  AlertTriangle,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -35,7 +37,7 @@ export const Route = createFileRoute("/surse-de-radiatii-ionizante")({
       {
         name: "description",
         content:
-          "Permise de exercitare (Nivel 1, 2, 3), clasificări, proceduri eliberare, sistem de autorizare, reglementări radioprotecție și RNDSR.",
+          "Permise de exercitare (Nivel 1, 2, 3), prelungire valabilitate Nivel 3, clasificări, proceduri eliberare, sistem de autorizare, reglementări radioprotecție și RNDSR.",
       },
       { property: "og:title", content: "Surse de Radiații Ionizante — CNCAN" },
       {
@@ -615,6 +617,87 @@ function RadiationSourcesPage() {
                     ? "Permisul de Nivel 3 se adresează experților în protecție radiologică și experților în fizică medicală deținători de titluri de doctor sau experiență înaltă de minim 5 ani în domeniul nuclear."
                     : "Level 3 permits target radiation protection experts and medical physics experts."}
                 </p>
+
+                {/* NEW DEDICATED SECTION: DOCUMENTATIA PENTRU PRELUNGIREA NIVEL 3 */}
+                <div className="mt-10 border border-brand/30 bg-card p-6 md:p-8 rounded-sm shadow-sm">
+                  <div className="flex items-center justify-between gap-4 mb-6 pb-4 border-b border-border">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-10 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
+                        <Clock className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-display text-xl text-brand-deep font-semibold">
+                          Documentația pentru Prelungirea Perioadei de Valabilitate a Permisului de Nivel 3
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          Lista completă a rapoartelor și dovezilor necesare pentru prelungirea permisului de exercitare de Nivel 3.
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href="/documents/Cerere_Raport_Prelungire_Nivel3.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-semibold hover:bg-brand-deep transition-colors"
+                    >
+                      <Download className="h-4 w-4" /> Descarcă Formular Prelungire (PDF)
+                    </a>
+                  </div>
+
+                  <div className="space-y-4">
+                    {[
+                      {
+                        num: "01",
+                        title: "Extras din evidența titularilor / solicitanților de autorizații",
+                        desc: "Extras detaliat privind titularii sau solicitanții de autorizații pentru care expertul de Nivel 3 a oferit consultanță tehnică de specialitate.",
+                      },
+                      {
+                        num: "02",
+                        title: "Raport privind participarea la cursuri de radioprotecție (ultimii 5 ani)",
+                        desc: "Raport justificativ privind participarea solicitantului în ultimii 5 ani la cursuri de pregătire în radioprotecție, în calitate de lector sau cursant.",
+                      },
+                      {
+                        num: "03",
+                        title: "Dovada participării la elaborarea de standarde, norme și lucrări științifice",
+                        desc: "Dovada activității desfășurate în perioada de valabilitate a permisului la elaborarea de standarde, norme sau lucrări științifice publicate în domeniul radioprotecției.",
+                      },
+                      {
+                        num: "04",
+                        title: "Raport privind incidente / accidente radiologice și analiza cauzelor",
+                        desc: "Raport detaliat privind eventualele incidente sau accidente radiologice petrecute în unitățile consultate, analiza cauzelor și măsurile corective/preventive recomandate pentru preîntâmpinarea repetării lor.",
+                      },
+                      {
+                        num: "05",
+                        title: "Raport privind contribuția personală la aplicarea principiului ALARA",
+                        desc: "Raport privind contribuția personală adusă la aplicarea principiului ALARA (As Low As Reasonably Achievable) în evaluările de securitate radiologică efectuate.",
+                      },
+                      {
+                        num: "06",
+                        title: "Semnalarea altor observații și comentarii de securitate radiologică",
+                        desc: "Semnalarea altor observații, comentarii sau evenimente relevante care merită a fi analizate din punct de vedere al securității radiologice.",
+                      },
+                      {
+                        num: "07",
+                        title: "Raport al sancțiunilor primite (dacă este cazul)",
+                        desc: "Raport privind eventualele sancțiuni primite referitoare la încălcări ale normelor de securitate radiologică în perioada de valabilitate a permisului.",
+                      },
+                    ].map((docItem, idx) => (
+                      <div key={idx} className="border border-border p-4 rounded-sm bg-secondary/15 flex items-start gap-4">
+                        <div className="shrink-0 font-mono text-xs font-bold text-brand bg-brand/10 h-8 w-8 grid place-items-center rounded-sm">
+                          {docItem.num}
+                        </div>
+                        <div>
+                          <div className="font-display text-base text-brand-deep font-semibold">
+                            {docItem.title}
+                          </div>
+                          <div className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                            {docItem.desc}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
                 <div className="mt-8 space-y-4">
                   <h4 className="font-display text-lg text-foreground font-medium">Procedura specială Nivel 3:</h4>
