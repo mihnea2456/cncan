@@ -8,14 +8,70 @@ export const Route = createFileRoute("/")({
 });
 
 const tasks = [
-  { icon: FileCheck, ro: "Depune cerere autorizație", en: "Submit license application", desc_ro: "Instalații, surse, transport, deșeuri", desc_en: "Installations, sources, transport, waste" },
-  { icon: ClipboardList, ro: "Verifică stadiul cererii", en: "Check application status", desc_ro: "Cu numărul de înregistrare", desc_en: "Using your reference number" },
-  { icon: Scale, ro: "Consultă tariful aplicabil", en: "Check applicable fees", desc_ro: "Ord. 155/2005 și modificări", desc_en: "Order 155/2005 and amendments" },
-  { icon: Search, ro: "Caută în legislație", en: "Search legislation", desc_ro: "Legi, ordonanțe, norme CNCAN", desc_en: "Laws, ordinances, CNCAN norms" },
-  { icon: Radiation, ro: "Notificare surse radiație", en: "Radiation source notification", desc_ro: "Registru național de evidență", desc_en: "National evidence registry" },
-  { icon: Truck, ro: "Aprobare transport", en: "Transport approval", desc_ro: "Materiale radioactive și nucleare", desc_en: "Radioactive & nuclear materials" },
-  { icon: Trash2, ro: "Gestiune deșeuri radioactive", en: "Radioactive waste management", desc_ro: "Depozitare, dezafectare, transfer", desc_en: "Storage, decommissioning, transfer" },
-  { icon: ShieldAlert, ro: "Raportează un incident", en: "Report an incident", desc_ro: "Notificare 24/7 către CNCAN", desc_en: "24/7 notification to CNCAN" },
+  {
+    icon: FileCheck,
+    to: "/autorizari",
+    ro: "Depune cerere autorizație",
+    en: "Submit license application",
+    desc_ro: "Centralizator dosare: Surse radiații, Managementul calității, Instalații",
+    desc_en: "Centralized files: Radiation sources, Quality management, Installations",
+  },
+  {
+    icon: ClipboardList,
+    to: "/autorizari#stadiu",
+    ro: "Verifică stadiul cererii",
+    en: "Check application status",
+    desc_ro: "Cu numărul de înregistrare",
+    desc_en: "Using your reference number",
+  },
+  {
+    icon: Scale,
+    to: "/autorizari#tarife",
+    ro: "Consultă tariful aplicabil",
+    en: "Check applicable fees",
+    desc_ro: "Ord. 155/2005 și modificări",
+    desc_en: "Order 155/2005 and amendments",
+  },
+  {
+    icon: Search,
+    to: "/legislatie",
+    ro: "Caută în legislație",
+    en: "Search legislation",
+    desc_ro: "Legi, ordonanțe, norme CNCAN",
+    desc_en: "Laws, ordinances, CNCAN norms",
+  },
+  {
+    icon: Radiation,
+    to: "/autorizari?cat=surse",
+    ro: "Notificare surse radiație",
+    en: "Radiation source notification",
+    desc_ro: "Registru național de evidență",
+    desc_en: "National evidence registry",
+  },
+  {
+    icon: Truck,
+    to: "/autorizari?cat=transport",
+    ro: "Aprobare transport",
+    en: "Transport approval",
+    desc_ro: "Materiale radioactive și nucleare",
+    desc_en: "Radioactive & nuclear materials",
+  },
+  {
+    icon: Trash2,
+    to: "/autorizari?cat=deseuri",
+    ro: "Gestiune deșeuri radioactive",
+    en: "Radioactive waste management",
+    desc_ro: "Depozitare, dezafectare, transfer",
+    desc_en: "Storage, decommissioning, transfer",
+  },
+  {
+    icon: ShieldAlert,
+    to: "/urgente",
+    ro: "Raportează un incident",
+    en: "Report an incident",
+    desc_ro: "Notificare 24/7 către CNCAN",
+    desc_en: "24/7 notification to CNCAN",
+  },
 ];
 
 const news = [
@@ -126,8 +182,9 @@ function HomePage() {
           {tasks.map((task, i) => {
             const Icon = task.icon;
             return (
-              <button
+              <Link
                 key={i}
+                to={task.to}
                 className="group text-left bg-card p-6 min-h-[180px] flex flex-col justify-between transition-colors hover:bg-accent/50"
               >
                 <Icon className="h-6 w-6 text-brand" strokeWidth={1.5} />
@@ -139,10 +196,10 @@ function HomePage() {
                     {lang === "ro" ? task.desc_ro : task.desc_en}
                   </div>
                   <div className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-brand opacity-0 group-hover:opacity-100 transition-opacity">
-                    {lang === "ro" ? "Continuă" : "Continue"} <ArrowRight className="h-3 w-3" />
+                    {lang === "ro" ? "Accesează" : "Access"} <ArrowRight className="h-3 w-3" />
                   </div>
                 </div>
-              </button>
+              </Link>
             );
           })}
         </div>
@@ -198,8 +255,10 @@ function HomePage() {
               </p>
             </div>
             <div className="flex md:justify-end">
-              <Button size="lg" className="bg-gold text-brand-deep hover:bg-gold/90 rounded-sm h-12 px-6">
-                {lang === "ro" ? "Autentificare portal" : "Portal sign in"} <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild size="lg" className="bg-gold text-brand-deep hover:bg-gold/90 rounded-sm h-12 px-6 font-medium">
+                <Link to="/autorizari">
+                  {lang === "ro" ? "Centralizator autorizări" : "Authorization portal"} <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>
