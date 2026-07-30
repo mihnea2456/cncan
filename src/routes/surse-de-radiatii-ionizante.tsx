@@ -943,34 +943,7 @@ function RadiationSourcesPage() {
                   Cerințe legale privind atestarea responsabililor cu securitatea radiologică (RSR), responsabililor cu gestiunea surselor și cadrelor medicale/tehnice.
                 </p>
 
-                {/* NEW DEDICATED CARD: LISTA POSESORILOR PERMISULUI NIVEL 3 */}
-                <div className="border border-brand/40 bg-gradient-to-r from-brand-deep/5 via-card to-brand/10 p-6 md:p-8 rounded-sm shadow-sm mb-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                    <div className="flex items-start gap-4">
-                      <div className="h-12 w-12 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
-                        <UserCheck className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <h4 className="font-display text-xl text-brand-deep font-bold">
-                          LISTA POSESORILOR PERMISULUI DE EXERCITARE NIVEL 3
-                        </h4>
-                        <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                          Consultați registrul oficial public actualizat CNCAN al persoanelor fizice deținătoare ale permisului de exercitare Nivel 3 (Experți în protecție radiologică și fizică medicală).
-                        </p>
-                      </div>
-                    </div>
-                    <a
-                      href="/documents/Lista_Posesorilor_Permisului_de_Exercitare_Nivel_3.pdf"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-primary-foreground text-xs font-semibold rounded-sm hover:bg-brand-deep transition-colors shadow-sm"
-                    >
-                      <Download className="h-4 w-4" /> Descarcă Lista Oficială (PDF)
-                    </a>
-                  </div>
-                </div>
-
-                {/* TAXE SI TARIFE HYPERLINKS CARD */}
+                {/* 1. TAXE SI TARIFE HYPERLINKS CARD */}
                 <div className="border border-brand/30 bg-card p-6 md:p-8 rounded-sm shadow-sm mb-8">
                   <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
                     <div className="h-10 w-10 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
@@ -1025,6 +998,33 @@ function RadiationSourcesPage() {
                       <div className="mt-2 text-xs text-muted-foreground flex items-center gap-1">
                         <ExternalLink className="h-3 w-3" /> Deschide PDF în tab nou
                       </div>
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. DEDICATED CARD: LISTA POSESORILOR PERMISULUI NIVEL 3 (PLACED AFTER TAXES) */}
+                <div className="border border-brand/40 bg-gradient-to-r from-brand-deep/5 via-card to-brand/10 p-6 md:p-8 rounded-sm shadow-sm mb-8">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div className="flex items-start gap-4">
+                      <div className="h-12 w-12 rounded-sm bg-brand/10 text-brand grid place-items-center shrink-0">
+                        <UserCheck className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <h4 className="font-display text-xl text-brand-deep font-bold">
+                          LISTA POSESORILOR PERMISULUI DE EXERCITARE NIVEL 3
+                        </h4>
+                        <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                          Consultați registrul oficial public actualizat CNCAN al persoanelor fizice deținătoare ale permisului de exercitare Nivel 3 (Experți în protecție radiologică și fizică medicală).
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href="/documents/Lista_Posesorilor_Permisului_de_Exercitare_Nivel_3.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-primary-foreground text-xs font-semibold rounded-sm hover:bg-brand-deep transition-colors shadow-sm"
+                    >
+                      <Download className="h-4 w-4" /> Descarcă Lista Oficială (PDF)
                     </a>
                   </div>
                 </div>
