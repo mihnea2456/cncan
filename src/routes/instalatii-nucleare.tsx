@@ -11,7 +11,6 @@ import {
   Layers,
   Scale,
   Award,
-  AlertCircle,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -309,22 +308,6 @@ function NuclearInstallationsPage() {
               </div>
             </div>
 
-            {/* INFO BOX ON HOW TO REPLACE / UPLOAD THE DOCUMENTATION */}
-            <div className="rounded-sm border border-gold/30 bg-gold/5 p-5 flex items-start gap-4">
-              <AlertCircle className="h-5 w-5 text-gold-deep shrink-0 mt-0.5" />
-              <div className="text-xs text-muted-foreground space-y-1">
-                <div className="font-semibold text-foreground">
-                  {lang === "ro"
-                    ? "Informație pentru administrarea fișierelor"
-                    : "Information for document management"}
-                </div>
-                <p>
-                  {lang === "ro"
-                    ? "Toate cele 4 hyperlinkuri de mai sus sunt active și conectate la fișiere PDF din directorul /public/documents/cultura/. Când doriți să încărcați sau să înlocuiți versiunea oficială a oriecăruia dintre cele 4 documente, adăugați pur și simplu fișierul PDF cu același nume în directorul /public/documents/cultura/."
-                    : "All 4 hyperlinks above are active and linked to PDF files in /public/documents/cultura/. Whenever you wish to upload or replace the official version of any of the 4 documents, simply put the PDF file with the same name in the /public/documents/cultura/ directory."}
-                </p>
-              </div>
-            </div>
           </TabsContent>
 
           {/* TAB 3: GHIDURI & REGLEMENTARI */}
