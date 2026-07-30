@@ -24,9 +24,9 @@ export const Route = createFileRoute("/autorizari")({
       {
         name: "description",
         content:
-          "Centralizator documente de autorizare CNCAN: Managementul Calității (MC), Surse de radiații ionizante, instalații nucleare, transport și deșeuri.",
+          "Portal autorizare CNCAN: Managementul Calității (MC), Surse de radiații ionizante, instalații nucleare, transport și deșeuri.",
       },
-      { property: "og:title", content: "Centralizator Autorizări CNCAN" },
+      { property: "og:title", content: "Portal Autorizări CNCAN" },
       {
         property: "og:description",
         content: "Formulare, cereri și dosare complete de autorizare pentru activități nucleare.",
@@ -233,26 +233,6 @@ function AuthPage() {
     <>
       <PageHeader eyebrow="01" title={t("auth.title")} subtitle={t("auth.sub")} />
       <section className="container-page py-12 md:py-16">
-        {/* HERO CENTRALIZATOR NOTICE */}
-        <div className="mb-12 rounded-sm border border-brand/30 bg-gradient-to-r from-brand-deep/5 via-card to-brand/5 p-6 md:p-8">
-          <div>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-3">
-              <FolderOpen className="h-4 w-4" />
-              {lang === "ro" ? "Centralizator Documente Autorizare" : "Centralized Licensing Portal"}
-            </div>
-            <h2 className="font-display text-2xl md:text-3xl text-brand-deep">
-              {lang === "ro"
-                ? "Acces direct la cereri, dosare și documente specifice"
-                : "Direct access to applications, dossiers and specific documents"}
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground max-w-3xl leading-relaxed">
-              {lang === "ro"
-                ? "Selectați categoria dorită mai jos (Managementul Calității, Surse de Radiații, Instalații etc.) pentru a deschide sau descărca rapid dosarele complete de autorizare."
-                : "Select your desired category below (Quality Management, Radiation Sources, Installations etc.) to quickly access and download licensing files."}
-            </p>
-          </div>
-        </div>
-
         {/* CATEGORIES GRID */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((c, i) => {
