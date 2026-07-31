@@ -30,7 +30,7 @@ class PDF(FPDF):
 docs = [
     (
         "Norme_Constructii_Nucleare.pdf",
-        "NORME PRIVIND CONSTRUCTIILE CU SPECIFIC NUCLEAR",
+        "NORMELE PRIVIND AUTORIZAREA EXECUTARII CONSTRUCTIILOR CU SPECIFIC NUCLEARE, APROBATE PRIN ORDINUL NR 407/2005 AL PRESEDINTELUI CNCAN DIN 21/12/2005 PUBLICAT IN MONITORUL OFICIAL",
         "Reglementari Emise de CNCAN — NS-CN-01",
         "Prezentele norme stabilesc cerintele obligatorii de securitate nucleara, de rezistenta si stabilitate structurala, precizand criteriile de calitate pentru proiectarea, executia, verificarea si incercarile pe amplasament ale constructiilor cu specific nuclear din Romania.\n\nCapitole principale:\n1. Domeniu de aplicare si definitii tehnice specifice\n2. Criterii de clasificare seismica si de securitate nucleara a structurilor\n3. Cerinte privind proiectarea structurala si protectia impotriva riscurilor externe\n4. Asigurarea calitatii si inspeciile CNCAN in faza de executie a constructiilor nucleare\n5. Documente justificative necesare pentru acceptarea lucrarilor de construire."
     ),

@@ -41,8 +41,10 @@ const regulationsDocuments = [
     id: "NS-CN-01",
     subSection_ro: "Norme",
     subSection_en: "Norms",
-    title_ro: "Norme privind construcțiile cu specific nuclear",
-    title_en: "Norms on nuclear-specific constructions",
+    title_ro:
+      "Normele privind autorizarea executării construcțiilor cu specific nucleare, aprobate prin ordinul nr 407/2005 al președintelui CNCAN din 21/12/2005 Publicat in Monitorul Oficial",
+    title_en:
+      "Norms on licensing the execution of nuclear-specific constructions, approved by CNCAN President Order no. 407/2005 of 21/12/2005, Published in the Official Gazette",
     desc_ro:
       "Cerințe tehnice, criterii de clasificare seismică și cerințe obligatorii de calitate pentru proiectarea, execuția, verificarea și încercările pe amplasament ale construcțiilor nucleare.",
     desc_en:
