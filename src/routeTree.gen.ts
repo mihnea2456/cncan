@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AutorizariRouteImport } from './routes/autorizari'
 import { Route as ComunicateRouteImport } from './routes/comunicate'
+import { Route as ConstructiiNucleareRouteImport } from './routes/constructii-nucleare'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DespreRouteImport } from './routes/despre'
 import { Route as InstalatiiNucleareRouteImport } from './routes/instalatii-nucleare'
@@ -34,6 +35,11 @@ const AutorizariRoute = AutorizariRouteImport.update({
 const ComunicateRoute = ComunicateRouteImport.update({
   id: '/comunicate',
   path: '/comunicate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConstructiiNucleareRoute = ConstructiiNucleareRouteImport.update({
+  id: '/constructii-nucleare',
+  path: '/constructii-nucleare',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/autorizari': typeof AutorizariRoute
   '/comunicate': typeof ComunicateRoute
+  '/constructii-nucleare': typeof ConstructiiNucleareRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/autorizari': typeof AutorizariRoute
   '/comunicate': typeof ComunicateRoute
+  '/constructii-nucleare': typeof ConstructiiNucleareRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/autorizari': typeof AutorizariRoute
   '/comunicate': typeof ComunicateRoute
+  '/constructii-nucleare': typeof ConstructiiNucleareRoute
   '/contact': typeof ContactRoute
   '/despre': typeof DespreRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/'
     | '/autorizari'
     | '/comunicate'
+    | '/constructii-nucleare'
     | '/contact'
     | '/despre'
     | '/instalatii-nucleare'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/'
     | '/autorizari'
     | '/comunicate'
+    | '/constructii-nucleare'
     | '/contact'
     | '/despre'
     | '/instalatii-nucleare'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/'
     | '/autorizari'
     | '/comunicate'
+    | '/constructii-nucleare'
     | '/contact'
     | '/despre'
     | '/instalatii-nucleare'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AutorizariRoute: typeof AutorizariRoute
   ComunicateRoute: typeof ComunicateRoute
+  ConstructiiNucleareRoute: typeof ConstructiiNucleareRoute
   ContactRoute: typeof ContactRoute
   DespreRoute: typeof DespreRoute
   InstalatiiNucleareRoute: typeof InstalatiiNucleareRoute
@@ -195,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/comunicate'
       fullPath: '/comunicate'
       preLoaderRoute: typeof ComunicateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/constructii-nucleare': {
+      id: '/constructii-nucleare'
+      path: '/constructii-nucleare'
+      fullPath: '/constructii-nucleare'
+      preLoaderRoute: typeof ConstructiiNucleareRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AutorizariRoute: AutorizariRoute,
   ComunicateRoute: ComunicateRoute,
+  ConstructiiNucleareRoute: ConstructiiNucleareRoute,
   ContactRoute: ContactRoute,
   DespreRoute: DespreRoute,
   InstalatiiNucleareRoute: InstalatiiNucleareRoute,

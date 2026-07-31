@@ -72,9 +72,10 @@ const categories = [
     icon: Building2,
     ro: "Construcții cu Specific Nuclear",
     en: "Nuclear-Specific Constructions",
-    desc_ro: "Autorizări pentru proiectare și construcție cu specific nuclear.",
-    desc_en: "Authorizations for nuclear-specific design and construction.",
-    count: 1,
+    desc_ro: "Reglementări emise de CNCAN: Norme tehnice și Autorizații construcții/desființare.",
+    desc_en: "CNCAN Regulations: Technical norms and Construction/decommissioning authorizations.",
+    count: 2,
+    customLink: "/constructii-nucleare",
   },
   {
     id: "transport",
