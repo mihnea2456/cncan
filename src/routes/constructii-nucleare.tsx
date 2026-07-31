@@ -114,7 +114,7 @@ function NuclearConstructionsPage() {
               <FolderOpen className="h-4 w-4 mr-2" />
               {lang === "ro" ? "2. Reglementări Emise de CNCAN" : "2. CNCAN Regulations"}
               <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-gold/20 text-gold border border-gold/30">
-                2 Sub-secțiuni
+                2 Documente
               </span>
             </TabsTrigger>
             <TabsTrigger
@@ -206,7 +206,7 @@ function NuclearConstructionsPage() {
               <div className="max-w-3xl">
                 <div className="inline-flex items-center gap-2 text-xs font-semibold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-3">
                   <FolderOpen className="h-4 w-4" />
-                  {lang === "ro" ? "SUB-SECȚIUNE REGLEMENTĂRI EMISE DE CNCAN" : "CNCAN REGULATIONS SUB-SECTION"}
+                  {lang === "ro" ? "REGLEMENTĂRI EMISE DE CNCAN" : "CNCAN REGULATIONS"}
                 </div>
                 <h2 className="font-display text-2xl md:text-3xl text-brand-deep">
                   {lang === "ro"
@@ -227,8 +227,8 @@ function NuclearConstructionsPage() {
                 <div>
                   <h3 className="font-display text-xl text-brand-deep">
                     {lang === "ro"
-                      ? "Sub-secțiuni și documentație oficială (2 Sub-secțiuni)"
-                      : "Sub-sections and official documentation (2 Sub-sections)"}
+                      ? "Documentație oficială și reglementări"
+                      : "Official documentation and regulations"}
                   </h3>
                 </div>
                 <span className="text-xs font-mono text-muted-foreground">PDF Download • Deschidere document</span>
