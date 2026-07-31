@@ -220,65 +220,129 @@ function RadioactiveTransportPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {[
-                {
-                  code: "NDR-01",
-                  ro: "Norme fundamentale pentru transportul în siguranță al materialelor radioactive",
-                  en: "Fundamental norms for the safe transport of radioactive materials",
-                  desc_ro:
-                    "Stabilesc standardele obligatorii pentru proiectarea coletelor, etichetare, indexul de transport (IT), limitele de iradiere la suprafața vehiculelor și cerințele de radioprotecție operațională.",
-                  desc_en:
-                    "Establishes mandatory standards for package design, labeling, transport index (TI), surface radiation limits, and operational radiation protection rules.",
-                },
-                {
-                  code: "NS-TR-02",
-                  ro: "Reglementări privind securitatea fizică a transporturilor de materiale nucleare și radioactive",
-                  en: "Regulations on physical security of nuclear and radioactive material transport",
-                  desc_ro:
-                    "Măsurile de protecție fizică, monitorizare prin GPS, escortă specializată și securizarea rutelor în timpul transportului terestru sau aerian.",
-                  desc_en:
-                    "Physical protection measures, GPS tracking, specialized escort, and route security during ground or air transport.",
-                },
-                {
-                  code: "ADR / RID / IMDG",
-                  ro: "Acorduri Internaționale (Clasa 7 — Mărfuri Periculoase)",
-                  en: "International Agreements (Class 7 — Dangerous Goods)",
-                  desc_ro:
-                    "Aplicarea directă a prevederilor ADR (rutier), RID (feroviar), IMDG (maritim) și ICAO/IATA (aerian) privind marcarea, placarea și documentația de transport.",
-                  desc_en:
-                    "Direct application of ADR (road), RID (rail), IMDG (maritime), and ICAO/IATA (air) regarding marking, placarding, and transport documentation.",
-                },
-                {
-                  code: "OM-TR-04",
-                  ro: "Norme privind raportarea evenimentelor și intervenția în caz de accident la transport",
-                  en: "Norms on event reporting and emergency intervention in transport accidents",
-                  desc_ro:
-                    "Procedurile operaționale de alertare a autorităților, delimitarea zonei periculoase și coordonarea cu Inspectoratul General pentru Situații de Urgență (IGSU) și CNCAN.",
-                  desc_en:
-                    "Operational procedures for alerting authorities, establishing exclusion zones, and coordinating with Emergency Situations Inspectorate and CNCAN.",
-                },
-              ].map((reg, idx) => (
-                <div
-                  key={idx}
-                  className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
-                      {reg.code}
-                    </span>
-                    <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
-                      {lang === "ro" ? reg.ro : reg.en}
-                    </h4>
-                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                      {lang === "ro" ? reg.desc_ro : reg.desc_en}
+              {/* ITEM 1: LEGE NR. 111/1996 (CLICKABLE LINK) */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    Lege nr. 111/1996
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    <Link to="/legea-111" className="hover:underline text-brand flex items-center gap-1.5">
+                      {lang === "ro" ? "Lege nr. 111/1996" : "Law no. 111/1996"}
+                      <ExternalLink className="h-4 w-4 shrink-0" />
+                    </Link>
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    Lege nr. 111/1996 din 10/10/1996 Republicat in Monitorul Oficial, Partea I nr. 552 din 27/06/2006 privind desfasurarea in siguranta, reglementarea, autorizarea si controlul activitatilor nucleare.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <Link to="/legea-111" className="hover:underline">
+                    {lang === "ro" ? "Consultă textul legii →" : "Consult law text →"}
+                  </Link>
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              {/* ITEM 2: NTR-01 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NTR-01
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    NTR-01
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    NTR-01 - Norma privind cerintele de autorizare a activitatii de transport.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              {/* ITEM 3: NTR-02 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NTR-02
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    NTR-02
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    NTR-02 Norma privind elaborarea raportului de radioprotectie pentru activitatea de transport.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              {/* ITEM 4: NTR-03 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NTR-03
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    NTR-03
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    NTR-03 - Norma privind elaborarea raportului de securitate al unui model de colet.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              {/* ITEM 5: NDR-6 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NDR-6
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    NDR-6
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    Norma privind supravegherea si controlul expedierilor internationale de deseuri radioactive si combustibil nuclear uzat implicand teritoriul Romaniei.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              {/* ITEM 6: DOCUMENTUL STANDARD */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    Documentul Standard
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    Documentul Standard
+                  </h4>
+                  <div className="mt-2 text-xs text-muted-foreground leading-relaxed space-y-2">
+                    <p>
+                      • Ordin privind aprobarea instructiunilor referitoare la crearea cadrului legal pentru aplicarea Regulamentului Consiliului (Euratom) nr. 1493/93 din 8 iunie 1993 privind expeditiile de substante radioactive intre statele membre
+                    </p>
+                    <p>
+                      • Regulamentrul (Euratom) NR. 1493/93 al consiliului din 8 iunie 1993 privind transportul substantelor radioactive intre statele membre
                     </p>
                   </div>
-                  <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                    <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                    <CheckCircle2 className="h-4 w-4" />
-                  </div>
                 </div>
-              ))}
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
             </div>
           </TabsContent>
 
