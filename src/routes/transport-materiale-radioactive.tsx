@@ -237,10 +237,10 @@ function RadioactiveTransportPage() {
                   </p>
                 </div>
                 <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <Link to="/legea-111" className="hover:underline">
-                    {lang === "ro" ? "Consultă textul legii →" : "Consult law text →"}
+                  <Link to="/legea-111" className="hover:underline inline-flex items-center gap-1">
+                    {lang === "ro" ? "Consultă textul integral" : "Consult full text"} →
                   </Link>
-                  <CheckCircle2 className="h-4 w-4" />
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
               </div>
 
@@ -258,17 +258,31 @@ function RadioactiveTransportPage() {
                   </p>
                 </div>
                 <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                  <CheckCircle2 className="h-4 w-4" />
+                  <a
+                    href="/documents/transport/NTR_01.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (496 KB)" : "Open PDF document (496 KB)"}
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
               </div>
 
-              {/* ITEM 3: NTR-02 */}
-              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+              {/* ITEM 3: NTR-02 (WITH USER REQUESTED ERROR ALERT) */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-red-500/50 transition-all flex flex-col justify-between shadow-sm relative overflow-hidden">
                 <div>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
-                    NTR-02
-                  </span>
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                      NTR-02
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-500/10 text-red-600 font-semibold text-[10px] border border-red-500/20">
+                      <AlertTriangle className="h-3 w-3" />
+                      {lang === "ro" ? "Indisponibil oficial" : "Officially unavailable"}
+                    </span>
+                  </div>
                   <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
                     NTR-02
                   </h4>
@@ -276,9 +290,23 @@ function RadioactiveTransportPage() {
                     NTR-02 Norma privind elaborarea raportului de radioprotectie pentru activitatea de transport.
                   </p>
                 </div>
-                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                  <CheckCircle2 className="h-4 w-4" />
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs font-medium">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      alert(
+                        lang === "ro"
+                          ? "Eroare: Documentul NTR-02 nu funcționează momentan pe site-ul oficial CNCAN și nu poate fi accesat sau descărcat."
+                          : "Error: The NTR-02 document is currently unavailable on the official CNCAN server and cannot be accessed or downloaded."
+                      );
+                    }}
+                    className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-semibold transition-colors cursor-pointer"
+                  >
+                    <AlertTriangle className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Document indisponibil (clic pentru detalii)" : "Document unavailable (click for details)"}
+                  </button>
+                  <AlertTriangle className="h-4 w-4 text-red-500" />
                 </div>
               </div>
 
@@ -296,8 +324,16 @@ function RadioactiveTransportPage() {
                   </p>
                 </div>
                 <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                  <CheckCircle2 className="h-4 w-4" />
+                  <a
+                    href="/documents/transport/NTR_03.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (596 KB)" : "Open PDF document (596 KB)"}
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
               </div>
 
@@ -315,8 +351,16 @@ function RadioactiveTransportPage() {
                   </p>
                 </div>
                 <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                  <CheckCircle2 className="h-4 w-4" />
+                  <a
+                    href="/documents/transport/NDR_06.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (148 KB)" : "Open PDF document (148 KB)"}
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
                 </div>
               </div>
 
@@ -338,9 +382,43 @@ function RadioactiveTransportPage() {
                     </p>
                   </div>
                 </div>
-                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                  <CheckCircle2 className="h-4 w-4" />
+                <div className="mt-6 pt-3 border-t border-border/60 flex flex-col gap-2 text-xs text-brand font-medium">
+                  <div className="flex items-center justify-between">
+                    <a
+                      href="/documents/transport/Documentul_Standard_Expeditie.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline inline-flex items-center gap-1"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      {lang === "ro" ? "Document Standard Expediție (708 KB)" : "Standard Shipment Document (708 KB)"}
+                    </a>
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <a
+                      href="/documents/transport/Ordin_329_2006.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline inline-flex items-center gap-1"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      {lang === "ro" ? "Ordinul nr. 329/2006 (324 KB)" : "Order no. 329/2006 (324 KB)"}
+                    </a>
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <a
+                      href="/documents/transport/Regulament_1493_93.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline inline-flex items-center gap-1"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      {lang === "ro" ? "Regulamentul Euratom 1493/93 (626 KB)" : "Euratom Regulation 1493/93 (626 KB)"}
+                    </a>
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  </div>
                 </div>
               </div>
             </div>
