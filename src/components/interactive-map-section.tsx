@@ -49,7 +49,7 @@ const FACILITIES: NuclearFacility[] = [
     details_en:
       "Provides ~20% of Romania's electricity production. CNCAN maintains resident inspectors on site and continuously monitors nuclear safety, radiation protection, and safeguards.",
     x: 80.5,
-    y: 79.5,
+    y: 86,
   },
   {
     id: "magurele",
