@@ -104,7 +104,8 @@ const categories = [
     en: "Occupationally Exposed Staff",
     desc_ro: "Permise de exercitare, atestări responsabil cu securitatea radiologică.",
     desc_en: "Practice permits, radiation safety officer accreditations.",
-    count: 1,
+    count: 4,
+    customLink: "/personal-expus-profesional",
   },
 ];
 
@@ -211,10 +212,34 @@ const documents = [
   {
     catId: "personal",
     code: "PE-01",
-    title_ro: "Cerere eliberare / prelungire permis de exercitare (Personal Expus)",
-    title_en: "Application for practice permit issuance/renewal (Exposed Staff)",
+    title_ro: "Cerere eliberare / prelungire Permis de Exercitare CNCAN",
+    title_en: "Application form for CNCAN Practice Permit issuance / renewal",
     type: "Cerere",
-    fileUrl: "#",
+    fileUrl: "/personal-expus-profesional",
+  },
+  {
+    catId: "personal",
+    code: "PE-02",
+    title_ro: "Ghid și Opis documente pentru Dosarul de Examen CNCAN",
+    title_en: "Guide and Document List for CNCAN Examination Dossier",
+    type: "Ghid",
+    fileUrl: "/personal-expus-profesional",
+  },
+  {
+    catId: "personal",
+    code: "PE-03",
+    title_ro: "Formular nominalizare Responsabil cu Securitatea Radiologică (RSR)",
+    title_en: "Nomination form for Radiation Safety Officer (RSO)",
+    type: "Formular",
+    fileUrl: "/personal-expus-profesional",
+  },
+  {
+    catId: "personal",
+    code: "PE-04",
+    title_ro: "Fișă de atestare medicală pentru zonă controlată",
+    title_en: "Occupational medical certificate model for controlled area work",
+    type: "Fișă",
+    fileUrl: "/personal-expus-profesional",
   },
 ];
 

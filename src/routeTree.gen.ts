@@ -20,6 +20,7 @@ import { Route as InstalatiiNucleareRouteImport } from './routes/instalatii-nucl
 import { Route as Legea111RouteImport } from './routes/legea-111'
 import { Route as LegislatieRouteImport } from './routes/legislatie'
 import { Route as ManagementulCalitatiiRouteImport } from './routes/managementul-calitatii'
+import { Route as PersonalExpusProfesionalRouteImport } from './routes/personal-expus-profesional'
 import { Route as SurseDeRadiatiiIonizanteRouteImport } from './routes/surse-de-radiatii-ionizante'
 import { Route as TransportMaterialeRadioactiveRouteImport } from './routes/transport-materiale-radioactive'
 import { Route as UrgenteRouteImport } from './routes/urgente'
@@ -79,6 +80,12 @@ const ManagementulCalitatiiRoute = ManagementulCalitatiiRouteImport.update({
   path: '/managementul-calitatii',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PersonalExpusProfesionalRoute =
+  PersonalExpusProfesionalRouteImport.update({
+    id: '/personal-expus-profesional',
+    path: '/personal-expus-profesional',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SurseDeRadiatiiIonizanteRoute =
   SurseDeRadiatiiIonizanteRouteImport.update({
     id: '/surse-de-radiatii-ionizante',
@@ -109,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
+  '/personal-expus-profesional': typeof PersonalExpusProfesionalRoute
   '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
   '/transport-materiale-radioactive': typeof TransportMaterialeRadioactiveRoute
   '/urgente': typeof UrgenteRoute
@@ -125,6 +133,7 @@ export interface FileRoutesByTo {
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
+  '/personal-expus-profesional': typeof PersonalExpusProfesionalRoute
   '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
   '/transport-materiale-radioactive': typeof TransportMaterialeRadioactiveRoute
   '/urgente': typeof UrgenteRoute
@@ -142,6 +151,7 @@ export interface FileRoutesById {
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
+  '/personal-expus-profesional': typeof PersonalExpusProfesionalRoute
   '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
   '/transport-materiale-radioactive': typeof TransportMaterialeRadioactiveRoute
   '/urgente': typeof UrgenteRoute
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
+    | '/personal-expus-profesional'
     | '/surse-de-radiatii-ionizante'
     | '/transport-materiale-radioactive'
     | '/urgente'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
+    | '/personal-expus-profesional'
     | '/surse-de-radiatii-ionizante'
     | '/transport-materiale-radioactive'
     | '/urgente'
@@ -192,6 +204,7 @@ export interface FileRouteTypes {
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
+    | '/personal-expus-profesional'
     | '/surse-de-radiatii-ionizante'
     | '/transport-materiale-radioactive'
     | '/urgente'
@@ -209,6 +222,7 @@ export interface RootRouteChildren {
   Legea111Route: typeof Legea111Route
   LegislatieRoute: typeof LegislatieRoute
   ManagementulCalitatiiRoute: typeof ManagementulCalitatiiRoute
+  PersonalExpusProfesionalRoute: typeof PersonalExpusProfesionalRoute
   SurseDeRadiatiiIonizanteRoute: typeof SurseDeRadiatiiIonizanteRoute
   TransportMaterialeRadioactiveRoute: typeof TransportMaterialeRadioactiveRoute
   UrgenteRoute: typeof UrgenteRoute
@@ -293,6 +307,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ManagementulCalitatiiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/personal-expus-profesional': {
+      id: '/personal-expus-profesional'
+      path: '/personal-expus-profesional'
+      fullPath: '/personal-expus-profesional'
+      preLoaderRoute: typeof PersonalExpusProfesionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/surse-de-radiatii-ionizante': {
       id: '/surse-de-radiatii-ionizante'
       path: '/surse-de-radiatii-ionizante'
@@ -329,6 +350,7 @@ const rootRouteChildren: RootRouteChildren = {
   Legea111Route: Legea111Route,
   LegislatieRoute: LegislatieRoute,
   ManagementulCalitatiiRoute: ManagementulCalitatiiRoute,
+  PersonalExpusProfesionalRoute: PersonalExpusProfesionalRoute,
   SurseDeRadiatiiIonizanteRoute: SurseDeRadiatiiIonizanteRoute,
   TransportMaterialeRadioactiveRoute: TransportMaterialeRadioactiveRoute,
   UrgenteRoute: UrgenteRoute,
