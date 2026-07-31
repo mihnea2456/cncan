@@ -281,7 +281,7 @@ function AuthPage() {
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{lang === "ro" ? c.desc_ro : c.desc_en}</p>
                 <div className="mt-6 flex items-center justify-between text-xs pt-4 border-t border-border/60">
                   <span className="font-semibold text-brand group-hover:text-brand-deep inline-flex items-center gap-1">
-                    {lang === "ro" ? "Vezi Cerințe & Permise SR" : "View Permits & Requirements"} <ArrowRight className="h-3 w-3" />
+                    {lang === "ro" ? "Vezi Cerințe" : "View Requirements"} <ArrowRight className="h-3 w-3" />
                   </span>
                 </div>
               </Link>
