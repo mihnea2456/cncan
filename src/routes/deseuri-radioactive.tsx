@@ -313,100 +313,129 @@ function RadioactiveWastePage() {
 
           {/* TAB 2: SISTEMUL DE AUTORIZARE */}
           <TabsContent value="sistem" className="space-y-8">
-            <div className="grid gap-8 lg:grid-cols-3">
-              <div className="lg:col-span-2 space-y-6 border border-border bg-card p-8 rounded-sm">
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full">
+            <div className="border border-border bg-card p-8 rounded-sm space-y-8">
+              {/* INTRO & MAIN TITLE */}
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-2">
                   <Award className="h-3.5 w-3.5" />
-                  {lang === "ro" ? "Sistemul Național de Autorizare GDR" : "National Waste Licensing System"}
+                  {lang === "ro" ? "Sistemul Național de Autorizare" : "National Licensing System"}
                 </div>
-                <h2 className="font-display text-2xl md:text-3xl text-brand-deep">
+                <h3 className="font-display text-2xl md:text-3xl text-brand-deep">
                   {lang === "ro"
-                    ? "Autorizarea instalațiilor și activităților de gospodărire a deșeurilor radioactive"
-                    : "Licensing of radioactive waste management facilities and activities"}
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                    ? "Autorizarea activității de management al deșeurilor radioactive și a combustibilului nuclear ars"
+                    : "Licensing of radioactive waste and spent nuclear fuel management activities"}
+                </h3>
+                <p className="mt-3 text-sm text-foreground leading-relaxed font-medium">
                   {lang === "ro"
-                    ? "Orice activitate care generează, procesează sau stochează deșeuri radioactive necesită autorizare prealabilă emisă de CNCAN. Sistemul de autorizare acoperă toate etapele ciclului de viață, de la generare până la depozitarea definitivă sau eliberarea necondiționată."
-                    : "Any activity that generates, processes, or stores radioactive waste requires prior authorization issued by CNCAN. The licensing system covers all life-cycle stages from generation to final disposal or unconditional clearance."}
+                    ? "Managementul deșeurilor radioactive cuprinde colectarea, tratarea, condiționarea, depozitarea intermediară, depozitarea finală a deșeurilor radioactive și a combustibilului nuclear ars."
+                    : "Radioactive waste management comprises the collection, treatment, conditioning, interim storage, and final disposal of radioactive waste and spent nuclear fuel."}
                 </p>
+              </div>
 
-                <div className="grid gap-4 md:grid-cols-2 pt-4 border-t border-border">
-                  <div className="border border-border/60 bg-secondary/30 p-5 rounded-sm space-y-2">
-                    <div className="flex items-center gap-2 text-brand font-display font-semibold text-base">
-                      <FolderOpen className="h-4 w-4" />
-                      <span>{lang === "ro" ? "Autorizații de Operare" : "Operating Licenses"}</span>
+              {/* LIST OF AUTHORIZED ACTIVITIES (A, B, C) */}
+              <div className="rounded-sm border border-border/80 bg-secondary/20 p-6 space-y-4">
+                <h4 className="font-display text-base text-brand-deep font-semibold">
+                  {lang === "ro"
+                    ? "Următoarele activități din domeniul deșeurilor radioactive și a combustibilului nuclear ars necesită autorizație emisă de CNCAN:"
+                    : "The following activities in the field of radioactive waste and spent nuclear fuel require authorization issued by CNCAN:"}
+                </h4>
+                <div className="grid gap-3 text-xs md:text-sm text-foreground">
+                  {[
+                    {
+                      letter: "a)",
+                      text_ro:
+                        "cercetarea, proiectarea, amplasarea, producția, construcția, montajul, punerea în funcțiune, exploatarea, furnizarea, închirierea, importul și exportul instalațiilor nucleare;",
+                      text_en:
+                        "research, design, siting, production, construction, assembly, commissioning, operation, supply, leasing, import and export of nuclear facilities;",
+                    },
+                    {
+                      letter: "b)",
+                      text_ro:
+                        "manipularea, deținerea, tratarea, utilizarea, depozitarea temporară sau definitivă, transportarea, tranzitarea combustibilului nuclear ars și a deșeurilor radioactive inclusiv a surselor radioactive închise uzate;",
+                      text_en:
+                        "handling, possession, treatment, use, interim or final storage, transport, transit of spent nuclear fuel and radioactive waste including disused sealed radioactive sources;",
+                    },
+                    {
+                      letter: "c)",
+                      text_ro:
+                        "furnizarea și utilizarea mijloacelor de containerizare sau de transport a combustibilului nuclear ars și a deșeurilor radioactive, special amenajate în acest scop.",
+                      text_en:
+                        "supply and use of packaging or transport means for spent nuclear fuel and radioactive waste, specially designed for this purpose.",
+                    },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 p-3 rounded-sm bg-card border border-border/60"
+                    >
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-sm bg-brand/10 text-brand font-mono font-bold text-xs shrink-0">
+                        {item.letter}
+                      </span>
+                      <p className="leading-relaxed text-foreground">
+                        {lang === "ro" ? item.text_ro : item.text_en}
+                      </p>
                     </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {lang === "ro"
-                        ? "Eliberate pentru stațiile de tratare, condiționare și depozitare temporară sau definitivă a deșeurilor radioactive instituționale sau de la CNE Cernavodă."
-                        : "Issued for treatment, conditioning, and interim or final storage facilities for institutional radioactive waste or CNE Cernavoda waste."}
-                    </p>
-                  </div>
-
-                  <div className="border border-border/60 bg-secondary/30 p-5 rounded-sm space-y-2">
-                    <div className="flex items-center gap-2 text-brand font-display font-semibold text-base">
-                      <ClipboardCheck className="h-4 w-4" />
-                      <span>{lang === "ro" ? "Avizarea Matricei de Condiționare" : "Conditioning Matrix Approval"}</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {lang === "ro"
-                        ? "Certificarea calității coletelor de deșeuri (cimentare, bituminare, compactare) pentru a asigura stabilitatea mecanică și chimică pe termen lung."
-                        : "Quality certification of waste packages (cementation, bituminization, compaction) to ensure long-term mechanical and chemical stability."}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-sm bg-brand/5 border border-brand/20">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-brand-deep mb-2">
-                    {lang === "ro" ? "Etapele autorizării unei instalații de deșeuri:" : "Licensing stages for a waste facility:"}
-                  </h4>
-                  <ul className="grid gap-2 sm:grid-cols-2 text-xs text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0" />
-                      <span>{lang === "ro" ? "1. Avizul de amplasare & Studiu geotehnic" : "1. Siting permit & Geotechnical study"}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0" />
-                      <span>{lang === "ro" ? "2. Autorizația de construcție & montaj" : "2. Construction & assembly license"}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0" />
-                      <span>{lang === "ro" ? "3. Autorizația de punere în funcțiune & operare" : "3. Commissioning & operating license"}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-brand shrink-0" />
-                      <span>{lang === "ro" ? "4. Autorizația de închidere / dezafectare" : "4. Closure / decommissioning license"}</span>
-                    </li>
-                  </ul>
+                  ))}
                 </div>
               </div>
 
-              <div className="border border-brand/30 bg-gradient-to-b from-brand-deep/5 via-card to-card p-6 rounded-sm space-y-5">
-                <div className="flex items-center gap-3 text-brand">
-                  <ShieldCheck className="h-6 w-6" />
-                  <h3 className="font-display text-lg text-brand-deep">
-                    {lang === "ro" ? "Cerințe pentru Solicitanți" : "Requirements for Applicants"}
-                  </h3>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+              {/* REGULATORY PROCEDURES & EXEMPTIONS TEXT */}
+              <div className="space-y-4 text-xs md:text-sm text-muted-foreground leading-relaxed border-t border-border pt-6">
+                <p>
                   {lang === "ro"
-                    ? "Operatorii instalațiilor de gestionare a deșeurilor trebuie să mențină un sistem riguros de evidență a coletelor și de monitorizare radiologică a mediului, raportând periodic către CNCAN."
-                    : "Operators of waste management facilities must maintain a rigorous package registry and environmental radiation monitoring system, reporting periodically to CNCAN."}
+                    ? "Exceptarea de la regimul de autorizare a utilizării este reglementată prin art. 8, 9, 10 și 11 din Normele fundamentale de securitate radiologică aprobate prin ordinul președintelui Comisiei Naționale pentru Controlul Activităților Nucleare nr. 14/2000, publicat în Monitorul Oficial al României, partea I, nr. 404 bis din 29 august 2000."
+                    : "Exemption from user licensing is regulated by art. 8, 9, 10, and 11 of the Fundamental Radiation Safety Norms approved by Order of the President of CNCAN no. 14/2000, published in the Official Gazette of Romania, Part I, no. 404 bis of August 29, 2000."}
                 </p>
-                <div className="space-y-3 pt-3 border-t border-border text-xs text-muted-foreground">
-                  <div className="flex items-start gap-2">
-                    <span className="font-bold text-brand">•</span>
-                    <span>{lang === "ro" ? "Dosar de Securitate Nucleară (DSN) actualizat" : "Updated Nuclear Safety Dossier"}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="font-bold text-brand">•</span>
-                    <span>{lang === "ro" ? "Program de Management al Calității aprobat CNCAN" : "CNCAN-approved Quality Management Program"}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="font-bold text-brand">•</span>
-                    <span>{lang === "ro" ? "Contribuții la Fondul Național pentru Deșeuri (ANDR)" : "Contributions to National Waste Fund (ANDR)"}</span>
-                  </div>
-                </div>
+                <p>
+                  {lang === "ro"
+                    ? "Autorizarea activității de management al deșeurilor radioactive se face conform Normelor de Securitate Radiologică – Proceduri de Autorizare, aprobate prin Ordinul CNCAN nr. 366 din 22 septembrie 2001, publicat în Monitorul Oficial, Partea I nr. 764 din 30 noiembrie 2001."
+                    : "Authorization of radioactive waste management activities is carried out in accordance with the Radiation Safety Norms – Licensing Procedures, approved by CNCAN Order no. 366 of September 22, 2001, published in Official Gazette, Part I no. 764 of November 30, 2001."}
+                </p>
+                <p>
+                  {lang === "ro" ? (
+                    <>
+                      Pentru detalii accesați{" "}
+                      <Link
+                        to="/surse-de-radiatii-ionizante"
+                        className="text-brand hover:underline font-medium"
+                      >
+                        Aplicații surse de radiații nucleare
+                      </Link>
+                      .
+                    </>
+                  ) : (
+                    <>
+                      For details access{" "}
+                      <Link
+                        to="/surse-de-radiatii-ionizante"
+                        className="text-brand hover:underline font-medium"
+                      >
+                        Nuclear radiation sources applications
+                      </Link>
+                      .
+                    </>
+                  )}
+                </p>
+                <p>
+                  {lang === "ro"
+                    ? "Autorizarea activității de management a combustibilului nuclear ars se face conform normelor specifice de securitate nucleară, emise de CNCAN."
+                    : "Licensing of spent nuclear fuel management activities is carried out in accordance with specific nuclear safety norms issued by CNCAN."}
+                </p>
+              </div>
+
+              {/* CLEAN SIMPLE DOWNLOAD BUTTON FOR MINI-BOOK */}
+              <div className="pt-6 border-t border-border/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <span className="text-xs md:text-sm font-medium text-foreground">
+                  Norme de securitate radiologica pentru proceduri de autorizare
+                </span>
+                <a
+                  href="/documents/deseuri/Norme_securitate_radiologica_proceduri_autorizare.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-sm border border-border bg-secondary hover:bg-secondary/80 text-xs font-medium text-foreground transition-colors shrink-0"
+                >
+                  <Download className="h-3.5 w-3.5 text-brand" />
+                  {lang === "ro" ? "Descarcă documentul (1.1 MB)" : "Download document (1.1 MB)"}
+                </a>
               </div>
             </div>
           </TabsContent>
