@@ -120,56 +120,66 @@ function RadioactiveWastePage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
-                <div>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
-                    Lege nr. 111/1996
-                  </span>
-                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
-                    <Link to="/legea-111" className="hover:underline text-brand flex items-center gap-1.5">
-                      {lang === "ro" ? "Lege nr. 111/1996 (Republicată)" : "Law no. 111/1996 (Republished)"}
-                      <ExternalLink className="h-4 w-4 shrink-0" />
-                    </Link>
-                  </h4>
-                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                    Legea privind desfășurarea în siguranță, reglementarea, autorizarea și controlul activităților nucleare, instituind principiile de bază privind gospodărirea în securitate a deșeurilor radioactive.
-                  </p>
-                </div>
-                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                  <Link to="/legea-111" className="hover:underline inline-flex items-center gap-1">
-                    {lang === "ro" ? "Consultă textul integral" : "Consult full text"} →
-                  </Link>
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                </div>
-              </div>
-
               {[
                 {
                   code: "NDR-01",
-                  ro: "Norme privind gospodărirea în siguranță a deșeurilor radioactive",
-                  en: "Norms on the safe management of radioactive waste",
+                  title_ro:
+                    "Normele fundamentale pentru gospodărirea în siguranță a deșeurilor radioactive (NDR-01)",
+                  title_en:
+                    "Fundamental norms for the safe management of radioactive waste (NDR-01)",
                   desc_ro:
-                    "Cerintele fundamentale de radioprotectie si securitate nucleara pentru toate etapele de manipulare, prelucrare si depozitare a deseurilor.",
+                    "1. Ordinul CNCAN nr. 56/25.03.2004 privind aprobarea Normelor fundamentale pentru gospodarirea in siguranta a deseurilor radioactive (NDR-01), republicat.",
                   desc_en:
-                    "Fundamental radiation protection and nuclear safety requirements for all handling, processing, and disposal stages of waste.",
+                    "1. CNCAN Order no. 56/25.03.2004 on approving the Fundamental norms for the safe management of radioactive waste (NDR-01), republished.",
+                  url: "https://www.cncan.ro/assets/NDR/NDR-1-Ordinul-562005-republicat.pdf",
                 },
                 {
                   code: "NDR-02",
-                  ro: "Norme privind clasificarea deșeurilor radioactive",
-                  en: "Norms on radioactive waste classification",
+                  title_ro:
+                    "Norme privind eliberarea de sub regimul de autorizare a materialelor rezultate din practici autorizate (NDR-02)",
+                  title_en:
+                    "Norms on clearance from regulatory control of materials resulting from authorized practices (NDR-02)",
                   desc_ro:
-                    "Stabilește categoriile de deșeuri (deșeuri de activitate foarte joasă, joasă, medie, înaltă, cu viață scurtă sau lungă) și criteriile de eliberare de sub regimul de autorizare.",
+                    "2. Ordinul CNCAN nr. 62/31.03.2004 privind aprobarea Norme privind eliberarea de sub regimul de autorizare a materialelor rezultate din practici autorizate (NDR-02), publicat în Monitorul Oficial, Partea I nr. 393/04.05.2004.",
                   desc_en:
-                    "Establishes waste categories (very low, low, intermediate, high level, short or long-lived) and clearance criteria.",
+                    "2. CNCAN Order no. 62/31.03.2004 on approving Norms on clearance from regulatory control of materials resulting from authorized practices (NDR-02), published in Official Gazette, Part I no. 393/04.05.2004.",
+                  url: "https://www.cncan.ro/assets/NDR/ndr-02-ordin-cncan-62-2004.pdf",
+                },
+                {
+                  code: "NDR-03",
+                  title_ro:
+                    "Norme privind clasificarea deșeurilor radioactive (NDR-03)",
+                  title_en:
+                    "Norms on radioactive waste classification (NDR-03)",
+                  desc_ro:
+                    "3. Ordinul CNCAN nr. 156/14.05.2005 privind aprobarea Normelor privind clasificarea deseurilor radioactive (NDR-03), publicat in Monitorul Oficial al Romaniei.",
+                  desc_en:
+                    "3. CNCAN Order no. 156/14.05.2005 on approving the Norms on radioactive waste classification (NDR-03), published in Official Gazette of Romania.",
+                  url: "https://www.cncan.ro/assets/NDR/ndr-03.pdf",
                 },
                 {
                   code: "NDR-04",
-                  ro: "Norme privind depozitarea definitivă a deșeurilor radioactive",
-                  en: "Norms on geological and near-surface disposal of radioactive waste",
+                  title_ro:
+                    "Norme privind limitarea eliberărilor de efluenți radioactivi în mediu (NDR-04)",
+                  title_en:
+                    "Norms on limiting radioactive effluent releases into the environment (NDR-04)",
                   desc_ro:
-                    "Criteriile tehnice de selecție a amplasamentului, proiectare, operare și închidere a depozitelor definitive (saline, geologice sau de suprafață).",
+                    "4. Ordinul CNCAN nr. 221/25.08.2005 privind aprobarea Normelor privind limitarea eliberarilor de efluenti radioactivi in mediu (NDR-04), publicat in Monitorul Oficial al Romaniei.",
                   desc_en:
-                    "Technical criteria for site selection, design, operation, and closure of repository facilities.",
+                    "4. CNCAN Order no. 221/25.08.2005 on approving the Norms on limiting radioactive effluent releases into the environment (NDR-04), published in Official Gazette of Romania.",
+                  url: "https://www.cncan.ro/assets/NDR/ndr-04.pdf",
+                },
+                {
+                  code: "NDR-05",
+                  title_ro:
+                    "Depozitarea la suprafață a deșeurilor radioactive (NDR-05)",
+                  title_en:
+                    "Near-surface disposal of radioactive waste (NDR-05)",
+                  desc_ro:
+                    "5. Ordinul CNCAN nr. 400/13.12.2005 privind aprobarea Depozitarii la suprafaţă a deşeurilor radioactive (NDR-05), publicat in Monitorul Oficial al Romaniei Partea I nr. 345 din 17/04/2006.",
+                  desc_en:
+                    "5. CNCAN Order no. 400/13.12.2005 on approving Near-surface disposal of radioactive waste (NDR-05), published in Official Gazette of Romania Part I no. 345 of 17/04/2006.",
+                  url: "https://www.cncan.ro/assets/NDR/ndr05.pdf",
                 },
               ].map((reg, idx) => (
                 <div
@@ -181,15 +191,31 @@ function RadioactiveWastePage() {
                       {reg.code}
                     </span>
                     <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
-                      {lang === "ro" ? reg.ro : reg.en}
+                      <a
+                        href={reg.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="hover:underline text-brand inline-flex items-center gap-1.5"
+                      >
+                        {lang === "ro" ? reg.title_ro : reg.title_en}
+                        <ExternalLink className="h-4 w-4 shrink-0" />
+                      </a>
                     </h4>
                     <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
                       {lang === "ro" ? reg.desc_ro : reg.desc_en}
                     </p>
                   </div>
                   <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
-                    <span>{lang === "ro" ? "Reglementare în vigoare" : "Regulation in force"}</span>
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+                    <a
+                      href={reg.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline inline-flex items-center gap-1"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      {lang === "ro" ? "Consultă documentul oficial" : "Consult official document"} →
+                    </a>
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                   </div>
                 </div>
               ))}
