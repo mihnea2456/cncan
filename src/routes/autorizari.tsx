@@ -92,9 +92,10 @@ const categories = [
     icon: Trash2,
     ro: "Deșeuri Radioactive",
     en: "Radioactive Waste",
-    desc_ro: "Colectare, tratare, condiționare, depozitare intermediară și definitivă.",
-    desc_en: "Collection, treatment, conditioning, interim and final disposal.",
-    count: 1,
+    desc_ro: "Reglementări, Sistemul de autorizare și Convenția de deșeuri.",
+    desc_en: "Regulations, Licensing system, and Waste Convention.",
+    count: 3,
+    customLink: "/deseuri-radioactive",
   },
   {
     id: "personal",

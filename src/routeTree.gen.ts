@@ -14,6 +14,7 @@ import { Route as AutorizariRouteImport } from './routes/autorizari'
 import { Route as ComunicateRouteImport } from './routes/comunicate'
 import { Route as ConstructiiNucleareRouteImport } from './routes/constructii-nucleare'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DeseuriRadioactiveRouteImport } from './routes/deseuri-radioactive'
 import { Route as DespreRouteImport } from './routes/despre'
 import { Route as InstalatiiNucleareRouteImport } from './routes/instalatii-nucleare'
 import { Route as Legea111RouteImport } from './routes/legea-111'
@@ -46,6 +47,11 @@ const ConstructiiNucleareRoute = ConstructiiNucleareRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeseuriRadioactiveRoute = DeseuriRadioactiveRouteImport.update({
+  id: '/deseuri-radioactive',
+  path: '/deseuri-radioactive',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DespreRoute = DespreRouteImport.update({
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/comunicate': typeof ComunicateRoute
   '/constructii-nucleare': typeof ConstructiiNucleareRoute
   '/contact': typeof ContactRoute
+  '/deseuri-radioactive': typeof DeseuriRadioactiveRoute
   '/despre': typeof DespreRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
   '/legea-111': typeof Legea111Route
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/comunicate': typeof ComunicateRoute
   '/constructii-nucleare': typeof ConstructiiNucleareRoute
   '/contact': typeof ContactRoute
+  '/deseuri-radioactive': typeof DeseuriRadioactiveRoute
   '/despre': typeof DespreRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
   '/legea-111': typeof Legea111Route
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/comunicate': typeof ComunicateRoute
   '/constructii-nucleare': typeof ConstructiiNucleareRoute
   '/contact': typeof ContactRoute
+  '/deseuri-radioactive': typeof DeseuriRadioactiveRoute
   '/despre': typeof DespreRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
   '/legea-111': typeof Legea111Route
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/comunicate'
     | '/constructii-nucleare'
     | '/contact'
+    | '/deseuri-radioactive'
     | '/despre'
     | '/instalatii-nucleare'
     | '/legea-111'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/comunicate'
     | '/constructii-nucleare'
     | '/contact'
+    | '/deseuri-radioactive'
     | '/despre'
     | '/instalatii-nucleare'
     | '/legea-111'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/comunicate'
     | '/constructii-nucleare'
     | '/contact'
+    | '/deseuri-radioactive'
     | '/despre'
     | '/instalatii-nucleare'
     | '/legea-111'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   ComunicateRoute: typeof ComunicateRoute
   ConstructiiNucleareRoute: typeof ConstructiiNucleareRoute
   ContactRoute: typeof ContactRoute
+  DeseuriRadioactiveRoute: typeof DeseuriRadioactiveRoute
   DespreRoute: typeof DespreRoute
   InstalatiiNucleareRoute: typeof InstalatiiNucleareRoute
   Legea111Route: typeof Legea111Route
@@ -236,6 +249,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/deseuri-radioactive': {
+      id: '/deseuri-radioactive'
+      path: '/deseuri-radioactive'
+      fullPath: '/deseuri-radioactive'
+      preLoaderRoute: typeof DeseuriRadioactiveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/despre': {
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComunicateRoute: ComunicateRoute,
   ConstructiiNucleareRoute: ConstructiiNucleareRoute,
   ContactRoute: ContactRoute,
+  DeseuriRadioactiveRoute: DeseuriRadioactiveRoute,
   DespreRoute: DespreRoute,
   InstalatiiNucleareRoute: InstalatiiNucleareRoute,
   Legea111Route: Legea111Route,
