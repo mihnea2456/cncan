@@ -109,13 +109,10 @@ function NuclearConstructionsPage() {
             </TabsTrigger>
             <TabsTrigger
               value="reglementari"
-              className="py-3 px-4 text-xs md:text-sm font-medium data-[state=active]:bg-brand data-[state=active]:text-primary-foreground rounded-sm relative"
+              className="py-3 px-4 text-xs md:text-sm font-medium data-[state=active]:bg-brand data-[state=active]:text-primary-foreground rounded-sm"
             >
               <FolderOpen className="h-4 w-4 mr-2" />
               {lang === "ro" ? "2. Reglementări Emise de CNCAN" : "2. CNCAN Regulations"}
-              <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-gold/20 text-gold border border-gold/30">
-                2 Documente
-              </span>
             </TabsTrigger>
             <TabsTrigger
               value="proceduri"
