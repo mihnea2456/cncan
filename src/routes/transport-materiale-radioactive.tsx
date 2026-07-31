@@ -426,7 +426,7 @@ function RadioactiveTransportPage() {
 
           {/* TAB 3: EVALUARE DOCUMENTE */}
           <TabsContent value="evaluare" className="space-y-8">
-            <div className="border border-border bg-card p-8 rounded-sm space-y-6">
+            <div className="border border-border bg-card p-8 rounded-sm space-y-8">
               <div>
                 <div className="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-2">
                   <ClipboardCheck className="h-3.5 w-3.5" />
@@ -442,6 +442,87 @@ function RadioactiveTransportPage() {
                     ? "În procesul de avizare și autorizare, CNCAN evaluează conformitatea tehnică a dosarelor transmise de solicitanți, verificând siguranța radiologică a coletelor, planurile operaționale de transport și capacitatea de reacție în caz de urgență."
                     : "During the licensing process, CNCAN evaluates the technical compliance of application dossiers, verifying package radiation safety, operational transport plans, and emergency response capabilities."}
                 </p>
+              </div>
+
+              {/* MANDATORY APPLICATION CONTENT (ITEMS A - G) */}
+              <div className="rounded-sm border border-brand/30 bg-gradient-to-b from-brand/5 via-card to-card p-6 md:p-8 space-y-6 shadow-sm">
+                <div className="flex items-center gap-3 border-b border-border/80 pb-4">
+                  <FileText className="h-6 w-6 text-brand shrink-0" />
+                  <div>
+                    <h4 className="font-display text-lg md:text-xl text-brand-deep">
+                      {lang === "ro"
+                        ? "Cererea de autorizare / aprobare va conține cel puțin următoarele informații:"
+                        : "The authorization / approval application shall contain at least the following information:"}
+                    </h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {lang === "ro"
+                        ? "Cerințe legale obligatorii pentru dosarul depus în vederea obținerii autorizației sau aprobării CNCAN."
+                        : "Mandatory legal requirements for the dossier submitted to obtain CNCAN authorization or approval."}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 text-xs md:text-sm text-foreground">
+                  {[
+                    {
+                      letter: "a)",
+                      text_ro:
+                        "datele de identificare si sediul social ale solicitantului si ale subunitãtii cum ar fi filiala, sucursala, diviziune administrativa, prin care se desfãsoarã activitãtile nucleare;",
+                      text_en:
+                        "identification data and registered office of the applicant and of any subunit such as branch, subsidiary, administrative division, through which nuclear activities are carried out;",
+                    },
+                    {
+                      letter: "b)",
+                      text_ro:
+                        "activitatea nucleara care se intentioneazã sã fie autorizata sau tipurile de colete sau materiale radioactive sub forma specialã, materiale radioactive cu dispersabilitate redusa sau mijloc de containerizare pentru care se solicitã aprobare de model, sau programul de radioprotectie pentru nave cu utilizare specialã, sau calculul valorilor radionuclizilor care nu sunt listati in Tabelul 1 din NFTSMR pentru care se solicitã aprobarea;",
+                      text_en:
+                        "the nuclear activity intended to be authorized or the types of packages or special form radioactive materials, low dispersible radioactive materials, or freight container for which design approval is requested, or the radiation protection program for special use vessels, or calculation of radionuclide values not listed in Table 1 of NFTSMR for which approval is requested;",
+                    },
+                    {
+                      letter: "c)",
+                      text_ro:
+                        "identificarea persoanei care poate angaja legal rãspunderea solicitantului cu mentionarea functiei si a mijloacelor prin care poate fi contactat - telefon, fax, e-mail - si, dacã este cazul, numele persoanei împuternicite sã reprezinte solicitantul în relatia cu CNCAN;",
+                      text_en:
+                        "identification of the person who can legally bind the liability of the applicant, mentioning their position and contact means - telephone, fax, e-mail - and, if applicable, the name of the person authorized to represent the applicant in relation with CNCAN;",
+                    },
+                    {
+                      letter: "d)",
+                      text_ro: "mentionarea adresei postale la care poate fi trimisã corespondenta;",
+                      text_en: "mention of the postal address where correspondence can be sent;",
+                    },
+                    {
+                      letter: "e)",
+                      text_ro: "identificarea persoanei responsabile;",
+                      text_en: "identification of the responsible person;",
+                    },
+                    {
+                      letter: "f)",
+                      text_ro:
+                        "identificarea unei persoane de contact pentru eventualele probleme tehnice specifice care pot apare în procesul de autorizare si mijlocul prin care poate fi contactatã;",
+                      text_en:
+                        "identification of a contact person for specific technical issues that may arise during the licensing process and their contact means;",
+                    },
+                    {
+                      letter: "g)",
+                      text_ro:
+                        "informatiile prevãzute în legile in vigoare pentru a-i conferi caracter legal în relatiile cu terti si a antrena rãspunderea persoanei legal constituite (inclusiv semnãtura persoanei împuternicite sã o reprezinte si stampila).",
+                      text_en:
+                        "information provided by applicable laws to grant legal status in relations with third parties and bind the liability of the legally established entity (including the signature of the authorized representative and stamp).",
+                    },
+                  ].map((req, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3.5 p-3.5 rounded-sm bg-secondary/30 border border-border/60 hover:border-brand/40 transition-colors"
+                    >
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-sm bg-brand/10 text-brand font-mono font-bold text-xs shrink-0">
+                        {req.letter}
+                      </span>
+                      <p className="leading-relaxed text-foreground">
+                        {lang === "ro" ? req.text_ro : req.text_en}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="grid gap-6 md:grid-cols-3 pt-4">
