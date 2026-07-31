@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ShieldAlert, Radio, Home, Pill, PhoneCall } from "lucide-react";
+import { ShieldAlert, Radio, Home, Pill, PhoneCall, ExternalLink } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
 
@@ -64,7 +64,53 @@ function EmergencyPage() {
             })}
           </div>
         </div>
+
+        {/* MINI-SECTIUNE: PLATFORMA NATIONALA DE PREGATIRE PENTRU SITUATII DE URGENTA */}
+        <div className="mt-16 border border-brand/40 bg-gradient-to-br from-brand-deep/5 via-card to-card p-8 rounded-sm shadow-sm space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full">
+                <ExternalLink className="h-3.5 w-3.5" />
+                {lang === "ro" ? "Portal Oficial DSU / IGSU" : "Official DSU / IGSU Portal"}
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl text-brand-deep">
+                {lang === "ro"
+                  ? "Platforma Națională de Pregătire pentru Situații de Urgență"
+                  : "National Emergency Preparedness Platform"}
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {lang === "ro"
+                  ? "Consultați ghidul oficial complet pentru protecția populației în caz de accident nuclear sau radiologic, pus la dispoziție de Departamentul pentru Situații de Urgență (DSU) și Inspectoratul General pentru Situații de Urgență (IGSU) prin platforma națională „Fii Pregătit”."
+                  : "Consult the comprehensive official guide for population protection in case of a nuclear or radiological accident, provided by the Department for Emergency Situations (DSU) and IGSU via the national 'Fii Pregătit' platform."}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+              <a
+                href="https://fiipregatit.ro/ghiduri/-despre-8-5"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-sm bg-brand text-primary-foreground text-xs font-semibold hover:bg-brand-deep transition-colors shadow-sm"
+              >
+                <ShieldAlert className="h-4 w-4" />
+                {lang === "ro" ? "Ghid în caz de accident nuclear" : "Nuclear Accident Guide"}
+                <ExternalLink className="h-3.5 w-3.5 ml-0.5" />
+              </a>
+
+              <a
+                href="https://fiipregatit.ro"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-sm border border-border bg-card text-foreground text-xs font-semibold hover:border-brand hover:text-brand transition-colors"
+              >
+                {lang === "ro" ? "Toate ghidurile fiipregatit.ro" : "All fiipregatit.ro guides"}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
 }
+
