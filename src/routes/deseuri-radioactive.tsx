@@ -442,7 +442,8 @@ function RadioactiveWastePage() {
 
           {/* TAB 3: CONVENTIA DE DESEURI */}
           <TabsContent value="conventie" className="space-y-8">
-            <div className="border border-border bg-card p-8 rounded-sm space-y-6">
+            <div className="border border-border bg-card p-8 rounded-sm space-y-8">
+              {/* HEADER / INTRO */}
               <div>
                 <div className="inline-flex items-center gap-2 text-xs font-bold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1 rounded-full mb-2">
                   <Globe className="h-3.5 w-3.5" />
@@ -450,8 +451,8 @@ function RadioactiveWastePage() {
                 </div>
                 <h3 className="font-display text-2xl md:text-3xl text-brand-deep">
                   {lang === "ro"
-                    ? "Convenția Comună asupra gospodăririi în siguranță a combustibilului nuclear uzat și a deșeurilor radioactive"
-                    : "Joint Convention on the Safety of Spent Fuel Management and on the Safety of Radioactive Waste Management"}
+                    ? "Convenție deșeuri, Raportul național la Convenție"
+                    : "Waste Convention, National Report to the Convention"}
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-3xl">
                   {lang === "ro"
@@ -460,6 +461,38 @@ function RadioactiveWastePage() {
                 </p>
               </div>
 
+              {/* REPORT BOX (USER REQUESTED 6th EDITION 2017 REPORT) */}
+              <div className="border border-brand/30 bg-gradient-to-b from-brand-deep/5 via-card to-card p-6 rounded-sm shadow-sm space-y-4">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  <div className="space-y-2">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                      {lang === "ro" ? "Editia a 6-a (2017)" : "6th Edition (2017)"}
+                    </span>
+                    <h4 className="font-display text-lg text-foreground leading-snug">
+                      {lang === "ro"
+                        ? "Raportul National in cadrul Conventiei comune asupra gospodaririi in siguranta a combustibilului uzat si asupra gospodaririi in siguranta a deseurilor radioactive – a 6-a editie (2017)."
+                        : "National Report under the Joint Convention on the Safety of Spent Fuel Management and on the Safety of Radioactive Waste Management – 6th edition (2017)."}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {lang === "ro"
+                        ? "Raportul național prezintă evaluarea completă a infrastructurii, practicilor și instalațiilor nucleare din România în conformitate cu obligațiile Convenției Comune."
+                        : "The national report presents the comprehensive assessment of Romania's nuclear infrastructure, practices, and facilities in compliance with the Joint Convention obligations."}
+                    </p>
+                  </div>
+
+                  <a
+                    href="/documents/deseuri/RomaniaJC6thNational-Report2017.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-sm bg-brand text-primary-foreground text-xs font-semibold hover:bg-brand-deep transition-colors shrink-0 shadow-sm"
+                  >
+                    <Download className="h-4 w-4" />
+                    {lang === "ro" ? "Descarcă Raportul (2.4 MB)" : "Download Report (2.4 MB)"}
+                  </a>
+                </div>
+              </div>
+
+              {/* CONVENTION OBJECTIVES & INFO */}
               <div className="grid gap-6 md:grid-cols-3 pt-4 border-t border-border">
                 {[
                   {
@@ -518,13 +551,13 @@ function RadioactiveWastePage() {
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-brand-deep">
                     {lang === "ro"
-                      ? "Convenția Comună AIEA — Textul și Rapoartele Naționale"
-                      : "IAEA Joint Convention — Official Text and National Reports"}
+                      ? "Convenția Comună AIEA — Portalul Oficial"
+                      : "IAEA Joint Convention — Official Portal"}
                   </h4>
                   <p className="text-xs text-muted-foreground">
                     {lang === "ro"
-                      ? "Puteți consulta documentele oficiale și rapoartele periodice de evaluare emise sub egida AIEA și CNCAN."
-                      : "You can consult official documents and periodic peer-review reports issued under IAEA and CNCAN auspices."}
+                      ? "Puteți consulta documentele oficiale și rapoartele internaționale emise sub egida AIEA."
+                      : "You can consult official international documents and reports issued under IAEA auspices."}
                   </p>
                 </div>
                 <a
