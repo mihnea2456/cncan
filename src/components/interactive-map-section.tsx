@@ -48,8 +48,8 @@ const FACILITIES: NuclearFacility[] = [
       "Asigură ~20% din producția națională de energie electrică. CNCAN menține inspectori rezidenți pe amplasament și monitorizează continuu securitatea nucleară, protecția radiologică și garanțiile.",
     details_en:
       "Provides ~20% of Romania's electricity production. CNCAN maintains resident inspectors on site and continuously monitors nuclear safety, radiation protection, and safeguards.",
-    x: 81.5,
-    y: 76.5,
+    x: 80.5,
+    y: 79.5,
   },
   {
     id: "magurele",
@@ -66,8 +66,8 @@ const FACILITIES: NuclearFacility[] = [
       "Găzduiește cele mai avansate instalații de cercetare din Europa de Est, inclusiv laserul de 10 Petawați ELI-NP. CNCAN reglementează laboratoarele de radioterapie, radioizotopi și dozimetrie.",
     details_en:
       "Hosts advanced Eastern European research facilities, including the 10-Petawatt ELI-NP laser. CNCAN regulates radiotherapy, radioisotope, and dosimetry laboratories.",
-    x: 65.5,
-    y: 79,
+    x: 59.8,
+    y: 84.5,
   },
   {
     id: "mioveni",
@@ -84,8 +84,8 @@ const FACILITIES: NuclearFacility[] = [
       "Fabrica de Combustibil Nuclear (FCN) produce anual fasciculele de combustibil pentru CNE Cernavodă, în timp ce Institutul de Cercetări Nucleare (ICN) operează reactorul pulsatoriu TRIGA.",
     details_en:
       "The Nuclear Fuel Factory (FCN) annually manufactures CANDU fuel bundles for Cernavoda NPP, while ICN operates the TRIGA pulsing research reactor.",
-    x: 55,
-    y: 68,
+    x: 49.0,
+    y: 73.0,
   },
   {
     id: "baita",
@@ -102,8 +102,8 @@ const FACILITIES: NuclearFacility[] = [
       "Asigură depozitarea definitivă în siguranță a deșeurilor radioactive cu activitate joasă și medie provenite din aplicații medicale, industriale și de cercetare din întreaga țară.",
     details_en:
       "Ensures permanent safe disposal of low- and intermediate-level radioactive waste originating from medical, industrial, and research applications nationwide.",
-    x: 29.5,
-    y: 38.5,
+    x: 23.5,
+    y: 34.0,
   },
 ];
 
@@ -209,21 +209,24 @@ export function InteractiveMapSection() {
                 className="w-full h-full text-brand/20 drop-shadow-md"
               >
                 <g className="text-brand/35 hover:text-brand/50 transition-colors">
-                  {RomaniaMap.locations.map((loc) => (
-                    <path
-                      key={loc.id}
-                      id={loc.id}
-                      d={loc.path}
-                      fill="currentColor"
-                      fillOpacity="0.16"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinejoin="round"
-                      className="hover:fill-brand/30 transition-all cursor-pointer"
-                    >
-                      <title>{loc.name}</title>
-                    </path>
-                  ))}
+                  {RomaniaMap.locations.map((loc) => {
+                    const isHostCounty = ["ro-ct", "ro-if", "ro-ag", "ro-bh"].includes(loc.id);
+                    return (
+                      <path
+                        key={loc.id}
+                        id={loc.id}
+                        d={loc.path}
+                        fill="currentColor"
+                        fillOpacity={isHostCounty ? "0.26" : "0.14"}
+                        stroke="currentColor"
+                        strokeWidth={isHostCounty ? "1.6" : "1.1"}
+                        strokeLinejoin="round"
+                        className="hover:fill-brand/40 transition-all cursor-pointer"
+                      >
+                        <title>{loc.name}</title>
+                      </path>
+                    );
+                  })}
                 </g>
               </svg>
 
