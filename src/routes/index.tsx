@@ -2,10 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, FileCheck, Radiation, Truck, Trash2, ShieldAlert, Scale, ClipboardList, Search } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
+import { InteractiveMapSection } from "@/components/interactive-map-section";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
+
 
 const tasks = [
   {
@@ -151,22 +153,8 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="border-b border-border bg-card">
-        <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
-          {[
-            { n: "2,840", k: "home.stats.licensees" as const },
-            { n: "1,120", k: "home.stats.inspections" as const },
-            { n: "184", k: "home.stats.laws" as const },
-            { n: "96", k: "home.stats.staff" as const },
-          ].map((s, i) => (
-            <div key={i} className="px-6 py-8">
-              <div className="font-display text-3xl md:text-4xl text-brand-deep tabular-nums">{s.n}</div>
-              <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{t(s.k)}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* INTERACTIVE MAP & STATS SECTION */}
+      <InteractiveMapSection />
 
       {/* Tasks */}
       <section className="container-page py-20 md:py-28">

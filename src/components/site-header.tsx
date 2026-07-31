@@ -38,10 +38,21 @@ export function SiteHeader() {
         {/* Gov bar */}
         <div className="bg-brand-deep text-primary-foreground/90 text-[11px] uppercase tracking-[0.14em]">
           <div className="container-page flex h-8 items-center justify-between">
-            <span className="flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-gold" />
-              {t("site.gov")}
-            </span>
+            <div className="flex items-center gap-4">
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-gold" />
+                {t("site.gov")}
+              </span>
+              <span className="hidden md:inline-flex items-center gap-1.5 border-l border-white/20 pl-4 text-emerald-400 font-mono text-[10px] tracking-wider">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                {lang === "ro"
+                  ? "STARE RADIOLOGICĂ NAȚIONALĂ: NORMAL (0.09 µSv/h)"
+                  : "NATIONAL RADIATION STATUS: NORMAL (0.09 µSv/h)"}
+              </span>
+            </div>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setLang("ro")}

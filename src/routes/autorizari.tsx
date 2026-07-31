@@ -16,6 +16,7 @@ import {
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
 import { useState } from "react";
+import { LicensingWizard } from "@/components/licensing-wizard";
 
 export const Route = createFileRoute("/autorizari")({
   head: () => ({
@@ -262,6 +263,9 @@ function AuthPage() {
     <>
       <PageHeader eyebrow="01" title={t("auth.title")} subtitle={t("auth.sub")} />
       <section className="container-page py-12 md:py-16">
+        {/* INTERACTIVE LICENSING WIZARD */}
+        <LicensingWizard />
+
         {/* CATEGORIES GRID */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {categories.map((c, i) => {
@@ -271,7 +275,7 @@ function AuthPage() {
               <Link
                 key={i}
                 to={c.customLink}
-                className="group border border-brand/60 bg-card p-7 hover:border-brand transition-all shadow-sm rounded-sm"
+                className="group border border-brand/60 bg-card p-7 hover:border-brand hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 shadow-sm rounded-sm"
               >
                 <div className="flex items-start justify-between">
                   <Icon className="h-7 w-7 text-brand" strokeWidth={1.4} />
@@ -289,10 +293,10 @@ function AuthPage() {
               <article
                 key={i}
                 onClick={() => setActiveCat(c.id)}
-                className={`group cursor-pointer border p-7 transition-all ${
+                className={`group cursor-pointer border p-7 hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 rounded-sm ${
                   isSelected
-                    ? "border-brand bg-brand/5 shadow-sm"
-                    : "border-border bg-card hover:border-brand/60"
+                    ? "border-brand bg-brand/5 shadow-md"
+                    : "border-border bg-card hover:border-brand/80"
                 }`}
               >
                 <div className="flex items-start justify-between">
