@@ -120,105 +120,194 @@ function RadioactiveWastePage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {[
-                {
-                  code: "NDR-01",
-                  title_ro:
-                    "Normele fundamentale pentru gospodărirea în siguranță a deșeurilor radioactive (NDR-01)",
-                  title_en:
-                    "Fundamental norms for the safe management of radioactive waste (NDR-01)",
-                  desc_ro:
-                    "1. Ordinul CNCAN nr. 56/25.03.2004 privind aprobarea Normelor fundamentale pentru gospodarirea in siguranta a deseurilor radioactive (NDR-01), republicat.",
-                  desc_en:
-                    "1. CNCAN Order no. 56/25.03.2004 on approving the Fundamental norms for the safe management of radioactive waste (NDR-01), republished.",
-                  url: "https://www.cncan.ro/assets/NDR/NDR-1-Ordinul-562005-republicat.pdf",
-                },
-                {
-                  code: "NDR-02",
-                  title_ro:
-                    "Norme privind eliberarea de sub regimul de autorizare a materialelor rezultate din practici autorizate (NDR-02)",
-                  title_en:
-                    "Norms on clearance from regulatory control of materials resulting from authorized practices (NDR-02)",
-                  desc_ro:
-                    "2. Ordinul CNCAN nr. 62/31.03.2004 privind aprobarea Norme privind eliberarea de sub regimul de autorizare a materialelor rezultate din practici autorizate (NDR-02), publicat în Monitorul Oficial, Partea I nr. 393/04.05.2004.",
-                  desc_en:
-                    "2. CNCAN Order no. 62/31.03.2004 on approving Norms on clearance from regulatory control of materials resulting from authorized practices (NDR-02), published in Official Gazette, Part I no. 393/04.05.2004.",
-                  url: "https://www.cncan.ro/assets/NDR/ndr-02-ordin-cncan-62-2004.pdf",
-                },
-                {
-                  code: "NDR-03",
-                  title_ro:
-                    "Norme privind clasificarea deșeurilor radioactive (NDR-03)",
-                  title_en:
-                    "Norms on radioactive waste classification (NDR-03)",
-                  desc_ro:
-                    "3. Ordinul CNCAN nr. 156/14.05.2005 privind aprobarea Normelor privind clasificarea deseurilor radioactive (NDR-03), publicat in Monitorul Oficial al Romaniei.",
-                  desc_en:
-                    "3. CNCAN Order no. 156/14.05.2005 on approving the Norms on radioactive waste classification (NDR-03), published in Official Gazette of Romania.",
-                  url: "https://www.cncan.ro/assets/NDR/ndr-03.pdf",
-                },
-                {
-                  code: "NDR-04",
-                  title_ro:
-                    "Norme privind limitarea eliberărilor de efluenți radioactivi în mediu (NDR-04)",
-                  title_en:
-                    "Norms on limiting radioactive effluent releases into the environment (NDR-04)",
-                  desc_ro:
-                    "4. Ordinul CNCAN nr. 221/25.08.2005 privind aprobarea Normelor privind limitarea eliberarilor de efluenti radioactivi in mediu (NDR-04), publicat in Monitorul Oficial al Romaniei.",
-                  desc_en:
-                    "4. CNCAN Order no. 221/25.08.2005 on approving the Norms on limiting radioactive effluent releases into the environment (NDR-04), published in Official Gazette of Romania.",
-                  url: "https://www.cncan.ro/assets/NDR/ndr-04.pdf",
-                },
-                {
-                  code: "NDR-05",
-                  title_ro:
-                    "Depozitarea la suprafață a deșeurilor radioactive (NDR-05)",
-                  title_en:
-                    "Near-surface disposal of radioactive waste (NDR-05)",
-                  desc_ro:
-                    "5. Ordinul CNCAN nr. 400/13.12.2005 privind aprobarea Depozitarii la suprafaţă a deşeurilor radioactive (NDR-05), publicat in Monitorul Oficial al Romaniei Partea I nr. 345 din 17/04/2006.",
-                  desc_en:
-                    "5. CNCAN Order no. 400/13.12.2005 on approving Near-surface disposal of radioactive waste (NDR-05), published in Official Gazette of Romania Part I no. 345 of 17/04/2006.",
-                  url: "https://www.cncan.ro/assets/NDR/ndr05.pdf",
-                },
-              ].map((reg, idx) => (
-                <div
-                  key={idx}
-                  className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm"
-                >
-                  <div>
-                    <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
-                      {reg.code}
-                    </span>
-                    <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
-                      <a
-                        href={reg.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:underline text-brand inline-flex items-center gap-1.5"
-                      >
-                        {lang === "ro" ? reg.title_ro : reg.title_en}
-                        <ExternalLink className="h-4 w-4 shrink-0" />
-                      </a>
-                    </h4>
-                    <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
-                      {lang === "ro" ? reg.desc_ro : reg.desc_en}
-                    </p>
-                  </div>
-                  <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+              {/* CARD 1: NDR-01 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NDR-01
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
                     <a
-                      href={reg.url}
+                      href="/documents/deseuri/NDR_01.pdf"
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:underline inline-flex items-center gap-1"
+                      className="hover:underline text-brand inline-flex items-center gap-1.5"
                     >
-                      <Download className="h-3.5 w-3.5" />
-                      {lang === "ro" ? "Consultă documentul oficial" : "Consult official document"} →
+                      {lang === "ro"
+                        ? "Normele fundamentale pentru gospodărirea în siguranță a deșeurilor radioactive (NDR-01)"
+                        : "Fundamental norms for the safe management of radioactive waste (NDR-01)"}
+                      <ExternalLink className="h-4 w-4 shrink-0" />
                     </a>
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                  </div>
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    1. Ordinul CNCAN nr. 56/25.03.2004 privind aprobarea Normelor fundamentale pentru gospodarirea in siguranta a deseurilor radioactive (NDR-01), republicat.
+                  </p>
                 </div>
-              ))}
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <a
+                    href="/documents/deseuri/NDR_01.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (481 KB)" : "Open PDF document (481 KB)"} →
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                </div>
+              </div>
+
+              {/* CARD 2: NDR-02 (WITH USER REQUESTED ERROR ALERT) */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-red-500/50 transition-all flex flex-col justify-between shadow-sm relative overflow-hidden">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                      NDR-02
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-500/10 text-red-600 font-semibold text-[10px] border border-red-500/20">
+                      <AlertTriangle className="h-3 w-3" />
+                      {lang === "ro" ? "Indisponibil oficial" : "Officially unavailable"}
+                    </span>
+                  </div>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    {lang === "ro"
+                      ? "Norme privind eliberarea de sub regimul de autorizare a materialelor rezultate din practici autorizate (NDR-02)"
+                      : "Norms on clearance from regulatory control of materials resulting from authorized practices (NDR-02)"}
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    2. Ordinul CNCAN nr. 62/31.03.2004 privind aprobarea Norme privind eliberarea de sub regimul de autorizare a materialelor rezultate din practici autorizate (NDR-02), publicat în Monitorul Oficial, Partea I nr. 393/04.05.2004.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs font-medium">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      alert(
+                        lang === "ro"
+                          ? "Eroare: Documentul NDR-02 nu funcționează momentan pe site-ul oficial CNCAN și nu poate fi accesat sau descărcat."
+                          : "Error: The NDR-02 document is currently unavailable on the official CNCAN server and cannot be accessed or downloaded."
+                      );
+                    }}
+                    className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-semibold transition-colors cursor-pointer"
+                  >
+                    <AlertTriangle className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Document indisponibil (clic pentru detalii)" : "Document unavailable (click for details)"}
+                  </button>
+                  <AlertTriangle className="h-4 w-4 text-red-500" />
+                </div>
+              </div>
+
+              {/* CARD 3: NDR-03 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NDR-03
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    <a
+                      href="/documents/deseuri/NDR_03.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline text-brand inline-flex items-center gap-1.5"
+                    >
+                      {lang === "ro"
+                        ? "Norme privind clasificarea deșeurilor radioactive (NDR-03)"
+                        : "Norms on radioactive waste classification (NDR-03)"}
+                      <ExternalLink className="h-4 w-4 shrink-0" />
+                    </a>
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    3. Ordinul CNCAN nr. 156/14.05.2005 privind aprobarea Normelor privind clasificarea deseurilor radioactive (NDR-03), publicat in Monitorul Oficial al Romaniei.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <a
+                    href="/documents/deseuri/NDR_03.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (105 KB)" : "Open PDF document (105 KB)"} →
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                </div>
+              </div>
+
+              {/* CARD 4: NDR-04 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NDR-04
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    <a
+                      href="/documents/deseuri/NDR_04.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline text-brand inline-flex items-center gap-1.5"
+                    >
+                      {lang === "ro"
+                        ? "Norme privind limitarea eliberărilor de efluenți radioactivi în mediu (NDR-04)"
+                        : "Norms on limiting radioactive effluent releases into the environment (NDR-04)"}
+                      <ExternalLink className="h-4 w-4 shrink-0" />
+                    </a>
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    4. Ordinul CNCAN nr. 221/25.08.2005 privind aprobarea Normelor privind limitarea eliberarilor de efluenti radioactivi in mediu (NDR-04), publicat in Monitorul Oficial al Romaniei.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <a
+                    href="/documents/deseuri/NDR_04.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (168 KB)" : "Open PDF document (168 KB)"} →
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                </div>
+              </div>
+
+              {/* CARD 5: NDR-05 */}
+              <div className="border border-border bg-card p-6 rounded-sm hover:border-brand/60 transition-all flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-sm bg-brand/10 text-brand font-mono text-xs font-bold">
+                    NDR-05
+                  </span>
+                  <h4 className="mt-3 font-display text-lg text-foreground leading-snug">
+                    <a
+                      href="/documents/deseuri/NDR_05.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:underline text-brand inline-flex items-center gap-1.5"
+                    >
+                      {lang === "ro"
+                        ? "Depozitarea la suprafață a deșeurilor radioactive (NDR-05)"
+                        : "Near-surface disposal of radioactive waste (NDR-05)"}
+                      <ExternalLink className="h-4 w-4 shrink-0" />
+                    </a>
+                  </h4>
+                  <p className="mt-2 text-xs text-muted-foreground leading-relaxed">
+                    5. Ordinul CNCAN nr. 400/13.12.2005 privind aprobarea Depozitarii la suprafaţă a deşeurilor radioactive (NDR-05), publicat in Monitorul Oficial al Romaniei Partea I nr. 345 din 17/04/2006.
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-brand font-medium">
+                  <a
+                    href="/documents/deseuri/NDR_05.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:underline inline-flex items-center gap-1 text-brand"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {lang === "ro" ? "Deschide documentul PDF (534 KB)" : "Open PDF document (534 KB)"} →
+                  </a>
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                </div>
+              </div>
             </div>
           </TabsContent>
 
