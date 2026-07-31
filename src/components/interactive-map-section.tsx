@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
+import RomaniaMap from "@svg-maps/romania";
 
 export interface NuclearFacility {
   id: string;
@@ -202,65 +203,28 @@ export function InteractiveMapSection() {
 
             {/* SVG ROMANIA MAP OUTLINE */}
             <div className="relative w-full aspect-[16/10] bg-secondary/20 rounded-sm overflow-hidden border border-border/40 flex items-center justify-center">
-              {/* REALISTIC HIGH-FIDELITY ROMANIA MAP SVG */}
+              {/* AUTHENTIC 41-COUNTY ROMANIA MAP FROM @svg-maps/romania */}
               <svg
-                viewBox="0 0 900 600"
+                viewBox={RomaniaMap.viewBox}
                 className="w-full h-full text-brand/20 drop-shadow-md"
               >
-                <defs>
-                  <linearGradient id="ro-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="currentColor" stopOpacity="0.12" />
-                    <stop offset="100%" stopColor="currentColor" stopOpacity="0.04" />
-                  </linearGradient>
-                </defs>
-
-                {/* Grid lines */}
-                <line x1="0" y1="150" x2="900" y2="150" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3,3" className="text-brand/15" />
-                <line x1="0" y1="300" x2="900" y2="300" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3,3" className="text-brand/15" />
-                <line x1="0" y1="450" x2="900" y2="450" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3,3" className="text-brand/15" />
-                <line x1="225" y1="0" x2="225" y2="600" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3,3" className="text-brand/15" />
-                <line x1="450" y1="0" x2="450" y2="600" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3,3" className="text-brand/15" />
-                <line x1="675" y1="0" x2="675" y2="600" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3,3" className="text-brand/15" />
-
-                {/* ROMANIA HIGH-ACCURACY BORDER PATH (80+ COORDINATES) */}
-                <path
-                  fill="url(#ro-gradient)"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinejoin="round"
-                  className="text-brand/30 hover:text-brand/40 transition-colors"
-                  d="M 260,80 L 300,75 L 340,50 L 390,48 L 420,65 L 450,75 L 480,68 L 530,55 L 570,70 L 610,60 L 640,55 L 660,85 L 670,115 L 665,145 L 685,175 L 700,200 L 705,235 L 695,265 L 700,300 L 725,335 L 750,345 L 780,340 L 815,345 L 830,365 L 815,395 L 785,415 L 770,445 L 765,480 L 755,510 L 715,515 L 675,505 L 640,515 L 600,530 L 560,535 L 520,545 L 470,540 L 430,535 L 380,545 L 340,550 L 310,540 L 275,520 L 245,495 L 220,465 L 185,435 L 165,405 L 155,375 L 165,340 L 170,305 L 165,265 L 180,230 L 195,195 L 210,160 L 235,125 Z"
-                />
-
-                {/* CARPATHIAN MOUNTAIN ARC (CARPAȚII) */}
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeDasharray="4,4"
-                  className="text-brand/25"
-                  d="M 360,140 C 440,160 520,180 540,240 C 560,300 540,360 440,380 C 350,395 280,340 260,260"
-                />
-
-                {/* DANUBE RIVER LINE (DUNĂREA) */}
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="text-blue-500/40"
-                  d="M 220,465 Q 260,520 340,545 T 520,540 T 715,510 Q 755,460 760,400 Q 780,380 815,395"
-                />
-
-                {/* SUBTLE GEOGRAPHIC LABELS */}
-                <text x="440" y="270" className="fill-brand/25 text-[14px] font-display font-bold" textAnchor="middle">
-                  CARPAȚII
-                </text>
-                <text x="540" y="525" className="fill-blue-500/40 text-[11px] font-mono font-semibold" textAnchor="middle">
-                  DUNĂREA
-                </text>
-                <text x="835" y="460" className="fill-brand/25 text-[11px] font-mono font-semibold" textAnchor="middle">
-                  MAREA NEAGRĂ
-                </text>
+                <g className="text-brand/35 hover:text-brand/50 transition-colors">
+                  {RomaniaMap.locations.map((loc) => (
+                    <path
+                      key={loc.id}
+                      id={loc.id}
+                      d={loc.path}
+                      fill="currentColor"
+                      fillOpacity="0.16"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinejoin="round"
+                      className="hover:fill-brand/30 transition-all cursor-pointer"
+                    >
+                      <title>{loc.name}</title>
+                    </path>
+                  ))}
+                </g>
               </svg>
 
               {/* INTERACTIVE MARKERS ON THE MAP */}

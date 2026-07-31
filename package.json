@@ -59,6 +59,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@svg-maps/romania": "^2.0.0",
     "@tailwindcss/vite": "^4.0.12",
     "@tanstack/router-plugin": "^1.114.2",
     "@types/node": "^22.13.10",
