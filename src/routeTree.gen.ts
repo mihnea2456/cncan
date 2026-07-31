@@ -20,6 +20,7 @@ import { Route as Legea111RouteImport } from './routes/legea-111'
 import { Route as LegislatieRouteImport } from './routes/legislatie'
 import { Route as ManagementulCalitatiiRouteImport } from './routes/managementul-calitatii'
 import { Route as SurseDeRadiatiiIonizanteRouteImport } from './routes/surse-de-radiatii-ionizante'
+import { Route as TransportMaterialeRadioactiveRouteImport } from './routes/transport-materiale-radioactive'
 import { Route as UrgenteRouteImport } from './routes/urgente'
 
 const IndexRoute = IndexRouteImport.update({
@@ -78,6 +79,12 @@ const SurseDeRadiatiiIonizanteRoute =
     path: '/surse-de-radiatii-ionizante',
     getParentRoute: () => rootRouteImport,
   } as any)
+const TransportMaterialeRadioactiveRoute =
+  TransportMaterialeRadioactiveRouteImport.update({
+    id: '/transport-materiale-radioactive',
+    path: '/transport-materiale-radioactive',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const UrgenteRoute = UrgenteRouteImport.update({
   id: '/urgente',
   path: '/urgente',
@@ -96,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
   '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
+  '/transport-materiale-radioactive': typeof TransportMaterialeRadioactiveRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRoutesByTo {
@@ -110,6 +118,7 @@ export interface FileRoutesByTo {
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
   '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
+  '/transport-materiale-radioactive': typeof TransportMaterialeRadioactiveRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRoutesById {
@@ -125,6 +134,7 @@ export interface FileRoutesById {
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
   '/surse-de-radiatii-ionizante': typeof SurseDeRadiatiiIonizanteRoute
+  '/transport-materiale-radioactive': typeof TransportMaterialeRadioactiveRoute
   '/urgente': typeof UrgenteRoute
 }
 export interface FileRouteTypes {
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
     | '/legislatie'
     | '/managementul-calitatii'
     | '/surse-de-radiatii-ionizante'
+    | '/transport-materiale-radioactive'
     | '/urgente'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/legislatie'
     | '/managementul-calitatii'
     | '/surse-de-radiatii-ionizante'
+    | '/transport-materiale-radioactive'
     | '/urgente'
   id:
     | '__root__'
@@ -169,6 +181,7 @@ export interface FileRouteTypes {
     | '/legislatie'
     | '/managementul-calitatii'
     | '/surse-de-radiatii-ionizante'
+    | '/transport-materiale-radioactive'
     | '/urgente'
   fileRoutesById: FileRoutesById
 }
@@ -184,6 +197,7 @@ export interface RootRouteChildren {
   LegislatieRoute: typeof LegislatieRoute
   ManagementulCalitatiiRoute: typeof ManagementulCalitatiiRoute
   SurseDeRadiatiiIonizanteRoute: typeof SurseDeRadiatiiIonizanteRoute
+  TransportMaterialeRadioactiveRoute: typeof TransportMaterialeRadioactiveRoute
   UrgenteRoute: typeof UrgenteRoute
 }
 
@@ -266,6 +280,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SurseDeRadiatiiIonizanteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/transport-materiale-radioactive': {
+      id: '/transport-materiale-radioactive'
+      path: '/transport-materiale-radioactive'
+      fullPath: '/transport-materiale-radioactive'
+      preLoaderRoute: typeof TransportMaterialeRadioactiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/urgente': {
       id: '/urgente'
       path: '/urgente'
@@ -288,6 +309,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegislatieRoute: LegislatieRoute,
   ManagementulCalitatiiRoute: ManagementulCalitatiiRoute,
   SurseDeRadiatiiIonizanteRoute: SurseDeRadiatiiIonizanteRoute,
+  TransportMaterialeRadioactiveRoute: TransportMaterialeRadioactiveRoute,
   UrgenteRoute: UrgenteRoute,
 }
 export const routeTree = rootRouteImport

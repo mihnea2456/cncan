@@ -82,9 +82,10 @@ const categories = [
     icon: Truck,
     ro: "Transport Materiale Radioactive",
     en: "Radioactive Material Transport",
-    desc_ro: "Aprobări pachet-colet, expediere, tranzit internațional.",
-    desc_en: "Package approvals, shipping, international transit.",
-    count: 1,
+    desc_ro: "Sistem de autorizare, Reglementări și Evaluare documente.",
+    desc_en: "Licensing system, Regulations, and Document evaluation.",
+    count: 3,
+    customLink: "/transport-materiale-radioactive",
   },
   {
     id: "deseuri",

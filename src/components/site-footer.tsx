@@ -25,6 +25,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/instalatii-nucleare" className="hover:text-white">Instalații nucleare</Link></li>
             <li><Link to="/constructii-nucleare" className="hover:text-white">Construcții cu specific nuclear</Link></li>
+            <li><Link to="/transport-materiale-radioactive" className="hover:text-white">Transport materiale radioactive</Link></li>
             <li><Link to="/surse-de-radiatii-ionizante" className="hover:text-white">Surse de radiații ionizante</Link></li>
             <li><Link to="/managementul-calitatii" className="hover:text-white">Managementul calității (SMC)</Link></li>
             <li><Link to="/autorizari" className="hover:text-white">Toate autorizările</Link></li>
