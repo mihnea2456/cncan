@@ -1285,7 +1285,7 @@ function LegPage() {
                     }}
                     className="px-3 py-1.5 rounded-sm bg-card border border-border hover:border-brand text-xs font-medium text-foreground transition-colors"
                   >
-                    {lang === "ro" ? "Extinde toate 19" : "Expand all 19"}
+                    {lang === "ro" ? "Extinde toate" : "Expand all"}
                   </button>
                   <button
                     onClick={() => {
@@ -1312,7 +1312,7 @@ function LegPage() {
                       : "bg-card text-muted-foreground hover:text-foreground border border-border/70"
                   }`}
                 >
-                  {lang === "ro" ? "Toate 19 Subsecțiunile" : "All 19 Subsections"}
+                  {lang === "ro" ? "Toate" : "All"}
                 </button>
 
                 {NORME_SUBSECTIONS.map((sub) => {
