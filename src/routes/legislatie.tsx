@@ -129,7 +129,7 @@ export interface LegItem {
 }
 
 export const LEGISLATION_ITEMS: LegItem[] = [
-  // 1. LEGI
+  // 1. LEGI & HOTĂRÂRI ALE GUVERNULUI (Arhiva completă E:\documente cncan\Legislatie\legi)
   {
     no: "111/1996",
     type: "Lege",
@@ -140,6 +140,96 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     featured: true,
     pdfUrl: "/documents/Legea_111_1996.pdf",
     pageUrl: "/legea-111",
+  },
+  {
+    no: "234/2023",
+    type: "Lege",
+    title_ro: "Legea nr. 234/2023 pentru modificarea și completarea Legii nr. 111/1996 privind desfășurarea în siguranță a activităților nucleare",
+    title_en: "Law no. 234/2023 amending and supplementing Law no. 111/1996 on the safe conduct of nuclear activities",
+    year: 2023,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/Legea-234-din-2023.pdf",
+  },
+  {
+    no: "63/2018",
+    type: "Lege",
+    title_ro: "Legea nr. 63 pentru modificarea și completarea Legii nr. 111/1996 privind desfășurarea în siguranță a activităților nucleare",
+    title_en: "Law no. 63 amending and supplementing Law no. 111/1996 on the safe conduct of nuclear activities",
+    year: 2018,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/Legea-63-pentru-mdificarea-si-completarea-Legii-111.pdf",
+  },
+  {
+    no: "703/2001",
+    type: "Lege",
+    title_ro: "Legea nr. 703/2001 privind răspunderea civilă pentru daune nucleare și reglementarea daunelor de mediu",
+    title_en: "Law no. 703/2001 on civil liability for nuclear damage and environmental damage regulation",
+    year: 2001,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/Legea-nr.-7032001-privind-raspunderea-civila-pentru-daune-nucleare.pdf",
+  },
+  {
+    no: "HG 828 (ROF)",
+    type: "Hotărâre Guvern",
+    title_ro: "Hotărârea Guvernului nr. 828 privind aprobarea Regulamentului de organizare și funcționare a CNCAN (consolidat)",
+    title_en: "Government Decision no. 828 approving the Regulation of Organization and Functioning of CNCAN (consolidated)",
+    year: 2005,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/HG-828-ROF-CNCAN.pdf",
+  },
+  {
+    no: "HG PNAR 2018",
+    type: "Hotărâre Guvern",
+    title_ro: "Hotărârea Guvernului din 25.07.2018 pentru aprobarea Planului Național de Acțiune la Radon (PNAR)",
+    title_en: "Government Decision of 25.07.2018 approving the National Action Plan for Radon (PNAR)",
+    year: 2018,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/HG-25072018-PNAR.pdf",
+  },
+  {
+    no: "HG 483 (RANET)",
+    type: "Hotărâre Guvern",
+    title_ro: "Hotărârea Guvernului nr. 483 privind participarea României la Rețeaua de Intervenție și Asistență în Situații de Urgență AIEA (RANET / MOF)",
+    title_en: "Government Decision no. 483 on Romania's participation in the IAEA Emergency Response and Assistance Network (RANET / MOF)",
+    year: 2016,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/HG-483-RANETMOF.pdf",
+  },
+  {
+    no: "HG Strategie 2014",
+    type: "Hotărâre Guvern",
+    title_ro: "Hotărârea Guvernului privind aprobarea Strategiei Naționale pentru siguranța nucleară și gospodărirea în siguranță a deșeurilor radioactive",
+    title_en: "Government Decision approving the National Strategy for Nuclear Safety and Safe Management of Radioactive Waste",
+    year: 2014,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/HG-Strategie-2014.pdf",
+  },
+  {
+    no: "HG 501",
+    type: "Hotărâre Guvern",
+    title_ro: "Hotărârea Guvernului nr. 501 privind actualizarea unor dispoziții de reglementare în domeniul protecției nucleare și radiologice",
+    title_en: "Government Decision no. 501 updating regulatory provisions in nuclear and radiological protection",
+    year: 2024,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/HG-501-din-2026-publicat.pdf",
+  },
+  {
+    no: "HG Patrimoniu",
+    type: "Hotărâre Guvern",
+    title_ro: "Hotărârea Guvernului privind administrarea patrimoniului public și privat aferent obiectivelor și instalațiilor nucleare",
+    title_en: "Government Decision on managing public and private heritage related to nuclear objectives and facilities",
+    year: 2023,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/HG-patrimoniu-publicat260629085929.pdf",
+  },
+  {
+    no: "Ordinul 40/1990",
+    type: "Ordin fondator",
+    title_ro: "Ordinul nr. 40/1990 privind dispozițiile fundamentale de control de stat în domeniul nuclear (Arhiva istorică activă)",
+    title_en: "Order no. 40/1990 on state control provisions in the nuclear field (active historical archive)",
+    year: 1990,
+    catId: "legi",
+    pdfUrl: "/documents/legislatie/legi/Ordinul-CNCAN-40-din-1990.pdf",
   },
   {
     no: "105/1999",
@@ -522,7 +612,9 @@ function LegPage() {
               }`}
             >
               <FolderOpen className="h-3.5 w-3.5" />
-              {lang === "ro" ? "Toate Categoriile (28 acte)" : "All Categories (28 acts)"}
+              {lang === "ro"
+                ? `Toate Categoriile (${LEGISLATION_ITEMS.length} acte)`
+                : `All Categories (${LEGISLATION_ITEMS.length} acts)`}
             </button>
 
             {CATEGORIES.map((cat) => {
