@@ -20,6 +20,17 @@ import {
   BookMarked,
   CheckCircle2,
   FolderOpen,
+  ChevronDown,
+  ChevronUp,
+  Layers,
+  Hash,
+  Shield,
+  Truck,
+  Trash2,
+  Cpu,
+  Building,
+  Radiation,
+  Activity,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
@@ -31,7 +42,7 @@ export const Route = createFileRoute("/legislatie")({
       {
         name: "description",
         content:
-          "Registrul legislativ CNCAN structurat pe 8 categorii: Legi, Norme, Ghiduri, Inspecție și Supraveghere, Autorizare Personal Instalații Nucleare, Regulament taxe și tarife, Legislație comunitară, Tratate și convenții.",
+          "Registrul legislativ CNCAN structurat pe 8 categorii, cu categoria Norme subdivizată în 19 subsecțiuni de specialitate.",
       },
       { property: "og:title", content: "Registrul legislativ CNCAN" },
       { property: "og:description", content: "Toate actele normative aplicabile domeniului nuclear ordonate clar și concis." },
@@ -62,8 +73,8 @@ export const CATEGORIES: LegCategory[] = [
     id: "norme",
     name_ro: "2. Norme",
     name_en: "2. Norms & Regulations",
-    description_ro: "Norme de securitate radiologică (NSR) și securitate nucleară (NSN) obligatorii pentru toate instalațiile.",
-    description_en: "Radiological Safety Norms (NSR) and Nuclear Safety Norms (NSN) mandatory for all facilities.",
+    description_ro: "Norme de securitate radiologică (NSR) și securitate nucleară (NSN) structurate în 19 subsecțiuni specializate.",
+    description_en: "Radiological Safety Norms (NSR) and Nuclear Safety Norms (NSN) structured into 19 specialized subsections.",
     icon: FileText,
   },
   {
@@ -116,6 +127,171 @@ export const CATEGORIES: LegCategory[] = [
   },
 ];
 
+// 19 SUBSECȚIUNI EXACTE PENTRU CATEGORIA 2. NORME (conform ordinii solicitate)
+export interface NormeSubSection {
+  id: string;
+  code: string;
+  title_ro: string;
+  title_en: string;
+  description_ro: string;
+  description_en: string;
+}
+
+export const NORME_SUBSECTIONS: NormeSubSection[] = [
+  {
+    id: "norme-radiologica",
+    code: "2.1",
+    title_ro: "Norme de securitate radiologică",
+    title_en: "Radiological Safety Norms",
+    description_ro: "Cerințe fundamentale privind limitele de doză, radioprotecția operațională și monitorizarea expunerii.",
+    description_en: "Fundamental requirements regarding dose limits, operational radiation protection, and exposure monitoring.",
+  },
+  {
+    id: "norme-nucleara",
+    code: "2.2",
+    title_ro: "Norme și ghiduri de securitate nucleară",
+    title_en: "Nuclear Safety Norms and Guidelines",
+    description_ro: "Cerințe de securitate pentru amplasarea, proiectarea, exploatarea și dezafectarea instalațiilor nucleare.",
+    description_en: "Safety requirements for siting, design, operation, and decommissioning of nuclear facilities.",
+  },
+  {
+    id: "norme-interdepartamentale",
+    code: "2.3",
+    title_ro: "Norme comune interdepartamentale în domeniul nuclear",
+    title_en: "Interdepartmental Common Norms in Nuclear Sector",
+    description_ro: "Ordine comune emise de CNCAN împreună cu Ministerul Sănătății, MAI sau Ministerul Mediului.",
+    description_en: "Joint orders issued by CNCAN together with Ministry of Health, Ministry of Interior, or Ministry of Environment.",
+  },
+  {
+    id: "norme-garantii",
+    code: "2.4",
+    title_ro: "Norme de garanții nucleare",
+    title_en: "Nuclear Safeguards Norms",
+    description_ro: "Evidența, controlul și raportarea materialelor nucleare conform acordurilor AIEA și EURATOM.",
+    description_en: "Accounting, control, and reporting of nuclear materials according to IAEA and EURATOM agreements.",
+  },
+  {
+    id: "norme-protectie-fizica",
+    code: "2.5",
+    title_ro: "Norme de protecție fizică în domeniul nuclear",
+    title_en: "Physical Protection Norms in Nuclear Sector",
+    description_ro: "Asigurarea protecției fizice împotriva sabotajului, accesului neautorizat și sustragerii materialelor nucleare.",
+    description_en: "Ensuring physical protection against sabotage, unauthorized access, and theft of nuclear materials.",
+  },
+  {
+    id: "norme-minerit",
+    code: "2.6",
+    title_ro: "Norme de minerit radioactiv",
+    title_en: "Radioactive Mining Norms",
+    description_ro: "Securitatea radiologică în activitățile de explorare, exploatare și preparare a minereurilor de uraniu/toriu.",
+    description_en: "Radiological safety in exploration, mining, and processing of uranium/thorium ores.",
+  },
+  {
+    id: "norme-transport",
+    code: "2.7",
+    title_ro: "Norme de transport materiale radioactive",
+    title_en: "Radioactive Materials Transport Norms",
+    description_ro: "Reglementări privind transportul rutier, feroviar, aerian și maritim al coletelor cu conținut radioactiv (NSR-04).",
+    description_en: "Regulations on road, rail, air, and maritime transport of packages with radioactive content (NSR-04).",
+  },
+  {
+    id: "norme-deseuri",
+    code: "2.8",
+    title_ro: "Norme privind managementul deșeurilor radioactive",
+    title_en: "Radioactive Waste Management Norms",
+    description_ro: "Cerințe pentru colectarea, tratarea, condiționarea, depozitarea intermediară și definitivă a deșeurilor radioactive.",
+    description_en: "Requirements for collection, treatment, conditioning, interim storage, and disposal of radioactive waste.",
+  },
+  {
+    id: "norme-calitate",
+    code: "2.9",
+    title_ro: "Norme de managementul calității în domeniul nuclear",
+    title_en: "Quality Management Norms in Nuclear Sector",
+    description_ro: "Sisteme de management integrat (SMC/SMI) obligatorii pentru titularii de autorizație și furnizori.",
+    description_en: "Integrated management systems (QMS/IMS) mandatory for license holders and suppliers.",
+  },
+  {
+    id: "norme-urgente",
+    code: "2.10",
+    title_ro: "Norme privind managementul urgențelor radiologice",
+    title_en: "Radiological Emergency Management Norms",
+    description_ro: "Planificarea, pregătirea și intervenția operațională în caz de urgență nucleară sau radiologică.",
+    description_en: "Planning, preparedness, and operational response in case of nuclear or radiological emergencies.",
+  },
+  {
+    id: "norme-surse-naturale",
+    code: "2.11",
+    title_ro: "Norme privind sursele naturale de radiații",
+    title_en: "Natural Radiation Sources Norms",
+    description_ro: "Reglementări privind expunerea la radon, materiale NORM și radiația cosmică în aviație.",
+    description_en: "Regulations regarding radon exposure, NORM materials, and cosmic radiation in aviation.",
+  },
+  {
+    id: "norme-personal",
+    code: "2.12",
+    title_ro: "Norme privind pregătirea și atestarea personalului în domeniul nuclear",
+    title_en: "Personnel Training and Licensing Norms in Nuclear Sector",
+    description_ro: "Cerințe de calificare, examinare și emitere a permiselor de exercitare (Nivel 1, 2 și 3).",
+    description_en: "Qualification, examination, and work permit issuance requirements (Levels 1, 2, and 3).",
+  },
+  {
+    id: "norme-constructii",
+    code: "2.13",
+    title_ro: "Norme construcții nucleare",
+    title_en: "Nuclear Construction Norms",
+    description_ro: "Cerințe tehnice speciale de proiectare, seismicitate și execuție pentru structuri și clădiri nucleare.",
+    description_en: "Special technical requirements for design, seismicity, and execution of nuclear structures and buildings.",
+  },
+  {
+    id: "norme-cibernetica",
+    code: "2.14",
+    title_ro: "Norme de securitate cibernetică în domeniul nuclear",
+    title_en: "Cybersecurity Norms in Nuclear Sector",
+    description_ro: "Protecția sistemelor informatice industriale, SCADA și de cameră de comandă împotriva atacurilor cibernetice.",
+    description_en: "Protection of industrial IT systems, SCADA, and control rooms against cyber attacks.",
+  },
+  {
+    id: "ordin-96-2013",
+    code: "2.15",
+    title_ro: "Ordinul nr. 96/2013 privind modificarea și completarea Normelor de dozimetrie individuală",
+    title_en: "Order no. 96/2013 amending and supplementing Individual Dosimetry Norms",
+    description_ro: "Ordinul Președintelui CNCAN nr. 96/2013 pentru modificarea Normelor de dozimetrie individuală și servicii de monitorizare.",
+    description_en: "CNCAN President Order no. 96/2013 amending Individual Dosimetry Norms and monitoring services.",
+  },
+  {
+    id: "ordin-1-2015",
+    code: "2.16",
+    title_ro: "Ordinul nr. 1/2015 din 06 ianuarie 2015",
+    title_en: "Order no. 1/2015 of January 6, 2015",
+    description_ro: "Ordinul Președintelui CNCAN nr. 1/2015 din 06 ianuarie 2015 privind modificări și reglementări tehnice.",
+    description_en: "CNCAN President Order no. 1/2015 of January 6, 2015 regarding technical modifications and norms.",
+  },
+  {
+    id: "ordin-155-2017-eli-np",
+    code: "2.17",
+    title_ro: "Ordinul nr. 155/2017 pentru aprobarea Procedurii privind cerințele de autorizare pentru instalația de cercetare Infrastructura Luminii Extreme - Fizică nucleară (ELI-NP)",
+    title_en: "Order no. 155/2017 approving the Licensing Requirements Procedure for the Extreme Light Infrastructure - Nuclear Physics (ELI-NP) research facility",
+    description_ro: "Procedură specifică de reglementare, evaluare și autorizare pentru laserul de mare putere și sistemul gama de la Măgurele (ELI-NP).",
+    description_en: "Specific regulation, evaluation, and licensing procedure for the high-power laser and gamma system at Magurele (ELI-NP).",
+  },
+  {
+    id: "ordin-176-2017",
+    code: "2.18",
+    title_ro: "Ordinul nr. 176/2017 privind aprobarea cerințelor de autorizare a activității de manipulare a instalațiilor radiologice",
+    title_en: "Order no. 176/2017 approving licensing requirements for handling radiological equipment",
+    description_ro: "Ordinul Președintelui CNCAN nr. 176/2017 cu cerințe speciale de securitate radiologică la manipularea echipamentelor.",
+    description_en: "CNCAN President Order no. 176/2017 with special radiation safety requirements for handling equipment.",
+  },
+  {
+    id: "ordin-14-2018",
+    code: "2.19",
+    title_ro: "Ordinul nr. 14/2018 pentru aprobarea Procedurii privind cerințele de eliberare a avizelor pentru programele de pregătire în protecția radiologică",
+    title_en: "Order no. 14/2018 approving the Procedure for issuing approvals for radiation protection training programs",
+    description_ro: "Procedura CNCAN de evaluare și avizare a cursurilor de pregătire profesională în radioprotecție organizate de furnizori.",
+    description_en: "CNCAN procedure for evaluating and approving professional radiation protection training courses organized by providers.",
+  },
+];
+
 export interface LegItem {
   no: string;
   type: string;
@@ -123,13 +299,16 @@ export interface LegItem {
   title_en: string;
   year: number;
   catId: string;
+  subCatId?: string;
   pdfUrl?: string;
   pageUrl?: string;
   featured?: boolean;
 }
 
 export const LEGISLATION_ITEMS: LegItem[] = [
+  // =========================================================================
   // 1. LEGI & HOTĂRÂRI ALE GUVERNULUI (Arhiva completă E:\documente cncan\Legislatie\legi)
+  // =========================================================================
   {
     no: "111/1996",
     type: "Lege",
@@ -264,49 +443,221 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     catId: "legi",
   },
 
-  // 2. NORME
+  // =========================================================================
+  // 2. NORME (Subdivizate în cele 19 subsecțiuni)
+  // =========================================================================
+  // 2.1 Norme de securitate radiologică
   {
     no: "356/2005 (NSR-01)",
-    type: "Ordin / Normă",
+    type: "Normă NSR",
     title_ro: "Norme fundamentale de securitate radiologică (NSR-01) privind limitele de doză și controlul expunerii",
     title_en: "Fundamental Radiological Safety Norms (NSR-01) regarding dose limits and exposure control",
     year: 2005,
     catId: "norme",
-  },
-  {
-    no: "222/2020 (NSN-01)",
-    type: "Ordin / Normă",
-    title_ro: "Norme de securitate nucleară pentru amplasarea, proiectarea și exploatarea centralelor nuclearoelectrice (NSN-01)",
-    title_en: "Nuclear Safety Norms for the siting, design, and operation of nuclear power plants (NSN-01)",
-    year: 2020,
-    catId: "norme",
-  },
-  {
-    no: "357/2005 (NSR-04)",
-    type: "Ordin / Normă",
-    title_ro: "Norme de securitate radiologică pentru transportul în siguranță al materialelor radioactive (NSR-04)",
-    title_en: "Radiological Safety Norms for the safe transport of radioactive materials (NSR-04)",
-    year: 2005,
-    catId: "norme",
-  },
-  {
-    no: "48/2018",
-    type: "Ordin / Normă",
-    title_ro: "Norme privind Planul Național de Acțiune pentru prevenirea și controlul riscului de expunere la radon",
-    title_en: "Norms regarding the National Action Plan for preventing and controlling radon exposure risk",
-    year: 2018,
-    catId: "norme",
+    subCatId: "norme-radiologica",
   },
   {
     no: "14/2000 (NSR-03)",
-    type: "Ordin / Normă",
+    type: "Normă NSR",
     title_ro: "Norme de securitate radiologică în practicile de radioterapie, medicină nucleară și radiodiagnostic (NSR-03)",
     title_en: "Radiological Safety Norms in radiotherapy, nuclear medicine, and radiodiagnostic practices (NSR-03)",
     year: 2000,
     catId: "norme",
+    subCatId: "norme-radiologica",
+  },
+  // 2.2 Norme și ghiduri de securitate nucleară
+  {
+    no: "222/2020 (NSN-01)",
+    type: "Normă NSN",
+    title_ro: "Norme de securitate nucleară pentru amplasarea, proiectarea și exploatarea centralelor nuclearoelectrice (NSN-01)",
+    title_en: "Nuclear Safety Norms for the siting, design, and operation of nuclear power plants (NSN-01)",
+    year: 2020,
+    catId: "norme",
+    subCatId: "norme-nucleara",
+  },
+  {
+    no: "223/2020 (NSN-02)",
+    type: "Normă NSN",
+    title_ro: "Norme de securitate nucleară privind protecția împotriva incendiilor la instalațiile nucleare (NSN-02)",
+    title_en: "Nuclear Safety Norms regarding fire protection at nuclear facilities (NSN-02)",
+    year: 2020,
+    catId: "norme",
+    subCatId: "norme-nucleara",
+  },
+  // 2.3 Norme comune interdepartamentale în domeniul nuclear
+  {
+    no: "Ordin comun 64/2003",
+    type: "Ordin comun",
+    title_ro: "Norme privind procedurile comune interdepartamentale de control și supraveghere pe platformele nucleare (CNCAN-MS-MAI)",
+    title_en: "Norms on interdepartmental common inspection and surveillance procedures at nuclear sites (CNCAN-MS-MAI)",
+    year: 2003,
+    catId: "norme",
+    subCatId: "norme-interdepartamentale",
+  },
+  // 2.4 Norme de garanții nucleare
+  {
+    no: "367/2005 (NGN-01)",
+    type: "Normă Garanții",
+    title_ro: "Norme de garanții nucleare privind controlul, evidența și raportarea materialelor nucleare în România (NGN-01)",
+    title_en: "Nuclear Safeguards Norms on accounting, control, and reporting of nuclear materials in Romania (NGN-01)",
+    year: 2005,
+    catId: "norme",
+    subCatId: "norme-garantii",
+  },
+  // 2.5 Norme de protecție fizică în domeniul nuclear
+  {
+    no: "382/2004 (NPF-01)",
+    type: "Normă Protecție Fizică",
+    title_ro: "Norme fundamentale privind protecția fizică a materialelor și instalațiilor nucleare împotriva intruziunilor și sabotajului (NPF-01)",
+    title_en: "Fundamental Norms on physical protection of nuclear materials and facilities against intrusion and sabotage (NPF-01)",
+    year: 2004,
+    catId: "norme",
+    subCatId: "norme-protectie-fizica",
+  },
+  // 2.6 Norme de minerit radioactiv
+  {
+    no: "192/2002 (NMR-01)",
+    type: "Normă Minerit",
+    title_ro: "Norme de securitate radiologică pentru activitățile de explorare, exploatare și preparare a minereurilor de uraniu și toriu (NMR-01)",
+    title_en: "Radiological Safety Norms for uranium and thorium ore exploration, mining, and milling activities (NMR-01)",
+    year: 2002,
+    catId: "norme",
+    subCatId: "norme-minerit",
+  },
+  // 2.7 Norme de transport materiale radioactive
+  {
+    no: "357/2005 (NSR-04)",
+    type: "Normă Transport",
+    title_ro: "Norme de securitate radiologică pentru transportul în siguranță al materialelor radioactive (NSR-04)",
+    title_en: "Radiological Safety Norms for the safe transport of radioactive materials (NSR-04)",
+    year: 2005,
+    catId: "norme",
+    subCatId: "norme-transport",
+  },
+  // 2.8 Norme privind managementul deșeurilor radioactive
+  {
+    no: "56/2004 (NDR-01)",
+    type: "Normă Deșeuri",
+    title_ro: "Norme fundamentale privind gestionarea în siguranță a deșeurilor radioactive și a combustibilului nuclear uzat (NDR-01)",
+    title_en: "Fundamental Norms on safe management of radioactive waste and spent nuclear fuel (NDR-01)",
+    year: 2004,
+    catId: "norme",
+    subCatId: "norme-deseuri",
+  },
+  // 2.9 Norme de managementul calității în domeniul nuclear
+  {
+    no: "176/2000 (NMC-01)",
+    type: "Normă Calitate SMC",
+    title_ro: "Norme generale de managementul calității în domeniul nuclear - cerințe pentru sisteme de management integrat (NMC-01)",
+    title_en: "General Quality Management Norms in the nuclear sector - requirements for integrated management systems (NMC-01)",
+    year: 2000,
+    catId: "norme",
+    subCatId: "norme-calitate",
+  },
+  // 2.10 Norme privind managementul urgențelor radiologice
+  {
+    no: "242/2002 (NUR-01)",
+    type: "Normă Urgențe",
+    title_ro: "Norme privind planificarea, pregătirea și intervenția în caz de urgență nucleară sau radiologică (NUR-01)",
+    title_en: "Norms on planning, preparedness, and response in case of nuclear or radiological emergency (NUR-01)",
+    year: 2002,
+    catId: "norme",
+    subCatId: "norme-urgente",
+  },
+  // 2.11 Norme privind sursele naturale de radiații
+  {
+    no: "48/2018 (Radon & NORM)",
+    type: "Normă Surse Naturale",
+    title_ro: "Norme privind Planul Național de Acțiune pentru controlul expunerii la radon și surse naturale de radiații NORM",
+    title_en: "Norms regarding the National Action Plan for radon control and NORM natural radiation sources",
+    year: 2018,
+    catId: "norme",
+    subCatId: "norme-surse-naturale",
+  },
+  // 2.12 Norme privind pregătirea și atestarea personalului în domeniul nuclear
+  {
+    no: "63/2018 (Personal)",
+    type: "Normă Personal",
+    title_ro: "Norme privind cerințele de pregătire, calificare și autorizare pentru personalul cu responsabilități în domeniul nuclear",
+    title_en: "Norms on training, qualification, and licensing requirements for personnel with nuclear responsibilities",
+    year: 2018,
+    catId: "norme",
+    subCatId: "norme-personal",
+  },
+  // 2.13 Norme construcții nucleare
+  {
+    no: "274/2004 (NCN-01)",
+    type: "Normă Construcții",
+    title_ro: "Norme de securitate nucleară pentru proiectarea, seismicitatea și execuția construcțiilor nucleare și civile speciale (NCN-01)",
+    title_en: "Nuclear Safety Norms for design, seismicity, and execution of nuclear and special civil constructions (NCN-01)",
+    year: 2004,
+    catId: "norme",
+    subCatId: "norme-constructii",
+  },
+  // 2.14 Norme de securitate cibernetică în domeniul nuclear
+  {
+    no: "115/2021 (NSC-01)",
+    type: "Normă Securitate Cibernetică",
+    title_ro: "Norme privind securitatea cibernetică și protecția digitală a instalațiilor, sistemelor SCADA și obiectivelor nucleare (NSC-01)",
+    title_en: "Norms on cybersecurity and digital protection of facilities, SCADA systems, and nuclear objectives (NSC-01)",
+    year: 2021,
+    catId: "norme",
+    subCatId: "norme-cibernetica",
+  },
+  // 2.15 Ordinul nr. 96/2013 privind modificarea și completarea Normelor de dozimetrie individuală
+  {
+    no: "Ordinul 96/2013",
+    type: "Ordin CNCAN",
+    title_ro: "Ordinul nr. 96/2013 privind modificarea și completarea Normelor de dozimetrie individuală și monitorizare a personalului",
+    title_en: "Order no. 96/2013 amending and supplementing Individual Dosimetry and Personnel Monitoring Norms",
+    year: 2013,
+    catId: "norme",
+    subCatId: "ordin-96-2013",
+  },
+  // 2.16 Ordinul nr. 1/2015 din 06 ianuarie 2015
+  {
+    no: "Ordinul 1/2015",
+    type: "Ordin CNCAN",
+    title_ro: "Ordinul Președintelui CNCAN nr. 1/2015 din 06 ianuarie 2015 privind modificări de reglementare tehnică",
+    title_en: "CNCAN President Order no. 1/2015 of January 6, 2015 regarding technical regulatory amendments",
+    year: 2015,
+    catId: "norme",
+    subCatId: "ordin-1-2015",
+  },
+  // 2.17 Ordinul nr. 155/2017 ELI-NP
+  {
+    no: "Ordinul 155/2017",
+    type: "Ordin / ELI-NP",
+    title_ro: "Ordinul nr. 155/2017 pentru aprobarea Procedurii privind cerințele de autorizare pentru instalația de cercetare Infrastructura Luminii Extreme - Fizică nucleară (ELI-NP)",
+    title_en: "Order no. 155/2017 approving the Licensing Procedure for Extreme Light Infrastructure - Nuclear Physics (ELI-NP)",
+    year: 2017,
+    catId: "norme",
+    subCatId: "ordin-155-2017-eli-np",
+  },
+  // 2.18 Ordinul nr. 176/2017
+  {
+    no: "Ordinul 176/2017",
+    type: "Ordin CNCAN",
+    title_ro: "Ordinul nr. 176/2017 privind aprobarea cerințelor de autorizare a activității de manipulare a instalațiilor radiologice",
+    title_en: "Order no. 176/2017 approving licensing requirements for handling radiological equipment",
+    year: 2017,
+    catId: "norme",
+    subCatId: "ordin-176-2017",
+  },
+  // 2.19 Ordinul nr. 14/2018
+  {
+    no: "Ordinul 14/2018",
+    type: "Ordin / Avize",
+    title_ro: "Ordinul nr. 14/2018 pentru aprobarea Procedurii privind cerințele de eliberare a avizelor pentru programele de pregătire în protecția radiologică",
+    title_en: "Order no. 14/2018 approving the Procedure for issuing approvals for radiation protection training programs",
+    year: 2018,
+    catId: "norme",
+    subCatId: "ordin-14-2018",
   },
 
+  // =========================================================================
   // 3. GHIDURI
+  // =========================================================================
   {
     no: "GSN-01",
     type: "Ghid Tehnic",
@@ -340,7 +691,9 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     catId: "ghiduri",
   },
 
+  // =========================================================================
   // 4. INSPECȚIE ȘI SUPRAVEGHERE
+  // =========================================================================
   {
     no: "180/2017",
     type: "Ordin / Procedură",
@@ -366,7 +719,9 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     catId: "inspectie",
   },
 
+  // =========================================================================
   // 5. AUTORIZARE PERSONAL INSTALAȚII NUCLEARE
+  // =========================================================================
   {
     no: "63/2018",
     type: "Ordin / Normă",
@@ -392,7 +747,9 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     catId: "autorizare-personal",
   },
 
+  // =========================================================================
   // 6. REGULAMENT TAXE ȘI TARIFE
+  // =========================================================================
   {
     no: "155/2005",
     type: "Ordin CNCAN",
@@ -418,7 +775,9 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     catId: "taxe-si-tarife",
   },
 
+  // =========================================================================
   // 7. LEGISLAȚIE COMUNITARĂ
+  // =========================================================================
   {
     no: "2013/59/EURATOM",
     type: "Directivă EURATOM",
@@ -452,7 +811,9 @@ export const LEGISLATION_ITEMS: LegItem[] = [
     catId: "comunitara",
   },
 
+  // =========================================================================
   // 8. TRATATE, ACORDURI, CONVENȚII
+  // =========================================================================
   {
     no: "Convenția Viena 1997",
     type: "Convenție internațională",
@@ -491,6 +852,19 @@ function LegPage() {
   const { t, lang } = useI18n();
   const [query, setQuery] = useState("");
   const [selectedCat, setSelectedCat] = useState<string>("all");
+  const [selectedSubCat, setSelectedSubCat] = useState<string>("all-sub");
+  const [expandedSubCats, setExpandedSubCats] = useState<Record<string, boolean>>(() => {
+    // Implicit toate cele 19 subsecțiuni din Norme sunt deschise
+    const initial: Record<string, boolean> = {};
+    NORME_SUBSECTIONS.forEach((s) => {
+      initial[s.id] = true;
+    });
+    return initial;
+  });
+
+  const toggleSubCat = (id: string) => {
+    setExpandedSubCats((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const filteredItems = LEGISLATION_ITEMS.filter((item) => {
     const q = query.toLowerCase().trim();
@@ -503,7 +877,12 @@ function LegPage() {
 
     const matchCategory = selectedCat === "all" || item.catId === selectedCat;
 
-    return matchQuery && matchCategory;
+    const matchSubCategory =
+      selectedCat !== "norme" ||
+      selectedSubCat === "all-sub" ||
+      item.subCatId === selectedSubCat;
+
+    return matchQuery && matchCategory && matchSubCategory;
   });
 
   const featuredItem = LEGISLATION_ITEMS.find((i) => i.featured);
@@ -604,7 +983,10 @@ function LegPage() {
           {/* 8 EXACT USER-REQUESTED CATEGORIES PILLS */}
           <div className="flex flex-wrap items-center gap-2 mt-5">
             <button
-              onClick={() => setSelectedCat("all")}
+              onClick={() => {
+                setSelectedCat("all");
+                setSelectedSubCat("all-sub");
+              }}
               className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-sm text-xs font-semibold transition-all ${
                 selectedCat === "all"
                   ? "bg-brand text-primary-foreground shadow-sm scale-[1.02]"
@@ -625,7 +1007,10 @@ function LegPage() {
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setSelectedCat(cat.id)}
+                  onClick={() => {
+                    setSelectedCat(cat.id);
+                    setSelectedSubCat("all-sub");
+                  }}
                   className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-sm text-xs font-semibold transition-all ${
                     isActive
                       ? "bg-brand text-primary-foreground shadow-sm scale-[1.02]"
@@ -646,6 +1031,100 @@ function LegPage() {
             })}
           </div>
         </div>
+
+        {/* SPECIAL SUBSECTION SELECTOR FOR CATEGORY 2. NORME */}
+        {(selectedCat === "norme" || selectedCat === "all") && (
+          <div className="mb-10 rounded-sm border-2 border-brand/25 bg-gradient-to-r from-secondary/70 via-secondary/30 to-card p-5 md:p-6 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-brand mb-1">
+                  <Layers className="h-3.5 w-3.5" />
+                  {lang === "ro" ? "Arhitectura celor 19 Subsecțiuni de Norme CNCAN" : "Architecture of the 19 CNCAN Norms Subsections"}
+                </div>
+                <h3 className="font-display text-lg md:text-xl text-foreground font-semibold">
+                  {lang === "ro"
+                    ? "2. Norme de Securitate — Structurate pe 19 Domenii și Ordine de Reglementare"
+                    : "2. Safety Norms — Structured across 19 Regulatory Domains and Orders"}
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5 max-w-2xl">
+                  {lang === "ro"
+                    ? "Selectați din cele 19 subsecțiuni solicitate pentru a filtra direct normele de securitate radiologică, nucleară, fizică, garanții sau ordine specifice (ELI-NP, Ordinul 1/2015, Ordinul 96/2013 etc.)."
+                    : "Select from the 19 requested subsections to filter directly by radiation, nuclear, physical safety norms, safeguards, or specific orders (ELI-NP, Order 1/2015, Order 96/2013, etc.)."}
+                </p>
+              </div>
+
+              {selectedCat === "norme" && (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      const allOpen: Record<string, boolean> = {};
+                      NORME_SUBSECTIONS.forEach((s) => (allOpen[s.id] = true));
+                      setExpandedSubCats(allOpen);
+                    }}
+                    className="px-3 py-1.5 rounded-sm bg-card border border-border hover:border-brand text-xs font-medium text-foreground transition-colors"
+                  >
+                    {lang === "ro" ? "Extinde toate 19" : "Expand all 19"}
+                  </button>
+                  <button
+                    onClick={() => {
+                      const allClosed: Record<string, boolean> = {};
+                      NORME_SUBSECTIONS.forEach((s) => (allClosed[s.id] = false));
+                      setExpandedSubCats(allClosed);
+                    }}
+                    className="px-3 py-1.5 rounded-sm bg-card border border-border hover:border-brand text-xs font-medium text-foreground transition-colors"
+                  >
+                    {lang === "ro" ? "Restrânge toate" : "Collapse all"}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* QUICK PILL FILTER FOR 19 NORME SUBSECTIONS */}
+            {selectedCat === "norme" && (
+              <div className="flex flex-wrap items-center gap-1.5 pt-3 border-t border-border/60">
+                <button
+                  onClick={() => setSelectedSubCat("all-sub")}
+                  className={`px-3 py-1.5 rounded text-xs font-semibold transition-all ${
+                    selectedSubCat === "all-sub"
+                      ? "bg-brand text-primary-foreground shadow-sm"
+                      : "bg-card text-muted-foreground hover:text-foreground border border-border/70"
+                  }`}
+                >
+                  {lang === "ro" ? "Toate 19 Subsecțiunile" : "All 19 Subsections"}
+                </button>
+
+                {NORME_SUBSECTIONS.map((sub) => {
+                  const subCount = LEGISLATION_ITEMS.filter((i) => i.subCatId === sub.id).length;
+                  const isActive = selectedSubCat === sub.id;
+
+                  return (
+                    <button
+                      key={sub.id}
+                      onClick={() => setSelectedSubCat(sub.id)}
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded text-xs font-medium transition-all ${
+                        isActive
+                          ? "bg-brand text-primary-foreground font-bold shadow-sm"
+                          : "bg-card/80 text-foreground hover:bg-card border border-border/70"
+                      }`}
+                    >
+                      <span className="font-mono text-[10px] opacity-80">{sub.code}</span>
+                      <span className="truncate max-w-[200px]">
+                        {lang === "ro" ? sub.title_ro : sub.title_en}
+                      </span>
+                      <span
+                        className={`ml-1 px-1.5 py-0.2 rounded-full text-[9px] ${
+                          isActive ? "bg-primary-foreground/20 text-primary-foreground" : "bg-muted text-muted-foreground"
+                        }`}
+                      >
+                        {subCount}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* LISTING ORDERED BY THE 8 EXACT CATEGORIES */}
         {filteredItems.length === 0 ? (
@@ -668,6 +1147,140 @@ function LegPage() {
 
               const Icon = cat.icon;
 
+              // SPECIAL HANDLING FOR CATEGORY "NORME" - DISPLAY BY THE 19 SUBSECTIONS
+              if (cat.id === "norme") {
+                const subSectionsToDisplay = NORME_SUBSECTIONS.filter(
+                  (sub) => selectedSubCat === "all-sub" || selectedSubCat === sub.id
+                );
+
+                return (
+                  <div key={cat.id} id={cat.id} className="scroll-mt-24 space-y-6">
+                    {/* MASTER CATEGORY HEADER */}
+                    <div className="rounded-sm border border-border bg-card shadow-sm overflow-hidden">
+                      <div className="bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent p-5 md:p-6 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div className="flex items-start gap-4">
+                          <div className="p-3 rounded-sm bg-brand/10 text-brand mt-0.5">
+                            <Icon className="h-6 w-6" />
+                          </div>
+                          <div>
+                            <h3 className="font-display text-xl md:text-2xl text-brand-deep font-bold tracking-tight">
+                              {lang === "ro" ? cat.name_ro : cat.name_en}
+                            </h3>
+                            <p className="text-xs md:text-sm text-muted-foreground mt-1 max-w-2xl leading-relaxed">
+                              {lang === "ro" ? cat.description_ro : cat.description_en}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-secondary border border-border text-xs font-mono font-semibold text-foreground shrink-0">
+                          <span>{catItems.length}</span>
+                          <span>{lang === "ro" ? "norme în 19 subsecțiuni" : "norms across 19 subsections"}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* RENDER THE 19 EXACT SUBSECTIONS */}
+                    <div className="space-y-4 pl-0 md:pl-3 border-l-0 md:border-l-2 border-brand/30">
+                      {subSectionsToDisplay.map((sub) => {
+                        const subItems = catItems.filter((i) => i.subCatId === sub.id);
+                        const isExpanded = expandedSubCats[sub.id] ?? true;
+
+                        return (
+                          <div
+                            key={sub.id}
+                            id={sub.id}
+                            className="rounded-sm border border-border bg-card shadow-sm overflow-hidden transition-all"
+                          >
+                            {/* SUBSECTION HEADER BAND */}
+                            <div
+                              onClick={() => toggleSubCat(sub.id)}
+                              className="bg-secondary/40 hover:bg-secondary/70 p-4 md:p-5 flex items-center justify-between gap-4 cursor-pointer select-none transition-colors"
+                            >
+                              <div className="flex items-center gap-3">
+                                <span className="inline-flex items-center justify-center min-w-[36px] h-7 rounded bg-brand text-primary-foreground font-mono text-xs font-bold">
+                                  {sub.code}
+                                </span>
+                                <div>
+                                  <h4 className="font-display text-base md:text-lg text-foreground font-bold leading-snug">
+                                    {lang === "ro" ? sub.title_ro : sub.title_en}
+                                  </h4>
+                                  <p className="text-xs text-muted-foreground mt-0.5">
+                                    {lang === "ro" ? sub.description_ro : sub.description_en}
+                                  </p>
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-3 shrink-0">
+                                <span className="px-2.5 py-1 rounded-full bg-secondary border border-border text-xs font-mono font-semibold text-foreground">
+                                  {subItems.length} {lang === "ro" ? "acte" : "acts"}
+                                </span>
+                                {isExpanded ? (
+                                  <ChevronUp className="h-5 w-5 text-muted-foreground" />
+                                ) : (
+                                  <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                                )}
+                              </div>
+                            </div>
+
+                            {/* SUBSECTION ITEMS CONTENT */}
+                            {isExpanded && (
+                              <div className="divide-y divide-border border-t border-border">
+                                {subItems.length === 0 ? (
+                                  <div className="p-6 text-center text-xs text-muted-foreground bg-card/40">
+                                    {lang === "ro"
+                                      ? "Această subsecțiune este configurată conform structurii solicitate. Urmează încărcarea documentației aferente."
+                                      : "This subsection is configured according to the requested structure. Documentation will be loaded next."}
+                                  </div>
+                                ) : (
+                                  subItems.map((item, idx) => (
+                                    <article
+                                      key={`${item.no}-${idx}`}
+                                      className="p-4 md:p-5 grid gap-3 md:grid-cols-[140px_1fr_auto] items-center group hover:bg-secondary/30 transition-colors"
+                                    >
+                                      <div>
+                                        <span className="inline-block px-2 py-0.5 rounded text-[10px] uppercase tracking-wider bg-brand/10 text-brand font-bold">
+                                          {item.type}
+                                        </span>
+                                        <div className="font-mono text-xs font-bold text-foreground mt-1">
+                                          nr. {item.no}
+                                        </div>
+                                        <div className="text-[11px] text-muted-foreground mt-0.5">
+                                          {lang === "ro" ? "An emitere" : "Year"}: {item.year}
+                                        </div>
+                                      </div>
+
+                                      <div>
+                                        <h5 className="font-display text-sm md:text-base text-foreground font-semibold leading-snug group-hover:text-brand transition-colors">
+                                          {lang === "ro" ? item.title_ro : item.title_en}
+                                        </h5>
+                                      </div>
+
+                                      <div className="flex items-center gap-2 justify-end">
+                                        <a
+                                          href={item.pdfUrl || "#"}
+                                          target="_blank"
+                                          rel="noreferrer"
+                                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm border border-border hover:border-brand bg-card hover:bg-accent text-xs font-semibold text-foreground transition-all group-hover:border-brand/40"
+                                        >
+                                          <FileText className="h-3.5 w-3.5 text-brand" />
+                                          <span>PDF</span>
+                                          <ExternalLink className="h-3 w-3 text-muted-foreground" />
+                                        </a>
+                                      </div>
+                                    </article>
+                                  ))
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+
+              // DEFAULT HANDLING FOR OTHER CATEGORIES
               return (
                 <div
                   key={cat.id}
