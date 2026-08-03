@@ -73,8 +73,8 @@ export const CATEGORIES: LegCategory[] = [
     id: "norme",
     name_ro: "2. Norme",
     name_en: "2. Norms & Regulations",
-    description_ro: "Norme de securitate radiologică (NSR) și securitate nucleară (NSN) structurate în 19 subsecțiuni specializate.",
-    description_en: "Radiological Safety Norms (NSR) and Nuclear Safety Norms (NSN) structured into 19 specialized subsections.",
+    description_ro: "Norme de securitate radiologică (NSR) și securitate nucleară (NSN) structurate pe subsecțiuni specializate.",
+    description_en: "Radiological Safety Norms (NSR) and Nuclear Safety Norms (NSN) structured into specialized subsections.",
     icon: FileText,
   },
   {
@@ -1261,17 +1261,17 @@ function LegPage() {
               <div>
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-brand mb-1">
                   <Layers className="h-3.5 w-3.5" />
-                  {lang === "ro" ? "Arhitectura celor 19 Subsecțiuni de Norme CNCAN" : "Architecture of the 19 CNCAN Norms Subsections"}
+                  {lang === "ro" ? "Arhitectura Subsecțiunilor de Norme CNCAN" : "Architecture of CNCAN Norms Subsections"}
                 </div>
                 <h3 className="font-display text-lg md:text-xl text-foreground font-semibold">
                   {lang === "ro"
-                    ? "2. Norme de Securitate — Structurate pe 19 Domenii și Ordine de Reglementare"
-                    : "2. Safety Norms — Structured across 19 Regulatory Domains and Orders"}
+                    ? "2. Norme de Securitate — Structurate pe Domenii și Ordine de Reglementare"
+                    : "2. Safety Norms — Structured across Regulatory Domains and Orders"}
                 </h3>
                 <p className="text-xs text-muted-foreground mt-0.5 max-w-2xl">
                   {lang === "ro"
-                    ? "Selectați din cele 19 subsecțiuni solicitate pentru a filtra direct normele de securitate radiologică, nucleară, fizică, garanții sau ordine specifice (ELI-NP, Ordinul 1/2015, Ordinul 96/2013 etc.)."
-                    : "Select from the 19 requested subsections to filter directly by radiation, nuclear, physical safety norms, safeguards, or specific orders (ELI-NP, Order 1/2015, Order 96/2013, etc.)."}
+                    ? "Selectați din subsecțiunile aferente pentru a filtra direct normele de securitate radiologică, nucleară, fizică, garanții sau ordine specifice (ELI-NP, Ordinul 1/2015, Ordinul 96/2013 etc.)."
+                    : "Select from the subsections to filter directly by radiation, nuclear, physical safety norms, safeguards, or specific orders (ELI-NP, Order 1/2015, Order 96/2013, etc.)."}
                 </p>
               </div>
 
@@ -1396,7 +1396,7 @@ function LegPage() {
 
                         <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-secondary border border-border text-xs font-mono font-semibold text-foreground shrink-0">
                           <span>{catItems.length}</span>
-                          <span>{lang === "ro" ? "norme în 19 subsecțiuni" : "norms across 19 subsections"}</span>
+                          <span>{lang === "ro" ? "norme" : "norms"}</span>
                         </div>
                       </div>
                     </div>
