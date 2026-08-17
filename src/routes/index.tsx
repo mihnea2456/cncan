@@ -192,7 +192,51 @@ function HomePage() {
           })}
         </div>
       </section>
-
+      {/* Featured Event / Comunicat de Presă */}
+      <section className="container-page py-16 md:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="order-2 lg:order-1">
+            <div className="text-xs uppercase tracking-[0.2em] text-brand mb-4">
+              {lang === "ro" ? "Comunicat de Presă" : "Press Release"}
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl text-brand-deep leading-snug mb-6">
+              {lang === "ro" 
+                ? "Participarea delegației României la Convenția de Securitate Nucleară" 
+                : "Romanian delegation's participation in the Convention on Nuclear Safety"}
+            </h2>
+            <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
+              <p>
+                {lang === "ro"
+                  ? "În perioada 13-24 aprilie 2026, o delegație formată din reprezentanți ai Comisiei Naţionale pentru Controlul Activităţilor Nucleare (CNCAN), ai CNE Cernavodă și Societății Naționale Nuclearelectrica (SNN) și ai Misiunii Permanente a României pe lângă Organizațiile Internaționale de la Viena reprezintă România la cea de-a X-a Reuniune de examinare a Părților Contractante la Convenția de Securitate Nucleară, organizată la sediul Agenției Internațională pentru Energie Atomică (AIEA) din Viena."
+                  : "From April 13-24, 2026, a delegation consisting of representatives of the National Commission for Nuclear Activities Control (CNCAN), Cernavodă NPP, the National Company Nuclearelectrica (SNN), and the Permanent Mission of Romania to the International Organizations in Vienna represents Romania at the 10th Review Meeting of the Contracting Parties to the Convention on Nuclear Safety, organized at the International Atomic Energy Agency (IAEA) headquarters in Vienna."}
+              </p>
+              <p>
+                {lang === "ro"
+                  ? "România participă în calitate de Parte Contractantă la Convenție și prezintă cel de-al 10-lea raport național, elaborat de CNCAN, cu contribuții din partea titularului de autorizație al centralei nuclearoelectrice de la Cernavodă, deținută și exploatată de SNN."
+                  : "Romania participates as a Contracting Party to the Convention and presents its 10th national report, prepared by CNCAN, with contributions from the licensee of the Cernavodă nuclear power plant, owned and operated by SNN."}
+              </p>
+              <p>
+                {lang === "ro"
+                  ? "CNCAN coordonează participarea României la Convenție și asigură reprezentarea poziției naționale în procesul de examinare, în conformitate cu atribuțiile sale privind implementarea tratatelor internaționale în domeniul securității nucleare."
+                  : "CNCAN coordinates Romania's participation in the Convention and ensures the representation of the national position in the review process, in accordance with its responsibilities regarding the implementation of international treaties in the field of nuclear safety."}
+              </p>
+            </div>
+            <Button asChild variant="outline" className="mt-8">
+              <Link to="/comunicate">
+                {lang === "ro" ? "Vezi toate comunicatele" : "View all press releases"} <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+          <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
+            <div className="rounded-sm overflow-hidden border border-border shadow-sm">
+              <img src="/images/comunicate/poza-1.jpg" alt="Delegația României la AIEA Viena" className="w-full h-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div className="rounded-sm overflow-hidden border border-border shadow-sm mt-8">
+              <img src="/images/comunicate/poza-2.jpg" alt="Prezentare la Convenția de Securitate Nucleară" className="w-full h-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-500" />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* News */}
       <section className="bg-card border-y border-border">
         <div className="container-page py-20 md:py-24 grid gap-12 lg:grid-cols-[1fr_2fr]">

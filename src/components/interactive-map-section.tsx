@@ -142,7 +142,7 @@ export function InteractiveMapSection() {
             },
             {
               icon: Award,
-              val: "30+ Ani",
+              val: lang === "ro" ? "30+ Ani" : "30+ Years",
               ro: "Tradiție în Reglementare și Siguranță Nucleară",
               en: "Heritage in Nuclear Regulation & Safety",
             },

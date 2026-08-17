@@ -18,7 +18,8 @@ export const Route = createFileRoute("/comunicate")({
 const news = [
   {
     date: "24.04.2026",
-    tag: "Program",
+    tag_ro: "Program",
+    tag_en: "Program",
     title_ro: "Deschiderea perioadei de depunere a candidaturilor pentru Programul Oficial de Internship 2026",
     title_en: "Application period opens for the Official Government Internship Program 2026",
     excerpt_ro: "Perioada de depunere a candidaturilor s-a deschis pe 24 aprilie 2026. Înscrierile se realizează exclusiv online pe portalul Guvernului României.",
@@ -27,7 +28,8 @@ const news = [
   },
   {
     date: "22.08.2025",
-    tag: "Tarife",
+    tag_ro: "Tarife",
+    tag_en: "Fees",
     title_ro: "Formular actualizat pentru taxele și tarifele pentru autorizarea și controlul activităților nucleare",
     title_en: "Updated form for authorization and control fees",
     excerpt_ro: "Noua versiune a formularului include câmpuri suplimentare pentru validare rapidă a plăților.",
@@ -35,7 +37,8 @@ const news = [
   },
   {
     date: "02.05.2025",
-    tag: "Jurisprudență",
+    tag_ro: "Jurisprudență",
+    tag_en: "Case law",
     title_ro: "Principii ce rezultă din jurisprudența CEDO privind neexecutarea hotărârilor judecătorești",
     title_en: "Principles from ECHR case law on non-enforcement of court decisions",
     excerpt_ro: "Sinteză a principiilor CEDO privind neexecutarea hotărârilor pronunțate împotriva unui debitor public.",
@@ -43,7 +46,8 @@ const news = [
   },
   {
     date: "02.05.2025",
-    tag: "Urgență",
+    tag_ro: "Urgență",
+    tag_en: "Emergency",
     title_ro: "Ce să faceți în cazul unui accident nuclear",
     title_en: "What to do in case of a nuclear accident",
     excerpt_ro: "Ghid oficial de protecție a populației în situații de urgență radiologică sau nucleară.",
@@ -52,7 +56,8 @@ const news = [
   },
   {
     date: "18.03.2025",
-    tag: "Consultare",
+    tag_ro: "Consultare",
+    tag_en: "Consultation",
     title_ro: "Consultare publică: proiect de normă privind protecția fizică a instalațiilor nucleare",
     title_en: "Public consultation: draft norm on physical protection of nuclear installations",
     excerpt_ro: "Perioada de consultare: 18 martie – 18 aprilie 2025. Observațiile se transmit la office@cncan.ro.",
@@ -74,7 +79,7 @@ function NewsPage() {
                 <div>
                   <div className="font-mono text-sm text-muted-foreground">{n.date}</div>
                   <div className="mt-2 inline-block px-2 py-0.5 bg-accent text-accent-foreground rounded-sm uppercase tracking-wider text-[10px] font-semibold">
-                    {n.tag}
+                    {lang === "ro" ? n.tag_ro : n.tag_en}
                   </div>
                 </div>
                 <div>

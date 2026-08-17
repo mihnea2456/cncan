@@ -16,7 +16,9 @@ import { Route as ConstructiiNucleareRouteImport } from './routes/constructii-nu
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DeseuriRadioactiveRouteImport } from './routes/deseuri-radioactive'
 import { Route as DespreRouteImport } from './routes/despre'
+import { Route as InformatiiPubliceRouteImport } from './routes/informatii-publice'
 import { Route as InstalatiiNucleareRouteImport } from './routes/instalatii-nucleare'
+import { Route as IntegritateRouteImport } from './routes/integritate'
 import { Route as Legea111RouteImport } from './routes/legea-111'
 import { Route as LegislatieRouteImport } from './routes/legislatie'
 import { Route as ManagementulCalitatiiRouteImport } from './routes/managementul-calitatii'
@@ -60,9 +62,19 @@ const DespreRoute = DespreRouteImport.update({
   path: '/despre',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InformatiiPubliceRoute = InformatiiPubliceRouteImport.update({
+  id: '/informatii-publice',
+  path: '/informatii-publice',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InstalatiiNucleareRoute = InstalatiiNucleareRouteImport.update({
   id: '/instalatii-nucleare',
   path: '/instalatii-nucleare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegritateRoute = IntegritateRouteImport.update({
+  id: '/integritate',
+  path: '/integritate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Legea111Route = Legea111RouteImport.update({
@@ -112,7 +124,9 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/deseuri-radioactive': typeof DeseuriRadioactiveRoute
   '/despre': typeof DespreRoute
+  '/informatii-publice': typeof InformatiiPubliceRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
+  '/integritate': typeof IntegritateRoute
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
@@ -129,7 +143,9 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/deseuri-radioactive': typeof DeseuriRadioactiveRoute
   '/despre': typeof DespreRoute
+  '/informatii-publice': typeof InformatiiPubliceRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
+  '/integritate': typeof IntegritateRoute
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
@@ -147,7 +163,9 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/deseuri-radioactive': typeof DeseuriRadioactiveRoute
   '/despre': typeof DespreRoute
+  '/informatii-publice': typeof InformatiiPubliceRoute
   '/instalatii-nucleare': typeof InstalatiiNucleareRoute
+  '/integritate': typeof IntegritateRoute
   '/legea-111': typeof Legea111Route
   '/legislatie': typeof LegislatieRoute
   '/managementul-calitatii': typeof ManagementulCalitatiiRoute
@@ -166,7 +184,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/deseuri-radioactive'
     | '/despre'
+    | '/informatii-publice'
     | '/instalatii-nucleare'
+    | '/integritate'
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
@@ -183,7 +203,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/deseuri-radioactive'
     | '/despre'
+    | '/informatii-publice'
     | '/instalatii-nucleare'
+    | '/integritate'
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
@@ -200,7 +222,9 @@ export interface FileRouteTypes {
     | '/contact'
     | '/deseuri-radioactive'
     | '/despre'
+    | '/informatii-publice'
     | '/instalatii-nucleare'
+    | '/integritate'
     | '/legea-111'
     | '/legislatie'
     | '/managementul-calitatii'
@@ -218,7 +242,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DeseuriRadioactiveRoute: typeof DeseuriRadioactiveRoute
   DespreRoute: typeof DespreRoute
+  InformatiiPubliceRoute: typeof InformatiiPubliceRoute
   InstalatiiNucleareRoute: typeof InstalatiiNucleareRoute
+  IntegritateRoute: typeof IntegritateRoute
   Legea111Route: typeof Legea111Route
   LegislatieRoute: typeof LegislatieRoute
   ManagementulCalitatiiRoute: typeof ManagementulCalitatiiRoute
@@ -279,11 +305,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DespreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/informatii-publice': {
+      id: '/informatii-publice'
+      path: '/informatii-publice'
+      fullPath: '/informatii-publice'
+      preLoaderRoute: typeof InformatiiPubliceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/instalatii-nucleare': {
       id: '/instalatii-nucleare'
       path: '/instalatii-nucleare'
       fullPath: '/instalatii-nucleare'
       preLoaderRoute: typeof InstalatiiNucleareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integritate': {
+      id: '/integritate'
+      path: '/integritate'
+      fullPath: '/integritate'
+      preLoaderRoute: typeof IntegritateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/legea-111': {
@@ -346,7 +386,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DeseuriRadioactiveRoute: DeseuriRadioactiveRoute,
   DespreRoute: DespreRoute,
+  InformatiiPubliceRoute: InformatiiPubliceRoute,
   InstalatiiNucleareRoute: InstalatiiNucleareRoute,
+  IntegritateRoute: IntegritateRoute,
   Legea111Route: Legea111Route,
   LegislatieRoute: LegislatieRoute,
   ManagementulCalitatiiRoute: ManagementulCalitatiiRoute,

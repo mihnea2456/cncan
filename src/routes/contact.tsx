@@ -45,7 +45,16 @@ function ContactPage() {
           })}
         </div>
 
-        <form className="border border-border bg-card p-7">
+        <form 
+          className="border border-border bg-card p-7"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const fd = new FormData(e.currentTarget);
+            const subject = fd.get('subject') || 'Mesaj de pe site-ul CNCAN';
+            const body = `Nume: ${fd.get('name')}\nEmail: ${fd.get('email')}\n\n${fd.get('message')}`;
+            window.location.href = `mailto:office@cncan.ro?subject=${encodeURIComponent(subject as string)}&body=${encodeURIComponent(body)}`;
+          }}
+        >
           <h2 className="font-display text-2xl text-brand-deep">
             {lang === "ro" ? "Scrieți-ne" : "Write to us"}
           </h2>
@@ -53,11 +62,11 @@ function ContactPage() {
             {lang === "ro" ? "Răspundem în maximum 30 de zile lucrătoare, conform Legii 544/2001." : "We respond within 30 working days, per Law 544/2001."}
           </p>
           <div className="mt-6 grid gap-4">
-            <input placeholder={lang === "ro" ? "Nume și prenume" : "Full name"} className="h-11 px-4 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand" />
-            <input type="email" placeholder="E-mail" className="h-11 px-4 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand" />
-            <input placeholder={lang === "ro" ? "Subiect" : "Subject"} className="h-11 px-4 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand" />
-            <textarea rows={5} placeholder={lang === "ro" ? "Mesajul dvs." : "Your message"} className="px-4 py-3 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand resize-none" />
-            <button type="button" className="h-11 bg-brand text-primary-foreground rounded-sm font-medium hover:bg-brand-deep transition-colors">
+            <input name="name" required placeholder={lang === "ro" ? "Nume și prenume" : "Full name"} className="h-11 px-4 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand" />
+            <input name="email" required type="email" placeholder="E-mail" className="h-11 px-4 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand" />
+            <input name="subject" required placeholder={lang === "ro" ? "Subiect" : "Subject"} className="h-11 px-4 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand" />
+            <textarea name="message" required rows={5} placeholder={lang === "ro" ? "Mesajul dvs." : "Your message"} className="px-4 py-3 bg-secondary/50 border border-border rounded-sm text-sm outline-none focus:border-brand resize-none" />
+            <button type="submit" className="h-11 bg-brand text-primary-foreground rounded-sm font-medium hover:bg-brand-deep transition-colors">
               {lang === "ro" ? "Trimite mesajul" : "Send message"}
             </button>
           </div>

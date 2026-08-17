@@ -40,15 +40,18 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link to="/despre" className="hover:text-white">Misiune</Link></li>
             <li><Link to="/legislatie" className="hover:text-white">Legea 111/1996</Link></li>
-            <li><Link to="/comunicate" className="hover:text-white">Transparență</Link></li>
+            <li><Link to="/integritate" className="hover:text-white">Integritate Instituțională</Link></li>
             <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
+            <li><Link to="/informatii-publice" className="hover:text-white">Informații de interes public</Link></li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container-page py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 text-xs opacity-70">
-          <span>© {new Date().getFullYear()} CNCAN. {t("footer.rights")}</span>
+          <div className="flex gap-4">
+            <span>© {new Date().getFullYear()} CNCAN. {t("footer.rights")}</span>
+          </div>
           <span>{t("site.gov")}</span>
         </div>
       </div>

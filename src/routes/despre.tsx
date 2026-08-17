@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
+import { Download, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/despre")({
   head: () => ({
@@ -13,6 +14,12 @@ export const Route = createFileRoute("/despre")({
   }),
   component: AboutPage,
 });
+
+const reports = [
+  "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", 
+  "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", 
+  "2008", "2006", "2005"
+];
 
 function AboutPage() {
   const { t, lang } = useI18n();
@@ -57,6 +64,40 @@ function AboutPage() {
             <div className="mt-2 font-display text-lg text-foreground">Cantemir Marian Ciurea-Ercău</div>
           </div>
         </aside>
+      </section>
+
+      {/* Rapoarte de Activitate Section */}
+      <section className="bg-muted/30 border-t border-border py-16">
+        <div className="container-page">
+          <div className="mb-10 max-w-2xl">
+            <h2 className="font-display text-3xl text-brand-deep">
+              {lang === "ro" ? "Rapoarte Anuale de Activitate" : "Annual Activity Reports"}
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              {lang === "ro" 
+                ? "Consultați rapoartele oficiale privind activitatea CNCAN și starea securității nucleare în România." 
+                : "Consult the official reports regarding CNCAN activity and nuclear safety status in Romania."}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {reports.map((year) => (
+              <a 
+                key={year} 
+                href={`/documents/rapoarte/raport-${year}.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-4 rounded-sm border border-border bg-card hover:border-brand hover:shadow-sm transition-all duration-300"
+              >
+                <div className="flex items-center gap-3">
+                  <FileText className="h-5 w-5 text-brand opacity-70 group-hover:opacity-100 transition-opacity" />
+                  <span className="font-mono font-medium text-lg text-foreground">{year}</span>
+                </div>
+                <Download className="h-4 w-4 text-muted-foreground group-hover:text-brand transition-colors" />
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
