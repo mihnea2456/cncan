@@ -1,0 +1,80 @@
+Contact
+Comisia Națională pentru Controlul Activităților Nucleare (CNCAN)
+Sediul principal:
+Adresa: Bd. Libertății, nr. 14, Sector 5, București, cod postal 050706
+Harta
+Program de funcționare: Luni-Joi 8:00-16:30, Vineri: 8:00-14:00
+Registratura și informații:
+Telefon: 004 021 317 38 15
+Direcția Autorizare Utilizare Radiații Ionizante (DAURI):
+Telefon:
+004
+021 316 34 76
+Direcția Supraveghere Utilizare Radiații Ionizante (DSURI):
+Telefon:
+004
+021 316 04 26
+Direcția Relații Internaționale și Comunicare:
+Telefon:
+004
+021 317 38 07
+Program de audiențe:
+Director DSURI: Luni – 13:00 – 15:00
+Director DAURI: Miercuri  – 10:00 – 12:00
+Sediul secundar:
+Adresa:
+Str. Lt. Zalic, nr. 4, Sector 6, Bucuresti, cod postal 060214
+Harta
+Program de funcționare: Luni-Joi 8:00-16:30, Vineri: 8:00-14:00
+Președinte CNCAN
+Program de audiente:
+Joi – 14:00 – 16:00
+Cabinet Președinte
+Telefon: 004 021 316 05 72
+Fax: 004 021 317 38 87
+Direcția Ciclul Combustibilului Nuclear (DCCN):
+Telefon/fax: 004 021 316 24 41
+Program de audiențe
+Director DCCN: Miercuri  – 12:00 – 14:00
+Direcția Economică:
+Telefon: 004 021 794 05 40
+Compartiment achizitii 004 021 316 34 93
+Compartimentul Juridic:
+Telefon: 004 021 794 05 40
+Compartimentul Resurse Umane:
+Telefon: 004 021 794 05 40
+Relații Publice/Mass – media/Petiții:
+Dna Felicia DRĂGAN
+Telefon: 004 021 316 05 72
+Fax:004 021 317 38 87
+Formular petiții
+E-mail:
+relatii.publice@cncan.ro
+,
+office@cncan.ro
+Serviciul Operativ pentru Situații de Urgență:
+Telefon: 004 021 351 50 89
+Fax urgență: 004 0373 329 872
+Fax general: 004 0373 325 740
+Pentru notificare/informare, incidente, evenimente (mail): cosu@cncan.ro
+Pentru corespondența cu Serviciul Operativ pentru Situații de Urgență din cadrul C.N.C.A.N.(mail): cipriern@cncan.ro
+Pagina web:
+www.cncan.ro
+Facebook:
+https://www.facebook.com/CNCAN.RO
+Registratura:
+telefon: 031 805 59 40
+Acest site foloseste COOKIE-uri. Navigand in continuare, va exprimati acordul asupra folosirii acestora.
+Facebook
+LinkedIn
+Instagram
+© 2026 CNCAN
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24105412-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();

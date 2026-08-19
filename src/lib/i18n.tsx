@@ -6,7 +6,9 @@ type Dict = Record<string, { ro: string; en: string }>;
 
 export const dict = {
   "nav.home": { ro: "Acasă", en: "Home" },
-  "nav.authorizations": { ro: "Autorizări", en: "Authorizations" },
+  "nav.authorizations": { ro: "Autorizări", en: "Licensing" },
+  "nav.registru-titulari": { ro: "Registru Titulari", en: "Authorized Entities" },
+  "nav.public_info": { ro: "Informații Publice", en: "Public Info" },
   "nav.legislation": { ro: "Legislație", en: "Legislation" },
   "nav.news": { ro: "Comunicate", en: "News" },
   "nav.emergency": { ro: "Urgențe", en: "Emergency" },

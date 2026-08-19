@@ -320,7 +320,7 @@ function AuthPage() {
         <div className="mt-16 border-t border-border pt-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-brand">02 · Centralizator</div>
+              <div className="text-xs uppercase tracking-[0.2em] text-brand">02 · {lang === "ro" ? "Centralizator" : "Centralizer"}</div>
               <h2 className="mt-1 font-display text-2xl md:text-3xl text-brand-deep">
                 {lang === "ro" ? "Dosare și Formulare Descărcabile" : "Downloadable Dossiers and Forms"}
               </h2>
@@ -367,7 +367,7 @@ function AuthPage() {
                       : "border-border hover:border-brand"
                   }`}
                 >
-                  Surse
+                  {lang === "ro" ? "Surse" : "Sources"}
                 </button>
               </div>
             </div>
@@ -435,47 +435,7 @@ function AuthPage() {
           </div>
         </div>
 
-        {/* FEES AND CHARGES SECTION */}
-        <div id="tarife" className="mt-20 grid gap-10 lg:grid-cols-[1fr_2fr]">
-          <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-brand">03 · Legislație Tarife</div>
-            <h2 className="mt-2 font-display text-3xl text-brand-deep">
-              {lang === "ro" ? "Tarife și taxe de autorizare" : "Fees and charges"}
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-              {lang === "ro"
-                ? "Nivelul taxelor este stabilit prin Ordinul CNCAN 155/2005, cu modificările și completările ulterioare."
-                : "Fee levels are set by CNCAN Order 155/2005, as subsequently amended."}
-            </p>
-          </div>
-          <div className="border border-border bg-card">
-            <table className="w-full text-sm">
-              <thead className="bg-secondary text-xs uppercase tracking-wider text-muted-foreground">
-                <tr>
-                  <th className="text-left px-5 py-3 font-semibold">{lang === "ro" ? "Categoria" : "Category"}</th>
-                  <th className="text-left px-5 py-3 font-semibold">{lang === "ro" ? "Procedura / Document" : "Procedure / Document"}</th>
-                  <th className="text-right px-5 py-3 font-semibold">{lang === "ro" ? "Tarif (RON)" : "Fee (RON)"}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {[
-                  ["Management Calitate", "Autorizare Sistem Managementul Calității (SMC)", "12,400"],
-                  ["Surse radiație", "Deținere / utilizare sursă categoria 1-3", "3,200"],
-                  ["Instalații", "Emitere autorizație exploatare instalație nucleară", "48,500"],
-                  ["Transport", "Aprobare pachet tip B(U) / B(M)", "12,800"],
-                  ["Deșeuri", "Autorizație depozitare intermediară / definitivă", "24,600"],
-                  ["Personal", "Permis exercitare personal expus (5 ani)", "480"],
-                ].map((row, i) => (
-                  <tr key={i} className="hover:bg-secondary/50">
-                    <td className="px-5 py-3 text-muted-foreground font-medium">{row[0]}</td>
-                    <td className="px-5 py-3">{row[1]}</td>
-                    <td className="px-5 py-3 text-right font-mono tabular-nums font-semibold">{row[2]}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+
       </section>
     </>
   );

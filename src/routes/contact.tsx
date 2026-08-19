@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, Clock, Facebook } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PageHeader } from "@/components/page-header";
 
@@ -18,10 +18,18 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const { t, lang } = useI18n();
   const items = [
-    { icon: MapPin, label: lang === "ro" ? "Adresă" : "Address", value: "Bd. Libertății nr. 14, Sector 5, București, 050706" },
-    { icon: Phone, label: lang === "ro" ? "Telefon" : "Phone", value: "+40 21 316 05 63" },
-    { icon: Mail, label: "E-mail", value: "office@cncan.ro" },
-    { icon: Clock, label: lang === "ro" ? "Program cu publicul" : "Public hours", value: lang === "ro" ? "L–J 08:30–17:00 · V 08:30–14:30" : "Mon–Thu 08:30–17:00 · Fri 08:30–14:30" },
+    { icon: MapPin, label: lang === "ro" ? "Sediul Principal" : "Main Office", value: "Bd. Libertății nr. 14, Sector 5, București" },
+    { icon: Clock, label: lang === "ro" ? "Program" : "Public hours", value: lang === "ro" ? "Luni-Joi 08:00-16:30 · Vineri 08:00-14:00" : "Mon-Thu 08:00-16:30 · Fri 08:00-14:00" },
+    { icon: Mail, label: "E-mail (General)", value: "office@cncan.ro" },
+    { icon: Facebook, label: "Facebook", value: "CNCAN.RO", link: "https://www.facebook.com/CNCAN.RO" },
+    { icon: Phone, label: lang === "ro" ? "Registratură și Informații" : "Registry & Information", value: "021 317 38 15  /  031 805 59 40" },
+    { icon: Phone, label: lang === "ro" ? "Dir. Autorizare (DAURI)" : "Authorization Dept. (DAURI)", value: "021 316 34 76" },
+    { icon: Phone, label: lang === "ro" ? "Dir. Supraveghere (DSURI)" : "Surveillance Dept. (DSURI)", value: "021 316 04 26" },
+    { icon: Phone, label: lang === "ro" ? "Relații Internaționale și Comunicare" : "International Relations & Comms", value: "021 317 38 07" },
+    { icon: Phone, label: lang === "ro" ? "Cabinet Președinte / Relații Publice" : "President's Cabinet / PR", value: "021 316 05 72" },
+    { icon: Phone, label: lang === "ro" ? "Dir. Ciclul Combustibilului Nuclear (DCCN)" : "Nuclear Fuel Cycle Dept. (DCCN)", value: "021 316 24 41" },
+    { icon: Phone, label: lang === "ro" ? "Dir. Economică / Juridic / HR" : "Economic / Legal / HR Dept.", value: "021 794 05 40" },
+    { icon: Phone, label: lang === "ro" ? "Situații de Urgență (COSU)" : "Emergency Situations (COSU)", value: "021 351 50 89" },
   ];
 
   return (
@@ -38,7 +46,15 @@ function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs uppercase tracking-widest text-muted-foreground">{it.label}</div>
-                  <div className="mt-1 font-display text-lg text-foreground">{it.value}</div>
+                  <div className="mt-1 font-display text-lg text-foreground">
+                    {it.link ? (
+                      <a href={it.link} target="_blank" rel="noopener noreferrer" className="hover:text-brand hover:underline transition-colors">
+                        {it.value}
+                      </a>
+                    ) : (
+                      it.value
+                    )}
+                  </div>
                 </div>
               </div>
             );
@@ -46,7 +62,7 @@ function ContactPage() {
         </div>
 
         <form 
-          className="border border-border bg-card p-7"
+          className="border border-border bg-card p-7 self-start"
           onSubmit={(e) => {
             e.preventDefault();
             const fd = new FormData(e.currentTarget);

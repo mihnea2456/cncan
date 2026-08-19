@@ -254,8 +254,11 @@ function EmergencyPage() {
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {lang === "ro"
-                  ? "Consultați ghidul oficial complet pentru protecția populației în caz de accident nuclear sau radiologic, pus la dispoziție de Departamentul pentru Situații de Urgență (DSU) și Inspectoratul General pentru Situații de Urgență (IGSU) prin platforma națională „Fii Pregătit”."
-                  : "Consult the comprehensive official guide for population protection in case of a nuclear or radiological accident, provided by the Department for Emergency Situations (DSU) and IGSU via the national 'Fii Pregătit' platform."}
+                  ? "Consultați ghidul oficial complet pentru protecția populației în caz de accident nuclear sau radiologic, pus la dispoziție de Departamentul pentru Situații de Urgență (DSU) și Inspectoratul General pentru Situații de Urgență (IGSU) prin platforma națională „Fii Pregătit”. Link direct: "
+                  : "Consult the comprehensive official guide for population protection in case of a nuclear or radiological accident, provided by the Department for Emergency Situations (DSU) and IGSU via the national 'Fii Pregătit' platform. Direct link: "}
+                <a href="https://fiipregatit.ro/ghiduri/-despre-8-5" className="text-brand hover:underline font-medium break-all" target="_blank" rel="noreferrer">
+                  https://fiipregatit.ro/ghiduri/-despre-8-5
+                </a>
               </p>
             </div>
 

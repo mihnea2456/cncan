@@ -123,26 +123,26 @@ export function SearchModal({ open, onOpenChange }: SearchModalProps) {
         </CommandGroup>
 
         {/* PROCEDURI AUTORIZARE */}
-        <CommandGroup heading={lang === "ro" ? "Proceduri de Autorizare" : "Authorization Procedures"}>
-          <CommandItem onSelect={() => handleSelect("/autorizari")} className="cursor-pointer">
+        <CommandGroup heading={lang === "ro" ? "Proceduri de Autorizare" : "Licensing Procedures"}>
+          <CommandItem onSelect={() => handleSelect("/autorizari?cat=instalatii")} className="cursor-pointer">
             <Atom className="mr-2 h-4 w-4 text-brand" />
-            <span>{lang === "ro" ? "Instalații nucleare (amplasare, construcție, exploatare)" : "Nuclear installations (siting, construction, operation)"}</span>
+            <span>{lang === "ro" ? "Instalații nucleare (amplasare, construcție, exploatare)" : "Nuclear facilities (siting, construction, operation)"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => handleSelect("/autorizari")} className="cursor-pointer">
+          <CommandItem onSelect={() => handleSelect("/autorizari?cat=surse")} className="cursor-pointer">
             <Radiation className="mr-2 h-4 w-4 text-brand" />
-            <span>{lang === "ro" ? "Surse de radiații ionizante (deținere, producție, import/export)" : "Ionizing radiation sources (possession, import/export)"}</span>
+            <span>{lang === "ro" ? "Surse de radiații ionizante (deținere, producție, import/export)" : "Ionizing radiation sources (possession, production, import/export)"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => handleSelect("/autorizari")} className="cursor-pointer">
+          <CommandItem onSelect={() => handleSelect("/autorizari?cat=transport")} className="cursor-pointer">
             <Truck className="mr-2 h-4 w-4 text-brand" />
-            <span>{lang === "ro" ? "Transport materiale radioactive și nucleare" : "Radioactive and nuclear material transport"}</span>
+            <span>{lang === "ro" ? "Transport materiale radioactive și nucleare" : "Transport of radioactive and nuclear materials"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => handleSelect("/autorizari")} className="cursor-pointer">
+          <CommandItem onSelect={() => handleSelect("/autorizari?cat=deseuri")} className="cursor-pointer">
             <Trash2 className="mr-2 h-4 w-4 text-brand" />
-            <span>{lang === "ro" ? "Gestiune și depozitare deșeuri radioactive" : "Radioactive waste management & disposal"}</span>
+            <span>{lang === "ro" ? "Gestiune și depozitare deșeuri radioactive" : "Radioactive waste management and disposal"}</span>
           </CommandItem>
-          <CommandItem onSelect={() => handleSelect("/autorizari")} className="cursor-pointer">
+          <CommandItem onSelect={() => handleSelect("/autorizari?cat=personal")} className="cursor-pointer">
             <FileCheck className="mr-2 h-4 w-4 text-brand" />
-            <span>{lang === "ro" ? "Permise de exercitare personal expus profesional" : "Occupationally exposed staff permits"}</span>
+            <span>{lang === "ro" ? "Permise de exercitare personal expus profesional" : "Permits for occupationally exposed workers"}</span>
           </CommandItem>
         </CommandGroup>
 

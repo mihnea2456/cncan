@@ -16,7 +16,7 @@ const tasks = [
     ro: "Depune cerere autorizație",
     en: "Submit license application",
     desc_ro: "Centralizator dosare: Surse radiații, Managementul calității, Instalații",
-    desc_en: "Centralized files: Radiation sources, Quality management, Installations",
+    desc_en: "Centralized platform: Radiation sources, Quality management, Facilities",
   },
   {
     icon: ClipboardList,
@@ -26,14 +26,7 @@ const tasks = [
     desc_ro: "Cu numărul de înregistrare",
     desc_en: "Using your reference number",
   },
-  {
-    icon: Scale,
-    to: "/autorizari#tarife",
-    ro: "Consultă tariful aplicabil",
-    en: "Check applicable fees",
-    desc_ro: "Ord. 155/2005 și modificări",
-    desc_en: "Order 155/2005 and amendments",
-  },
+
   {
     icon: Search,
     to: "/legislatie",
@@ -48,7 +41,7 @@ const tasks = [
     ro: "Notificare surse radiație",
     en: "Radiation source notification",
     desc_ro: "Registru național de evidență",
-    desc_en: "National evidence registry",
+    desc_en: "National inventory registry",
   },
   {
     icon: Truck,
@@ -266,6 +259,35 @@ function HomePage() {
                 </h3>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ / Info util */}
+      <section className="container-page py-16">
+        <div className="rounded-sm border border-border bg-card p-8 md:p-10 shadow-sm relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-8 opacity-5">
+            <FileCheck className="w-40 h-40" />
+          </div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 text-brand">
+              <h3 className="font-display text-2xl text-brand-deep">
+                {lang === "ro" ? "Informații utile" : "Useful information"}
+              </h3>
+            </div>
+            <p className="mt-4 font-medium text-xl leading-relaxed max-w-4xl text-foreground/90">
+              {lang === "ro"
+                ? "Ce trebuie sa se înteleaga prin MATERIE PRIMA NUCLEARA? Ce trebuie sa se înteleaga; prin COMBUSTIBIL NUCLEAR? Care este limita de demarcatie între MATERIA PRIMA NUCLEARA si COMBUSTIBILUL NUCLEAR?"
+                : "What constitutes NUCLEAR SOURCE MATERIAL? What constitutes NUCLEAR FUEL? What is the exact distinction between NUCLEAR SOURCE MATERIAL and NUCLEAR FUEL?"}
+            </p>
+            <div className="mt-8">
+              <Button asChild className="bg-brand text-white hover:bg-brand-deep">
+                <a href="/documents/Ce-trebuie-sa-se-inteleaga-prin-MATERIE-PRIMA-NUCLEARA.pdf" target="_blank" rel="noreferrer">
+                  <FileCheck className="mr-2 h-4 w-4" />
+                  {lang === "ro" ? "Consultați documentul explicativ (PDF)" : "Consult the explanatory document (PDF)"}
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

@@ -7,7 +7,9 @@ import { SearchModal } from "@/components/search-modal";
 
 const links = [
   { to: "/", key: "nav.home" as const, exact: true },
+  { to: "/informatii-publice", key: "nav.public_info" as const },
   { to: "/autorizari", key: "nav.authorizations" as const },
+  { to: "/registru-titulari", key: "nav.registru-titulari" as const },
   { to: "/legislatie", key: "nav.legislation" as const },
   { to: "/comunicate", key: "nav.news" as const },
   { to: "/urgente", key: "nav.emergency" as const },
@@ -37,7 +39,7 @@ export function SiteHeader() {
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur-md">
         {/* Gov bar */}
         <div className="bg-brand-deep text-primary-foreground/90 text-[11px] uppercase tracking-[0.14em]">
-          <div className="container-page flex h-8 items-center justify-between">
+          <div className="max-w-[1500px] mx-auto px-6 flex h-8 items-center justify-between">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-2">
                 <span className="inline-block h-2 w-2 rounded-full bg-gold" />
@@ -73,26 +75,23 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {/* Main nav */}
-        <div className="container-page flex h-20 items-center justify-between gap-6">
+        <div className="max-w-[1500px] mx-auto px-6 flex h-20 items-center justify-between gap-6 relative">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="grid h-11 w-11 place-items-center rounded-sm bg-brand text-primary-foreground font-display text-lg shadow-sm">
-              <span className="tracking-tight">C</span>
-            </div>
+            <img src="/images/logo.jpg" alt="CNCAN Logo" className="h-11 w-11 object-contain mix-blend-multiply" />
             <div className="leading-tight">
               <div className="font-display text-lg text-brand-deep">CNCAN</div>
               <div className="text-[11px] text-muted-foreground max-w-[280px] truncate">{t("site.tagline")}</div>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center justify-center gap-1">
             {links.map((l) => {
               const active = l.exact ? pathname === l.to : pathname.startsWith(l.to);
               return (
                 <Link
                   key={l.to}
                   to={l.to}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`relative px-3 py-2 text-sm font-medium text-center transition-colors ${
                     active ? "text-brand-deep" : "text-foreground/70 hover:text-brand-deep"
                   }`}
                 >
