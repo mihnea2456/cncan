@@ -102,7 +102,7 @@ function RegistruTitulariPage() {
                         </span>
                       </div>
                       <Button asChild size="sm" variant="outline" className="text-xs">
-                        <a href={file.path} target="_blank" rel="noreferrer">
+                        <a href={file.path} target="_blank" rel="noreferrer" download>
                           {lang === "ro" ? "Descarcă" : "Download"}
                         </a>
                       </Button>

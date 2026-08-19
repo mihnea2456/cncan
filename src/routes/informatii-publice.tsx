@@ -36,7 +36,7 @@ function FileRow({ title, lang, url = "#" }: { title: string, lang: string, url?
         <span className="font-medium text-sm text-foreground/90">{title}</span>
       </div>
       <Button asChild size="sm" variant="ghost" className="text-xs text-brand hover:bg-brand hover:text-white">
-        <a href={url} target="_blank" rel="noreferrer">
+        <a href={url} target="_blank" rel="noreferrer" download>
           <Download className="h-3.5 w-3.5 mr-1.5" />
           {lang === "ro" ? "Descarcă PDF" : "Download PDF"}
         </a>
@@ -47,7 +47,7 @@ function FileRow({ title, lang, url = "#" }: { title: string, lang: string, url?
 
 function CompactFileRow({ title, url = "#" }: { title: string, url?: string }) {
   return (
-    <a href={url} target="_blank" rel="noreferrer" className="group flex items-center justify-between p-3 bg-secondary/20 rounded-sm border border-border/50 hover:border-brand/40 hover:bg-brand/5 transition-all">
+    <a href={url} target="_blank" rel="noreferrer" download className="group flex items-center justify-between p-3 bg-secondary/20 rounded-sm border border-border/50 hover:border-brand/40 hover:bg-brand/5 transition-all">
       <div className="flex items-center gap-2.5 overflow-hidden">
         <FileText className="h-4 w-4 text-brand shrink-0" />
         <span className="font-medium text-[13px] text-foreground/80 group-hover:text-brand-deep truncate">{title}</span>

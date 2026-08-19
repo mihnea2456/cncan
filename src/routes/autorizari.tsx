@@ -413,6 +413,7 @@ function AuthPage() {
                           href={doc.fileUrl}
                           target="_blank"
                           rel="noreferrer"
+                          download
                           className="inline-flex items-center gap-1.5 px-4 py-2 bg-brand text-primary-foreground rounded-sm text-xs font-medium hover:bg-brand-deep transition-colors"
                         >
                           <Download className="h-3.5 w-3.5" />
