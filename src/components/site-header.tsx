@@ -77,7 +77,7 @@ export function SiteHeader() {
 
         <div className="max-w-[1500px] mx-auto px-6 flex h-20 items-center justify-between gap-6 relative">
           <Link to="/" className="flex items-center gap-3 group">
-            <img src="/images/logo.jpg" alt="CNCAN Logo" className="h-11 w-11 object-contain mix-blend-multiply" />
+            <img src="/images/guvern_logo.png" alt="Guvernul României" className="h-11 w-auto object-contain mix-blend-multiply" />
             <div className="leading-tight">
               <div className="font-display text-lg text-brand-deep">CNCAN</div>
               <div className="text-[11px] text-muted-foreground max-w-[280px] truncate">{t("site.tagline")}</div>
