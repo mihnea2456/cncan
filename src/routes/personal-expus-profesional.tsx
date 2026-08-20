@@ -44,7 +44,7 @@ function PersonalExpusPage() {
         title={
           lang === "ro"
             ? "Personal Expus Profesional (PEP)"
-            : "Occupationally Exposed Staff"
+            : "Occupationally Exposed Workers"
         }
         subtitle={
           lang === "ro"
@@ -109,7 +109,7 @@ function PersonalExpusPage() {
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-3xl">
                   {lang === "ro"
                     ? "Pentru a lucra cu surse de radiații sau în zone controlate, personalul expus profesional trebuie să dețină un Permis de Exercitare emis prin examen de către CNCAN, valabil 5 ani."
-                    : "To work with radiation sources or in controlled areas, occupationally exposed staff must hold a Practice Permit issued by CNCAN examination, valid for 5 years."}
+                    : "To work with radiation sources or in controlled areas, Occupationally Exposed Workers must hold a Practice Permit issued by CNCAN examination, valid for 5 years."}
                 </p>
               </div>
 
@@ -394,7 +394,7 @@ function PersonalExpusPage() {
                 <h3 className="font-display text-lg text-brand-deep font-semibold">
                   {lang === "ro"
                     ? "Limitele anuale de doză pentru Personalul Expus Profesional:"
-                    : "Annual occupational dose limits for Exposed Staff:"}
+                    : "Annual occupational dose limits for Exposed Workers:"}
                 </h3>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {/* DOZA EFECTIVA */}
@@ -482,3 +482,4 @@ function PersonalExpusPage() {
     </>
   );
 }
+

@@ -45,11 +45,11 @@ const registries = [
     ro: "Experți",
     en: "Experts",
     desc_ro: "Lista experților acreditați în protecție radiologică, fizică medicală și instalații nucleare.",
-    desc_en: "List of accredited radiological protection, medical physics, and nuclear installations experts.",
+    desc_en: "List of accredited radiation protection, medical physics, and nuclear installation experts.",
     files: [
-      { name_ro: "Lista experți în protecție radiologică (Nivel 3)", name_en: "List of Radiological Protection Experts (Level 3)", path: "/documents/registru_titulari/domeniu_experti/LISTA-EXPERTI-IN-RADIOPROTECTIE-nivel-3-ACTUALIZATA-IN-10-iunie-2026-.pdf" },
+      { name_ro: "Lista experți în protecție radiologică (Nivel 3)", name_en: "List of Radiation Protection Experts (Level 3)", path: "/documents/registru_titulari/domeniu_experti/LISTA-EXPERTI-IN-RADIOPROTECTIE-nivel-3-ACTUALIZATA-IN-10-iunie-2026-.pdf" },
       { name_ro: "Lista experți în fizică medicală", name_en: "List of Medical Physics Experts", path: "/documents/registru_titulari/domeniu_experti/LISTA-EXPERTI-IN-FIZICA-MEDICALA-actualizata-in-IULIE-2026.pdf" },
-      { name_ro: "Lista experți materie primă nucleară", name_en: "List of Nuclear Raw Material Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-experti-CNCAN-in-domeniul-materie-prima-nucleara.pdf" },
+      { name_ro: "Lista experți materie primă nucleară", name_en: "List of Nuclear Source Material Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-experti-CNCAN-in-domeniul-materie-prima-nucleara.pdf" },
       { name_ro: "Lista experți instalații nucleare, deșeuri și radon", name_en: "List of Nuclear Installations, Waste & Radon Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-expertilorinstalatii-nucleare-deseuri-radioactive-dezafectare-protectia-mediului-surse-naturale-radon2026.pdf" }
     ]
   },
@@ -119,3 +119,4 @@ function RegistruTitulariPage() {
     </>
   );
 }
+
