@@ -52,6 +52,17 @@ const registries = [
       { name_ro: "Lista experți materie primă nucleară", name_en: "List of Nuclear Raw Material Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-experti-CNCAN-in-domeniul-materie-prima-nucleara.pdf" },
       { name_ro: "Lista experți instalații nucleare, deșeuri și radon", name_en: "List of Nuclear Installations, Waste & Radon Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-expertilorinstalatii-nucleare-deseuri-radioactive-dezafectare-protectia-mediului-surse-naturale-radon2026.pdf" }
     ]
+  },
+  {
+    id: "radon",
+    icon: Wind,
+    ro: "Surse Naturale (Radon)",
+    en: "Natural Sources (Radon)",
+    desc_ro: "Firme autorizate pentru măsurători de concentrație a radonului în aer și apă.",
+    desc_en: "Firms authorized for radon concentration measurements in air and water.",
+    files: [
+      { name_ro: "Laboratoare Autorizate - Măsurători Radon (în curând)", name_en: "Authorized Laboratories - Radon Measurements (coming soon)", path: "#" }
+    ]
   }
 ];
 
@@ -80,10 +91,10 @@ function RegistruTitulariPage() {
                     {lang === "ro" ? reg.ro : reg.en}
                   </h2>
                 </div>
-                <p className="text-muted-foreground mb-8">
+                <p className="text-muted-foreground mb-6">
                   {lang === "ro" ? reg.desc_ro : reg.desc_en}
                 </p>
-                <div className="mt-auto space-y-3">
+                <div className="space-y-3">
                   {reg.files.map((file, i) => (
                     <div key={i} className="flex items-center justify-between p-4 bg-secondary/30 rounded-sm border border-border/50 hover:border-brand/30 transition-colors">
                       <div className="flex items-center gap-3">
