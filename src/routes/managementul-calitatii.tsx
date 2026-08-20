@@ -241,11 +241,7 @@ function QualityManagementPage() {
                   </div>
                 </div>
 
-                <div className="border border-brand/40 bg-brand/5 p-6 rounded-sm">
-                  <div className="text-xs font-semibold text-brand uppercase tracking-wider">Tarif Autorizare SMC</div>
-                  <div className="mt-2 font-display text-3xl text-brand-deep font-bold">12,400 RON</div>
-                  <div className="mt-1 text-xs text-muted-foreground">Conform Ord. CNCAN 155/2005</div>
-                </div>
+
               </aside>
             </div>
           </TabsContent>

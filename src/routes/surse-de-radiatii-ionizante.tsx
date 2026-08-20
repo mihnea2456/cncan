@@ -461,7 +461,7 @@ function RadiationSourcesPage() {
                     {
                       num: "05",
                       title_ro: "Dovada achitării tarifului de examinare și eliberare (Ord. 155/2005)",
-                      desc_ro: "Ordin de plată în contul CNCAN (480 RON pentru valabilitate 5 ani).",
+                      desc_ro: "Ordin de plată în contul CNCAN.",
                     },
                   ].map((req, idx) => (
                     <div key={idx} className="border border-border bg-card p-5 flex items-start gap-4 rounded-sm">
@@ -507,12 +507,6 @@ function RadiationSourcesPage() {
                       <Download className="h-4 w-4 text-brand" />
                     </a>
                   </div>
-                </div>
-
-                <div className="border border-brand/40 bg-brand/5 p-6 rounded-sm">
-                  <div className="text-xs font-semibold text-brand uppercase tracking-wider">Tarif Permis Exercitare</div>
-                  <div className="mt-2 font-display text-3xl text-brand-deep font-bold">480 RON</div>
-                  <div className="mt-1 text-xs text-muted-foreground">Valabilitate 5 ani (Ord. CNCAN 155/2005)</div>
                 </div>
               </aside>
             </div>
@@ -1036,14 +1030,6 @@ function RadiationSourcesPage() {
                   </p>
                 </div>
               </div>
-
-              <aside className="space-y-6">
-                <div className="border border-brand/40 bg-brand/5 p-6 rounded-sm">
-                  <div className="text-xs font-semibold text-brand uppercase tracking-wider">Tarif Evaluare Personal</div>
-                  <div className="mt-2 font-display text-3xl text-brand-deep font-bold">480 RON</div>
-                  <div className="mt-1 text-xs text-muted-foreground">Conform Ord. CNCAN 155/2005</div>
-                </div>
-              </aside>
             </div>
           </TabsContent>
 
