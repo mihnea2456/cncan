@@ -20,46 +20,37 @@ const registries = [
     icon: Stethoscope,
     ro: "Domeniul Medical",
     en: "Medical Sector",
-    desc_ro: "Spitale, clinici și centre de imagistică autorizate pentru deținerea și utilizarea surselor de radiații.",
-    desc_en: "Hospitals, clinics, and imaging centers authorized to possess and use radiation sources.",
+    desc_ro: "Spitale, clinici și centre autorizate pentru deținerea și utilizarea surselor de radiații, inclusiv furnizori.",
+    desc_en: "Hospitals, clinics, and centers authorized to possess and use radiation sources, including suppliers.",
     files: [
-      { name_ro: "Registrul Național Medical - Radiodiagnostic", name_en: "National Medical Registry - Radiodiagnostics", path: "/documents/registru_medical_radiodiagnostic.pdf" },
-      { name_ro: "Registrul Național Medical - Radioterapie", name_en: "National Medical Registry - Radiotherapy", path: "/documents/registru_medical_radioterapie.pdf" }
+      { name_ro: "Lista furnizori instalații medicale", name_en: "List of Medical Installations Suppliers", path: "/documents/registru_titulari/domeniu_medical/Lista-furnizori-instalatii-medicale.pdf" },
+      { name_ro: "Lista furnizori echipamente radioprotecție", name_en: "List of Radiation Protection Equipment Suppliers", path: "/documents/registru_titulari/domeniu_medical/Lista-furnizori-echipamente-radioprotectie.pdf" },
+      { name_ro: "Lista agenților autorizați pentru manipularea instalațiilor", name_en: "List of Agents Authorized for Handling Installations", path: "/documents/registru_titulari/domeniu_medical/Lista-agentilor-economici-autorizati-sa-desfasoare-activitati-de-manipulare-a-instalatiilor-radiologice.pdf" }
     ]
   },
   {
     id: "industrial",
     icon: Factory,
-    ro: "Domeniul Industrial & Cercetare",
-    en: "Industrial & Research Sector",
-    desc_ro: "Companii autorizate pentru defectoscopie, control nedistructiv și laboratoare de cercetare.",
-    desc_en: "Companies authorized for defectoscopy, non-destructive testing, and research laboratories.",
+    ro: "Domeniul Cercetării & Laboratoare",
+    en: "Research & Laboratories Sector",
+    desc_ro: "Companii autorizate și laboratoare desemnate pentru analize și încercări.",
+    desc_en: "Authorized companies and designated laboratories for analysis and testing.",
     files: [
-      { name_ro: "Registrul Domeniului Industrial (Nondistructiv)", name_en: "Industrial Registry (NDT)", path: "/documents/registru_industrial.pdf" },
-      { name_ro: "Laboratoare de Analiză Acreditate", name_en: "Accredited Analytical Laboratories", path: "/documents/laboratoare_cercetare.pdf" }
+      { name_ro: "Lista laboratoarelor desemnate CNCAN", name_en: "List of CNCAN Designated Laboratories", path: "/documents/registru_titulari/domeniu_cercetarii_si_labs/Lista-laboratoare-desemnate-CNCANianuarie-2026.pdf" }
     ]
   },
   {
     id: "experti",
     icon: ShieldCheck,
-    ro: "Experți și Organisme Notificate",
-    en: "Experts and Notified Bodies",
-    desc_ro: "Lista experților acreditați în protecție radiologică și a organismelor de dozimetrie.",
-    desc_en: "List of accredited radiological protection experts and dosimetry bodies.",
+    ro: "Experți",
+    en: "Experts",
+    desc_ro: "Lista experților acreditați în protecție radiologică, fizică medicală și instalații nucleare.",
+    desc_en: "List of accredited radiological protection, medical physics, and nuclear installations experts.",
     files: [
-      { name_ro: "Lista Experților de Protecție Radiologică (Nivel 3)", name_en: "List of Radiological Protection Experts (Level 3)", path: "/documents/experti_protectie.pdf" },
-      { name_ro: "Organisme de Dozimetrie Acreditate", name_en: "Accredited Dosimetry Bodies", path: "/documents/organisme_dozimetrie.pdf" }
-    ]
-  },
-  {
-    id: "radon",
-    icon: Wind,
-    ro: "Surse Naturale (Radon)",
-    en: "Natural Sources (Radon)",
-    desc_ro: "Firme autorizate pentru măsurători de concentrație a radonului în aer și apă.",
-    desc_en: "Firms authorized for radon concentration measurements in air and water.",
-    files: [
-      { name_ro: "Laboratoare Autorizate - Măsurători Radon", name_en: "Authorized Laboratories - Radon Measurements", path: "/documents/laboratoare_radon.pdf" }
+      { name_ro: "Lista experți în protecție radiologică (Nivel 3)", name_en: "List of Radiological Protection Experts (Level 3)", path: "/documents/registru_titulari/domeniu_experti/LISTA-EXPERTI-IN-RADIOPROTECTIE-nivel-3-ACTUALIZATA-IN-10-iunie-2026-.pdf" },
+      { name_ro: "Lista experți în fizică medicală", name_en: "List of Medical Physics Experts", path: "/documents/registru_titulari/domeniu_experti/LISTA-EXPERTI-IN-FIZICA-MEDICALA-actualizata-in-IULIE-2026.pdf" },
+      { name_ro: "Lista experți materie primă nucleară", name_en: "List of Nuclear Raw Material Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-experti-CNCAN-in-domeniul-materie-prima-nucleara.pdf" },
+      { name_ro: "Lista experți instalații nucleare, deșeuri și radon", name_en: "List of Nuclear Installations, Waste & Radon Experts", path: "/documents/registru_titulari/domeniu_experti/Lista-expertilorinstalatii-nucleare-deseuri-radioactive-dezafectare-protectia-mediului-surse-naturale-radon2026.pdf" }
     ]
   }
 ];
